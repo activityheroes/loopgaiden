@@ -531,6 +531,7 @@ function initInteractions(issueData){
 
   function openIssue(scrollIntoView = true){
     if(!issueViewer) return;
+    document.body.classList.add('issue-reader-active','issue-reader-in-view');
     issueViewer.classList.add('open');
     issueViewer.removeAttribute('aria-hidden');
     issueTriggers.forEach(trigger=>{
@@ -549,6 +550,7 @@ function initInteractions(issueData){
   function closeIssue(){
     if(!issueViewer) return;
     pauseSceneVideos();
+    document.body.classList.remove('issue-reader-active','issue-reader-in-view');
     issueViewer.classList.remove('open');
     issueViewer.setAttribute('aria-hidden','true');
     issueTriggers.forEach(trigger=>{
@@ -644,6 +646,19 @@ function initInteractions(issueData){
   },{threshold:.45});
 
   progressScenes.forEach(scene=>progressObserver.observe(scene));
+
+  if(issueViewer){
+    const issueViewObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        document.body.classList.toggle(
+          'issue-reader-in-view',
+          issueViewer.classList.contains('open') && entry.isIntersecting
+        );
+      });
+    },{threshold:.04});
+    issueViewObserver.observe(issueViewer);
+  }
+
   updateSoundButtons();
   updateReaderProgress(1);
 
