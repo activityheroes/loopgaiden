@@ -1,0 +1,102 @@
+{
+  "activeIssue": {
+    "number": "001",
+    "title": "THE FARMER",
+    "cardSubtitle": "FIRST GREED LORD FILE",
+    "quote": "I NEED MORE.",
+    "cover": "assets/optimized/cover.jpg",
+    "summary": "Opened from the active Greed Lord file. New scenes can be unlocked here as they drop on X.",
+    "coverIntro": "Start with the cover, then enter the transmission scene by scene.",
+    "shareText": "Issue 001: The Farmer is live.",
+    "scenes": [
+      {
+        "kicker": "DISCOVER",
+        "title": "SOMETHING IS WRONG.",
+        "body": "The Trenches struggle below while the machine above keeps growing.",
+        "video": "assets/scenes/sc1mp4.mp4",
+        "poster": "assets/optimized/scene-01.jpg",
+        "ariaLabel": "Loop overlooking the Trenches"
+      },
+      {
+        "kicker": "FOLLOW THE MONEY",
+        "title": "THE MACHINE GREW.",
+        "body": "That wasn't a coincidence. Loop follows the flow toward its source.",
+        "video": "assets/scenes/sc2.mp4",
+        "poster": "assets/optimized/scene-02.jpg",
+        "ariaLabel": "The Trenches below the factory"
+      },
+      {
+        "kicker": "THE SOURCE",
+        "title": "IT WASN'T A FACTORY.",
+        "body": "Everything taken from the Trenches flowed through here. It was a farm.",
+        "video": "assets/scenes/sc3.mp4",
+        "poster": "assets/optimized/scene-03.jpg",
+        "ariaLabel": "The central Loop Gaiden factory"
+      },
+      {
+        "kicker": "THE FIRST GREED LORD",
+        "title": "THE FARMER.",
+        "body": "He owns the machine. He owns the flow. He always needs more.",
+        "video": "assets/scenes/sc4.mp4",
+        "poster": "assets/optimized/scene-04.jpg",
+        "ariaLabel": "The Farmer revealed in his vault"
+      },
+      {
+        "kicker": "THE TRACE DEEPENS",
+        "title": "THE STORY MOVES.",
+        "body": "The first file keeps opening. Every answer points toward another locked door.",
+        "video": "assets/scenes/sc5.mp4",
+        "poster": "assets/optimized/scene-05.jpg",
+        "ariaLabel": "The story continues in the Trenches"
+      },
+      {
+        "kicker": "SIGNAL RECOVERED",
+        "title": "THE FARM IS NOT DONE.",
+        "body": "The Trenches are still sending fragments. Loop follows the signal deeper.",
+        "video": "assets/scenes/sc6.mp4",
+        "poster": "assets/optimized/scene-06.jpg",
+        "ariaLabel": "The sixth Loop Gaiden comic scene"
+      },
+      {
+        "kicker": "THE SIGNAL BREAKS",
+        "title": "LOOP PUSHES THROUGH.",
+        "body": "The Farmer's system fights back, but Loop keeps moving toward the heart of the machine.",
+        "video": "assets/scenes/sc7mp4.mp4",
+        "poster": "assets/optimized/scene-07.jpg",
+        "ariaLabel": "The seventh Loop Gaiden comic scene"
+      },
+      {
+        "kicker": "PRESSURE RISES",
+        "title": "THE TRENCHES WAKE UP.",
+        "body": "The farm can feel the resistance now. Every stolen signal starts pointing back at the Greed Lord.",
+        "video": "assets/scenes/sc8.mp4",
+        "poster": "assets/optimized/scene-08.jpg",
+        "ariaLabel": "The eighth Loop Gaiden comic scene"
+      },
+      {
+        "kicker": "FINAL PUSH",
+        "title": "NO MORE HARVEST.",
+        "body": "Loop closes in as the Farmer's control begins to crack across the Trenches.",
+        "video": "assets/scenes/sc9.mp4",
+        "poster": "assets/optimized/scene-09.jpg",
+        "ariaLabel": "The ninth Loop Gaiden comic scene"
+      },
+      {
+        "kicker": "TRANSMISSION COMPLETE",
+        "title": "THE LOOP CONTINUES.",
+        "body": "Issue 001 is complete. The first Greed Lord file is open, and the next signal is already calling.",
+        "video": "assets/scenes/sc10.mp4?v=20260831",
+        "poster": "assets/optimized/scene-10.jpg",
+        "ariaLabel": "The tenth Loop Gaiden comic scene"
+      }
+    ]
+  },
+  "lockedLords": [
+    { "number": "02", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
+    { "number": "03", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
+    { "number": "04", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
+    { "number": "05", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
+    { "number": "06", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
+    { "number": "07", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" }
+  ]
+}

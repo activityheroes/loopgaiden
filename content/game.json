@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "Loop Gaiden Game — First Look",
+    "description": "Watch the first look at Loop Gaiden Game: a 2D trench fighter in development with future competitions and top 3 airdrops.",
+    "shareTitle": "Loop Gaiden Game — First Look",
+    "shareDescription": "A 2D fight game in development where Loop clears the trenches, beats the goons, and faces the Greed Lords.",
+    "shareImage": "assets/game-clean.png"
+  },
+  "hero": {
+    "kicker": "GAME IN DEVELOPMENT",
+    "title": "LOOP GAIDEN GAME",
+    "body": "Fight through the trenches as Loop. Clear Bundles, Goons, and Snipers, then face the Greed Lords behind the chaos.",
+    "image": "assets/game-clean.png"
+  },
+  "rewards": {
+    "kicker": "AIRDROP POOL",
+    "title": "TOP 3 AIRDROPS",
+    "body": "Airdrop details will be announced before official competitions begin.",
+    "slots": [
+      { "place": "1ST", "reward": "Airdrop slot", "status": "Highest score" },
+      { "place": "2ND", "reward": "Airdrop slot", "status": "Runner-up" },
+      { "place": "3RD", "reward": "Airdrop slot", "status": "Final top 3 spot" }
+    ]
+  }
+}

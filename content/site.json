@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "title": "Loop Gaiden — Enter the Trenches",
+    "description": "Loop Gaiden — Greed broke the game. We put it back in motion.",
+    "shareTitle": "Loop Gaiden — Issue 001 Is Live",
+    "shareDescription": "Greed broke the game. Open Issue 001 and enter the Trenches.",
+    "shareImage": "assets/optimized/hero-loop-rooftop.jpg"
+  },
+  "hero": {
+    "eyebrow": "FROM THE TRENCHES. FOR THE TRENCHES.",
+    "image": "assets/optimized/hero-loop-rooftop.jpg",
+    "video": "assets/Herobg.mp4",
+    "headline": "LOOP<br><span>GAIDEN</span>",
+    "line": "GREED BROKE THE GAME.<br><strong>WE PUT IT BACK IN MOTION.</strong>",
+    "primaryCta": "WATCH ISSUE 001",
+    "primaryUrl": "#story",
+    "secondaryCta": "THE MISSION",
+    "secondaryUrl": "#mission"
+  },
+  "latest": {
+    "kicker": "LATEST TRANSMISSION",
+    "title": "ISSUE 001: THE FARMER IS LIVE",
+    "button": "OPEN ISSUE"
+  },
+  "game": {
+    "kicker": "ARCADE FILE",
+    "title": "LOOP GAIDEN GAME",
+    "body": "A 2D fight game concept where Loop clears Bundles, Goons, and Snipers before facing the Greed Lords behind the trenches.",
+    "status": "WATCH CONCEPT",
+    "image": "assets/game-clean.png",
+    "url": "game.html#trailer"
+  },
+  "manifesto": {
+    "kicker": "THE WORLD",
+    "title": "THE TRENCHES<br>WEREN'T ALWAYS LIKE THIS.",
+    "paragraphs": [
+      "Meme coins were supposed to belong to the people. Somewhere along the way, value stopped circulating and started flowing in one direction."
+    ],
+    "accent": "Loop came to find out why. ∞"
+  },
+  "mission": {
+    "kicker": "THE MISSION ∞",
+    "title": "FROM THE TRENCHES TO THE SEVEN GREED LORDS",
+    "body": "A living path through the Loop Gaiden universe. Each issue reveals the next threat.",
+    "chapters": [
+      {
+        "number": "01",
+        "tone": "live",
+        "status": "STATUS: LIVE ✓",
+        "title": "CHAPTER 01 — LOOP AWAKENS",
+        "body": "The trenches have been farmed long enough.",
+        "items": [
+          "$LGDN launched",
+          "Loop Gaiden universe begins",
+          "X community launched",
+          "TikTok launched",
+          "Official website",
+          "First animated story releases"
+        ]
+      },
+      {
+        "number": "02",
+        "tone": "active",
+        "status": "STATUS: IN PROGRESS ⚔️",
+        "title": "CHAPTER 02 — THE FARMER",
+        "body": "Loop discovers the system feeding on the trenches.",
+        "items": [
+          "Issue #001 — THE FARMER",
+          "Animated comic series",
+          "The Farmer confrontation",
+          "Community begins forming",
+          "DEX Screener profile",
+          "Jupiter verification"
+        ],
+        "badge": "01 FARMER ✓"
+      },
+      {
+        "number": "03",
+        "tone": "next",
+        "status": "STATUS: NEXT",
+        "title": "CHAPTER 03 — BUILD THE TRENCHES",
+        "body": "Loop can't fight the system alone.",
+        "items": [
+          "Grow the $LGDN community",
+          "Community memes & artwork",
+          "X Spaces",
+          "Community competitions",
+          "Creator collaborations",
+          "Expand Loop Gaiden lore",
+          "Regular comic + animation releases"
+        ],
+        "callout": "WELCOME TO THE TRENCHES."
+      },
+      {
+        "number": "04",
+        "tone": "sealed",
+        "status": "TARGET: GREED LORD #2",
+        "title": "CHAPTER 04 — CLASSIFIED",
+        "body": "The next signal has been found, but the file stays sealed until release.",
+        "items": [
+          "Next issue file sealed",
+          "New animated chapter",
+          "New enemies",
+          "New locations",
+          "Second Greed Lord confrontation",
+          "Continue the hunt"
+        ],
+        "silhouette": "?"
+      },
+      {
+        "number": "05",
+        "tone": "hunt",
+        "status": "THE HUNT CONTINUES",
+        "title": "CHAPTER 05 — THE SEVEN GREED LORDS",
+        "body": "Each time a new issue begins, another Greed Lord gets revealed.",
+        "bosses": [
+          { "label": "01 FARMER ✓", "state": "defeated" },
+          { "label": "02 ???", "state": "locked" },
+          { "label": "03 ???", "state": "locked" },
+          { "label": "04 ???", "state": "locked" },
+          { "label": "05 ???", "state": "locked" },
+          { "label": "06 ???", "state": "locked" },
+          { "label": "07 ???", "state": "locked" }
+        ]
+      },
+      {
+        "number": "06",
+        "tone": "future",
+        "status": "EXPLORATION / FUTURE MISSION",
+        "title": "CHAPTER 06 — LOOP GAIDEN: THE GAME",
+        "body": "What if you could enter the Trenches yourself?",
+        "items": [
+          "2D action / beat-'em-up concept",
+          "Play as Loop",
+          "Fight Bundles",
+          "Fight Snipers",
+          "Fight Goons",
+          "Battle the Seven Greed Lords",
+          "Browser prototype"
+        ]
+      }
+    ],
+    "final": {
+      "kicker": "∞ THE LOOP CONTINUES",
+      "title": "Seven Greed Lords.<br>Seven battles.<br>One mission.",
+      "body": "Take back the trenches.",
+      "status": "[ CLASSIFIED ]"
+    }
+  },
+  "loopCode": {
+    "title": "DON'T TRUST THE SLOGAN.<br><em>VERIFY THE LOOP.</em>",
+    "rules": [
+      "NO PRESALE",
+      "NO HIDDEN BUNDLES",
+      "PUBLIC CREATOR WALLET",
+      "TRANSPARENCY FIRST"
+    ],
+    "ledgerText": "Use this section to publish actual creator-fee usage and transaction links. Never make the website claim something the wallet doesn't prove.",
+    "fees": [
+      { "value": "70%", "label": "BUYBACKS" },
+      { "value": "20%", "label": "PROJECT" },
+      { "value": "10%", "label": "RESERVE" }
+    ]
+  },
+  "token": {
+    "symbol": "$LGDN",
+    "network": "LOOP GAIDEN · SOLANA",
+    "launchStatus": "LAUNCH STATUS: LIVE",
+    "contractStatus": "LIVE ON SOLANA",
+    "contractMessage": "OFFICIAL CONTRACT ADDRESS",
+    "contractAddress": "Eepq1Wpq4q8cA4PphwCGkkTSdPHnwJubAnyoTha2pump",
+    "buyUrl": "https://pump.fun/coin/Eepq1Wpq4q8cA4PphwCGkkTSdPHnwJubAnyoTha2pump",
+    "buyLabel": "BUY ON PUMP.FUN",
+    "fineprint": "Always verify the contract before trading."
+  },
+  "community": {
+    "kicker": "THE TRENCHES",
+    "title": "THIS IS OUR LOOP.",
+    "body": "A community, not just holders.<br>Built by the people, for the people.<br>One mission. One culture. One Loop.",
+    "warning": "Only trust links from this page and @loopgaiden.",
+    "joinLabel": "JOIN ON X",
+    "readLabel": "READ ISSUE 001"
+  },
+  "nextIssue": {
+    "kicker": "NEXT FILE",
+    "title": "CLASSIFIED TRANSMISSION",
+    "body": "The next Greed Lord file is sealed. The issue name and number unlock when it is ready.",
+    "button": "WATCH ON X"
+  }
+}
