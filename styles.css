@@ -196,4 +196,28 @@ footer{padding:30px 5vw;border-top:1px solid #293126;display:flex;align-items:ce
   .nav{padding-left:14px;padding-right:14px}
   .social-links a{padding-left:10px;padding-right:10px;font-size:10px}
 }
+@media(max-width:850px){
+  html,body{max-width:100%;overflow-x:hidden!important;overscroll-behavior-x:none}
+  body{width:100%;min-width:0;touch-action:pan-y}
+  .nav,main,footer,.grain{max-width:100%;overflow-x:hidden}
+  .hero,
+  .latest-transmission,
+  .section,
+  .mission,
+  .lords,
+  .story,
+  .loop-code,
+  .token,
+  .community,
+  .next-issue,
+  .link-hub,
+  .game-section{width:100%;max-width:100%;overflow-x:hidden}
+  .issue-start,.scene,.issue-complete-panel{margin-left:0!important;margin-right:0!important}
+  .scene-stack{width:100%;max-width:100%;overflow:hidden}
+  .mobile-sticky,.mobile-reader-dock{max-width:100vw}
+}
+@media(max-width:560px){
+  .story{padding-left:12px;padding-right:12px}
+  .issue-start,.scene,.issue-complete-panel{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+}
 @media(prefers-reduced-motion:reduce){.hero video.hero-bg{display:none}.hero-poster{display:block}.game-cartridge img,.game-hero-cart img,.game-cta,.game-status{animation:none}.reveal{transition:none}}
