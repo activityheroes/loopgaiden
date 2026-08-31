@@ -1,5 +1,6 @@
 async function loadJson(path){
-  const response = await fetch(path);
+  const separator = path.includes('?') ? '&' : '?';
+  const response = await fetch(`${path}${separator}v=20260831-2`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
