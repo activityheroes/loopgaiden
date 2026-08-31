@@ -25,8 +25,8 @@
   "game": {
     "kicker": "ARCADE FILE",
     "title": "LOOP GAIDEN GAME",
-    "body": "A 2D fight game concept where Loop clears Bundles, Goons, and Snipers before facing the Greed Lords behind the trenches.",
-    "status": "WATCH CONCEPT",
+    "body": "A 2D fight game launching soon where Loop clears Bundles, Goons, and Snipers before facing the Greed Lords behind the trenches.",
+    "status": "LAUNCHING SOON",
     "image": "assets/game-clean.png",
     "url": "game.html#trailer"
   },
@@ -130,7 +130,7 @@
         "title": "CHAPTER 06 — LOOP GAIDEN: THE GAME",
         "body": "What if you could enter the Trenches yourself?",
         "items": [
-          "2D action / beat-'em-up concept",
+          "2D action / beat-'em-up launching soon",
           "Play as Loop",
           "Fight Bundles",
           "Fight Snipers",
