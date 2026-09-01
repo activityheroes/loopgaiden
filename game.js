@@ -1,5 +1,6 @@
 async function loadJson(path){
-  const response = await fetch(path);
+  const separator = path.includes('?') ? '&' : '?';
+  const response = await fetch(`${path}${separator}v=20260901-4`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -268,6 +269,17 @@ function initGameInteractions(data){
     menuBtn.setAttribute('aria-expanded',String(open));
   });
   navLinks?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+  document.querySelectorAll('video[autoplay]').forEach(video=>{
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted','');
+    video.setAttribute('playsinline','');
+    const requestPlay = ()=>video.play?.().catch(()=>{});
+    video.addEventListener('canplay',requestPlay,{once:true});
+    requestPlay();
+    setTimeout(requestPlay,600);
+  });
 
   const copyContract = document.querySelector('[data-copy-contract]');
   const contractAddress = document.querySelector('[data-contract-address]');

@@ -1,6 +1,6 @@
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
-  const response = await fetch(`${path}${separator}v=20260901-3`,{cache:'no-store'});
+  const response = await fetch(`${path}${separator}v=20260901-4`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -86,7 +86,7 @@ function renderIssueContent(issue,siteData = {}){
   if(!sceneStack) return;
 
   sceneStack.innerHTML = `
-    <article class="issue-start reveal" id="issue-cover" data-issue-cover>
+    <article class="issue-start reveal visible" id="issue-cover" data-issue-cover>
       <div class="issue-start-cover">
         <img src="${escapeHtml(issue.cover)}" alt="Issue ${issueNumber} cover" />
       </div>
@@ -119,7 +119,7 @@ function renderIssueContent(issue,siteData = {}){
       `;
 
       return `
-        <article class="scene reveal${reverse}${number === scenes.length ? ' final-scene' : ''}" id="scene-${padded}" data-progress-scene="${number}">
+        <article class="scene reveal visible${reverse}${number === scenes.length ? ' final-scene' : ''}" id="scene-${padded}" data-progress-scene="${number}">
           <div class="scene-num">${padded}</div>
           <div class="scene-media">
             <video${poster} data-src="${escapeHtml(scene.video)}" controls muted loop playsinline preload="none" aria-label="${escapeHtml(scene.ariaLabel || scene.title)}"></video>
@@ -135,7 +135,7 @@ function renderIssueContent(issue,siteData = {}){
         </article>
       `;
     }).join('')}
-    <article class="issue-complete-panel reveal" id="issue-complete">
+    <article class="issue-complete-panel reveal visible" id="issue-complete">
       <div>
         <span>ISSUE COMPLETE</span>
         <h3>${issueNumber === '001' ? 'THE FARMER FILE IS OPEN.' : `${issueTitle} SIGNAL IS OPEN.`}</h3>
@@ -386,15 +386,29 @@ function initInteractions(issueData){
     }
   }
   if(heroVideo?.tagName === 'VIDEO'){
+    let heroVideoUserPaused = false;
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.setAttribute('muted','');
+    heroVideo.setAttribute('playsinline','');
+    function requestHeroVideoPlay(){
+      if(heroVideoUserPaused) return;
+      heroVideo.play?.().catch(()=>{});
+    }
     heroVideo.addEventListener('loadeddata',()=>heroVideo.classList.add('loaded'));
+    heroVideo.addEventListener('canplay',requestHeroVideoPlay,{once:true});
     heroVideo.addEventListener('pause',()=>setHeroVideoPaused(true));
     heroVideo.addEventListener('play',()=>setHeroVideoPaused(false));
     if(heroVideo.readyState >= 2) heroVideo.classList.add('loaded');
     setHeroVideoPaused(heroVideo.paused);
+    requestHeroVideoPlay();
+    setTimeout(requestHeroVideoPlay,600);
     heroVideoToggle?.addEventListener('click',()=>{
       if(heroVideo.paused){
+        heroVideoUserPaused = false;
         heroVideo.play().catch(()=>{});
       }else{
+        heroVideoUserPaused = true;
         heroVideo.pause();
       }
     });
