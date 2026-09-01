@@ -228,7 +228,7 @@
       </div>
 
       <div class="lord-grid">
-        <article class="lord-card farmer issue-cover reveal" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
+        <article class="lord-card farmer issue-cover reveal visible" data-issue-key="activeIssue" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
           <div class="cover-frame">
             <img src="assets/optimized/cover.jpg" alt="Issue 001 cover" />
           </div>
@@ -236,11 +236,22 @@
             <div class="lord-index">ISSUE 001</div>
             <h3>THE FARMER</h3>
             <p>FIRST GREED LORD FILE</p>
-            <span class="status active issue-button" data-issue-label>OPEN ISSUE 001</span>
+            <span class="status active issue-button" data-issue-label="OPEN ISSUE 001" data-issue-key="activeIssue">OPEN ISSUE 001</span>
           </div>
         </article>
 
-        <article class="lord-card silhouette reveal"><div><b>02</b><h3>CLASSIFIED</h3><p>SIGNAL HIDDEN.</p><span>ISSUE LOCKED</span></div></article>
+        <article class="lord-card farmer issue-cover next-file reveal visible" data-issue-key="nextIssue" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
+          <div class="cover-frame">
+            <img src="assets/optimized/issue-002.jpg" alt="Issue 002 cover" />
+          </div>
+          <div class="lord-info issue-card-info">
+            <div class="lord-index">ISSUE 002</div>
+            <h3>THE HIDDEN DRAIN</h3>
+            <p>SECOND GREED LORD FILE</p>
+            <span class="status active issue-button" data-issue-label="OPEN ISSUE 002" data-issue-key="nextIssue">OPEN ISSUE 002</span>
+          </div>
+        </article>
+
         <article class="lord-card silhouette reveal"><div><b>03</b><h3>CLASSIFIED</h3><p>SIGNAL HIDDEN.</p><span>ISSUE LOCKED</span></div></article>
         <article class="lord-card silhouette reveal"><div><b>04</b><h3>CLASSIFIED</h3><p>SIGNAL HIDDEN.</p><span>ISSUE LOCKED</span></div></article>
         <article class="lord-card silhouette reveal"><div><b>05</b><h3>CLASSIFIED</h3><p>SIGNAL HIDDEN.</p><span>ISSUE LOCKED</span></div></article>
@@ -544,6 +555,6 @@
     <a href="https://dexscreener.com/search?q=Eepq1Wpq4q8cA4PphwCGkkTSdPHnwJubAnyoTha2pump" target="_blank" rel="noopener">Chart</a>
   </div>
 
-  <script src="script.js?v=20260901-2"></script>
+  <script src="script.js?v=20260901-3"></script>
 </body>
 </html>

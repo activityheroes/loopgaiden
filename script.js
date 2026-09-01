@@ -1,6 +1,6 @@
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
-  const response = await fetch(`${path}${separator}v=20260901-2`,{cache:'no-store'});
+  const response = await fetch(`${path}${separator}v=20260901-3`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -165,7 +165,7 @@ function renderIssue(issueData,siteData = {}){
         const issueNumber = escapeHtml(issue.number);
         const issueTitle = escapeHtml(issue.title);
         return `
-          <article class="lord-card farmer issue-cover reveal${index === 0 ? '' : ' next-file'}" data-issue-key="${index === 0 ? 'activeIssue' : 'nextIssue'}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
+          <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-issue-key="${index === 0 ? 'activeIssue' : 'nextIssue'}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
             <div class="cover-frame">
               <img src="${escapeHtml(issue.cover || 'assets/optimized/cover.jpg')}" alt="Issue ${issueNumber} cover" />
             </div>
