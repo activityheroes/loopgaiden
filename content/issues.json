@@ -116,6 +116,14 @@
         "video": "assets/scenes/web/sc02X-h264.mp4",
         "poster": "assets/optimized/scene-12.jpg",
         "ariaLabel": "Loop discovers a new trail beyond the Farmer"
+      },
+      {
+        "kicker": "THE DRAIN WORKERS",
+        "title": "MEET THE EXTRACTOR.",
+        "body": "The trail opens into a huge cinematic reveal of the Greed Lord behind the drain workers.",
+        "video": "assets/scenes/web/sc03X-h264.mp4",
+        "poster": "assets/optimized/scene-13.jpg",
+        "ariaLabel": "Loop meets The Extractor"
       }
     ]
   },
