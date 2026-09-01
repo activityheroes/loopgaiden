@@ -1,6 +1,6 @@
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
-  const response = await fetch(`${path}${separator}v=20260901-1`,{cache:'no-store'});
+  const response = await fetch(`${path}${separator}v=20260901-2`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -67,41 +67,16 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
   }
 }
 
-function renderIssue(issueData,siteData = {}){
-  if(!issueData?.activeIssue) return;
+function getIssueList(issueData = {}){
+  return [issueData.activeIssue,issueData.nextIssue].filter(Boolean);
+}
 
-  const issue = issueData.activeIssue;
+function renderIssueContent(issue,siteData = {}){
+  if(!issue) return;
   const issueNumber = escapeHtml(issue.number);
   const issueTitle = escapeHtml(issue.title);
   const scenes = issue.scenes || [];
   const buyUrl = siteData?.token?.buyUrl || '#token';
-
-  const lordGrid = document.querySelector('.lord-grid');
-  if(lordGrid){
-    lordGrid.innerHTML = `
-      <article class="lord-card farmer issue-cover reveal" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
-        <div class="cover-frame">
-          <img src="${escapeHtml(issue.cover)}" alt="Issue ${issueNumber} cover" />
-        </div>
-        <div class="lord-info issue-card-info">
-          <div class="lord-index">ISSUE ${issueNumber}</div>
-          <h3>${issueTitle}</h3>
-          <p>${escapeHtml(issue.cardSubtitle)}</p>
-          <span class="status active issue-button" data-issue-label>OPEN ISSUE ${issueNumber}</span>
-        </div>
-      </article>
-      ${(issueData.lockedLords || []).map(lord=>`
-        <article class="lord-card silhouette reveal">
-          <div>
-            <b>${escapeHtml(lord.number)}</b>
-            <h3>${escapeHtml(lord.title)}</h3>
-            <p>${escapeHtml(lord.quote)}</p>
-            <span>${escapeHtml(lord.status)}</span>
-          </div>
-        </article>
-      `).join('')}
-    `;
-  }
 
   setText('#story .section-head h2',`ISSUE ${issue.number} — ${issue.title}`);
   setText('#story .section-head p',issue.summary);
@@ -163,7 +138,7 @@ function renderIssue(issueData,siteData = {}){
     <article class="issue-complete-panel reveal" id="issue-complete">
       <div>
         <span>ISSUE COMPLETE</span>
-        <h3>THE FARMER FILE IS OPEN.</h3>
+        <h3>${issueNumber === '001' ? 'THE FARMER FILE IS OPEN.' : `${issueTitle} SIGNAL IS OPEN.`}</h3>
         <p>Share the transmission, join the Trenches, or open the live $LGDN token.</p>
       </div>
       <div class="issue-actions issue-actions-bottom">
@@ -176,6 +151,47 @@ function renderIssue(issueData,siteData = {}){
       </div>
     </article>
   `;
+}
+
+function renderIssue(issueData,siteData = {}){
+  if(!issueData?.activeIssue) return;
+
+  const issues = getIssueList(issueData);
+  const activeNumbers = new Set(issues.map(issue=>issue.number));
+  const lordGrid = document.querySelector('.lord-grid');
+  if(lordGrid){
+    lordGrid.innerHTML = `
+      ${issues.map((issue,index)=>{
+        const issueNumber = escapeHtml(issue.number);
+        const issueTitle = escapeHtml(issue.title);
+        return `
+          <article class="lord-card farmer issue-cover reveal${index === 0 ? '' : ' next-file'}" data-issue-key="${index === 0 ? 'activeIssue' : 'nextIssue'}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
+            <div class="cover-frame">
+              <img src="${escapeHtml(issue.cover || 'assets/optimized/cover.jpg')}" alt="Issue ${issueNumber} cover" />
+            </div>
+            <div class="lord-info issue-card-info">
+              <div class="lord-index">ISSUE ${issueNumber}</div>
+              <h3>${issueTitle}</h3>
+              <p>${escapeHtml(issue.cardSubtitle)}</p>
+              <span class="status active issue-button" data-issue-label="OPEN ISSUE ${issueNumber}" data-issue-key="${index === 0 ? 'activeIssue' : 'nextIssue'}">OPEN ISSUE ${issueNumber}</span>
+            </div>
+          </article>
+        `;
+      }).join('')}
+      ${(issueData.lockedLords || []).filter(lord=>!activeNumbers.has(lord.number)).map(lord=>`
+        <article class="lord-card silhouette reveal">
+          <div>
+            <b>${escapeHtml(lord.number)}</b>
+            <h3>${escapeHtml(lord.title)}</h3>
+            <p>${escapeHtml(lord.quote)}</p>
+            <span>${escapeHtml(lord.status)}</span>
+          </div>
+        </article>
+      `).join('')}
+    `;
+  }
+
+  renderIssueContent(issueData.activeIssue,siteData);
 }
 
 function renderMission(mission){
@@ -235,6 +251,7 @@ function renderMission(mission){
 }
 
 function renderSite(site,socials,issues){
+  window.loopGaidenSiteData = site;
   if(site?.meta){
     document.title = site.meta.title || document.title;
     setMeta('meta[name="description"]',site.meta.description);
@@ -384,28 +401,56 @@ function initInteractions(issueData){
   }
 
   const issueViewer = document.getElementById('story');
-  const issueCover = document.getElementById('issue-cover');
   const issueTriggers = document.querySelectorAll('[data-issue-target="story"]');
   const openIssueButtons = document.querySelectorAll('[data-open-issue]');
-  const closeIssueButtons = document.querySelectorAll('[data-close-issue]');
-  const issueLabels = document.querySelectorAll('[data-issue-label]');
-  const progressScenes = document.querySelectorAll('[data-progress-scene]');
-  const sceneVideos = document.querySelectorAll('.scene video');
-  const scenePicker = document.querySelector('.scene-picker');
-  const sceneNavButtons = document.querySelectorAll('[data-next-scene],[data-prev-scene]');
-  const startIssueButtons = document.querySelectorAll('[data-start-issue]');
-  const startScenesButtons = document.querySelectorAll('[data-start-scenes]');
-  const soundToggleButtons = document.querySelectorAll('[data-sound-toggle]');
-  const shareIssueButtons = document.querySelectorAll('[data-share-issue]');
-  const readerProgressText = document.getElementById('readerProgressText');
-  const readerProgressBar = document.getElementById('readerProgressBar');
-  const mobileProgressText = document.querySelector('[data-mobile-progress-text]');
-  const mobileProgressBar = document.querySelector('[data-mobile-progress-bar]');
-  const mobilePrevButton = document.querySelector('[data-mobile-prev]');
-  const mobileNextButton = document.querySelector('[data-mobile-next]');
-  const totalScenes = progressScenes.length || 1;
+  let issueCover = document.getElementById('issue-cover');
+  let closeIssueButtons = document.querySelectorAll('[data-close-issue]');
+  let issueLabels = document.querySelectorAll('[data-issue-label]');
+  let progressScenes = document.querySelectorAll('[data-progress-scene]');
+  let sceneVideos = document.querySelectorAll('.scene video');
+  let scenePicker = document.querySelector('.scene-picker');
+  let sceneNavButtons = document.querySelectorAll('[data-next-scene],[data-prev-scene]');
+  let startIssueButtons = document.querySelectorAll('[data-start-issue]');
+  let startScenesButtons = document.querySelectorAll('[data-start-scenes]');
+  let soundToggleButtons = document.querySelectorAll('[data-sound-toggle]');
+  let shareIssueButtons = document.querySelectorAll('[data-share-issue]');
+  let readerProgressText = document.getElementById('readerProgressText');
+  let readerProgressBar = document.getElementById('readerProgressBar');
+  let mobileProgressText = document.querySelector('[data-mobile-progress-text]');
+  let mobileProgressBar = document.querySelector('[data-mobile-progress-bar]');
+  let mobilePrevButton = document.querySelector('[data-mobile-prev]');
+  let mobileNextButton = document.querySelector('[data-mobile-next]');
+  let totalScenes = progressScenes.length || 1;
+  let videoLoadObserver = null;
+  let progressObserver = null;
   let soundEnabled = false;
   let currentSceneNumber = 1;
+  let currentIssueKey = 'activeIssue';
+
+  function getCurrentIssue(){
+    return issueData?.[currentIssueKey] || issueData?.activeIssue;
+  }
+
+  function refreshReaderRefs(){
+    issueCover = document.getElementById('issue-cover');
+    closeIssueButtons = document.querySelectorAll('[data-close-issue]');
+    issueLabels = document.querySelectorAll('[data-issue-label]');
+    progressScenes = document.querySelectorAll('[data-progress-scene]');
+    sceneVideos = document.querySelectorAll('.scene video');
+    scenePicker = document.querySelector('.scene-picker');
+    sceneNavButtons = document.querySelectorAll('[data-next-scene],[data-prev-scene]');
+    startIssueButtons = document.querySelectorAll('[data-start-issue]');
+    startScenesButtons = document.querySelectorAll('[data-start-scenes]');
+    soundToggleButtons = document.querySelectorAll('[data-sound-toggle]');
+    shareIssueButtons = document.querySelectorAll('[data-share-issue]');
+    readerProgressText = document.getElementById('readerProgressText');
+    readerProgressBar = document.getElementById('readerProgressBar');
+    mobileProgressText = document.querySelector('[data-mobile-progress-text]');
+    mobileProgressBar = document.querySelector('[data-mobile-progress-bar]');
+    mobilePrevButton = document.querySelector('[data-mobile-prev]');
+    mobileNextButton = document.querySelector('[data-mobile-next]');
+    totalScenes = progressScenes.length || 1;
+  }
 
   function updateReaderProgress(sceneNumber){
     currentSceneNumber = sceneNumber;
@@ -502,7 +547,7 @@ function initInteractions(issueData){
   }
 
   async function shareIssue(){
-    const issue = issueData?.activeIssue;
+    const issue = getCurrentIssue();
     const sceneId = getSceneByNumber(currentSceneNumber)?.id || 'story';
     const shareUrl = `${window.location.origin}${window.location.pathname}#${sceneId}`;
     const shareData = {
@@ -530,16 +575,148 @@ function initInteractions(issueData){
     }
   }
 
-  function openIssue(scrollIntoView = true){
+  function setIssueLabels(){
+    issueLabels.forEach(label=>{
+      const baseLabel = label.dataset.issueLabel || label.textContent;
+      const isCurrent = label.dataset.issueKey === currentIssueKey;
+      label.textContent = issueViewer?.classList.contains('open') && isCurrent ? baseLabel.replace('OPEN ISSUE','ISSUE') + ' — OPEN' : baseLabel;
+    });
+  }
+
+  function setupScenePicker(){
+    if(!scenePicker) return;
+    scenePicker.innerHTML = '';
+    progressScenes.forEach(scene=>{
+      const number = Number(scene.dataset.progressScene);
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = String(number).padStart(2,'0');
+      button.dataset.scenePick = String(number);
+      button.addEventListener('click',()=>goToScene(number));
+      scenePicker.appendChild(button);
+    });
+  }
+
+  function bindReaderButtons(){
+    closeIssueButtons.forEach(button=>{
+      if(button.dataset.boundIssueControl) return;
+      button.dataset.boundIssueControl = 'true';
+      button.addEventListener('click',closeIssue);
+    });
+    soundToggleButtons.forEach(button=>{
+      if(button.dataset.boundIssueControl) return;
+      button.dataset.boundIssueControl = 'true';
+      button.addEventListener('click',toggleSound);
+    });
+    shareIssueButtons.forEach(button=>{
+      if(button.dataset.boundIssueControl) return;
+      button.dataset.boundIssueControl = 'true';
+      button.addEventListener('click',shareIssue);
+    });
+    startIssueButtons.forEach(button=>{
+      if(button.dataset.boundIssueControl) return;
+      button.dataset.boundIssueControl = 'true';
+      button.addEventListener('click',goToCover);
+    });
+    startScenesButtons.forEach(button=>{
+      if(button.dataset.boundIssueControl) return;
+      button.dataset.boundIssueControl = 'true';
+      button.addEventListener('click',()=>goToScene(1,'start'));
+    });
+    if(mobilePrevButton && !mobilePrevButton.dataset.boundIssueControl){
+      mobilePrevButton.dataset.boundIssueControl = 'true';
+      mobilePrevButton.addEventListener('click',()=>goToScene(currentSceneNumber - 1));
+    }
+    if(mobileNextButton && !mobileNextButton.dataset.boundIssueControl){
+      mobileNextButton.dataset.boundIssueControl = 'true';
+      mobileNextButton.addEventListener('click',()=>goToScene(currentSceneNumber + 1));
+    }
+    sceneNavButtons.forEach(button=>{
+      if(button.dataset.boundIssueControl) return;
+      button.dataset.boundIssueControl = 'true';
+      button.addEventListener('click',()=>{
+        const targetId = button.dataset.nextScene || button.dataset.prevScene;
+        const targetScene = document.getElementById(targetId);
+        const sceneNumber = Number(targetScene?.dataset.progressScene);
+        if(sceneNumber) goToScene(sceneNumber);
+      });
+    });
+  }
+
+  function observeReaderScenes(){
+    videoLoadObserver?.disconnect();
+    progressObserver?.disconnect();
+
+    videoLoadObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          loadSceneVideo(entry.target.querySelector('video'));
+        }
+      });
+    },{rootMargin:'500px 0px'});
+
+    progressObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const sceneNumber = Number(entry.target.dataset.progressScene);
+          updateReaderProgress(sceneNumber);
+          prepareNearbyVideos(sceneNumber);
+          playSceneVideo(entry.target);
+        }
+      });
+    },{threshold:.45});
+
+    progressScenes.forEach(scene=>{
+      videoLoadObserver.observe(scene);
+      progressObserver.observe(scene);
+    });
+
+    sceneVideos.forEach(video=>{
+      video.addEventListener('canplay',()=>video.closest('.scene-media')?.classList.add('loaded'));
+      video.addEventListener('waiting',()=>video.closest('.scene-media')?.classList.remove('loaded'));
+      video.addEventListener('play',()=>video.muted = !soundEnabled);
+      video.addEventListener('error',()=>video.closest('.scene-media')?.classList.add('failed'));
+    });
+
+    document.querySelectorAll('.scene-media').forEach(media=>{
+      media.addEventListener('click',event=>{
+        if(!event.target.matches('[data-retry-video]')) return;
+        const video = media.querySelector('video');
+        media.classList.remove('failed');
+        if(video){
+          video.removeAttribute('src');
+          loadSceneVideo(video);
+          video.play().catch(()=>{});
+        }
+      });
+    });
+  }
+
+  function selectIssue(issueKey = 'activeIssue'){
+    if(!issueData?.[issueKey]) return;
+    pauseSceneVideos();
+    currentIssueKey = issueKey;
+    renderIssueContent(issueData[issueKey],window.loopGaidenSiteData || {});
+    refreshReaderRefs();
+    setupScenePicker();
+    bindReaderButtons();
+    observeReaderScenes();
+    updateSoundButtons();
+    updateReaderProgress(1);
+  }
+
+  function openIssue(scrollIntoView = true,issueKey = currentIssueKey){
     if(!issueViewer) return;
+    selectIssue(issueKey);
     document.body.classList.add('issue-reader-active','issue-reader-in-view');
     issueViewer.classList.add('open');
     issueViewer.removeAttribute('aria-hidden');
     issueTriggers.forEach(trigger=>{
-      trigger.setAttribute('aria-expanded','true');
-      trigger.classList.add('issue-open');
+      const isCurrent = (trigger.dataset.issueKey || 'activeIssue') === currentIssueKey;
+      trigger.setAttribute('aria-expanded',String(isCurrent));
+      trigger.classList.toggle('issue-open',isCurrent);
     });
-    issueLabels.forEach(label=>label.textContent = `ISSUE ${issueData?.activeIssue?.number || '001'} — OPEN`);
+    setIssueLabels();
     updateReaderProgress(1);
     prepareNearbyVideos(1);
 
@@ -558,95 +735,28 @@ function initInteractions(issueData){
       trigger.setAttribute('aria-expanded','false');
       trigger.classList.remove('issue-open');
     });
-    issueLabels.forEach(label=>label.textContent = `OPEN ISSUE ${issueData?.activeIssue?.number || '001'}`);
+    setIssueLabels();
     document.getElementById('lords')?.scrollIntoView({behavior:'smooth',block:'start'});
   }
 
   issueTriggers.forEach(trigger=>{
-    trigger.addEventListener('click',()=>openIssue());
+    trigger.addEventListener('click',()=>openIssue(true,trigger.dataset.issueKey || 'activeIssue'));
     trigger.addEventListener('keydown',event=>{
       if(event.key === 'Enter' || event.key === ' '){
         event.preventDefault();
-        openIssue();
+        openIssue(true,trigger.dataset.issueKey || 'activeIssue');
       }
     });
   });
 
-  closeIssueButtons.forEach(button=>button.addEventListener('click',closeIssue));
   openIssueButtons.forEach(button=>button.addEventListener('click',event=>{
     event.preventDefault();
-    openIssue();
+    openIssue(true,'activeIssue');
   }));
-  soundToggleButtons.forEach(button=>button.addEventListener('click',toggleSound));
-  shareIssueButtons.forEach(button=>button.addEventListener('click',shareIssue));
-  startIssueButtons.forEach(button=>button.addEventListener('click',goToCover));
-  startScenesButtons.forEach(button=>button.addEventListener('click',()=>goToScene(1,'start')));
-  mobilePrevButton?.addEventListener('click',()=>goToScene(currentSceneNumber - 1));
-  mobileNextButton?.addEventListener('click',()=>goToScene(currentSceneNumber + 1));
-  sceneNavButtons.forEach(button=>{
-    button.addEventListener('click',()=>{
-      const targetId = button.dataset.nextScene || button.dataset.prevScene;
-      const targetScene = document.getElementById(targetId);
-      const sceneNumber = Number(targetScene?.dataset.progressScene);
-      if(sceneNumber) goToScene(sceneNumber);
-    });
-  });
 
-  if(scenePicker){
-    scenePicker.innerHTML = '';
-    progressScenes.forEach(scene=>{
-      const number = Number(scene.dataset.progressScene);
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.textContent = String(number).padStart(2,'0');
-      button.dataset.scenePick = String(number);
-      button.addEventListener('click',()=>goToScene(number));
-      scenePicker.appendChild(button);
-    });
-  }
-
-  const videoLoadObserver = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        loadSceneVideo(entry.target.querySelector('video'));
-      }
-    });
-  },{rootMargin:'500px 0px'});
-
-  progressScenes.forEach(scene=>videoLoadObserver.observe(scene));
-
-  sceneVideos.forEach(video=>{
-    video.addEventListener('canplay',()=>video.closest('.scene-media')?.classList.add('loaded'));
-    video.addEventListener('waiting',()=>video.closest('.scene-media')?.classList.remove('loaded'));
-    video.addEventListener('play',()=>video.muted = !soundEnabled);
-    video.addEventListener('error',()=>video.closest('.scene-media')?.classList.add('failed'));
-  });
-
-  document.querySelectorAll('.scene-media').forEach(media=>{
-    media.addEventListener('click',event=>{
-      if(!event.target.matches('[data-retry-video]')) return;
-      const video = media.querySelector('video');
-      media.classList.remove('failed');
-      if(video){
-        video.removeAttribute('src');
-        loadSceneVideo(video);
-        video.play().catch(()=>{});
-      }
-    });
-  });
-
-  const progressObserver = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        const sceneNumber = Number(entry.target.dataset.progressScene);
-        updateReaderProgress(sceneNumber);
-        prepareNearbyVideos(sceneNumber);
-        playSceneVideo(entry.target);
-      }
-    });
-  },{threshold:.45});
-
-  progressScenes.forEach(scene=>progressObserver.observe(scene));
+  setupScenePicker();
+  bindReaderButtons();
+  observeReaderScenes();
 
   if(issueViewer){
     const issueViewObserver = new IntersectionObserver((entries)=>{

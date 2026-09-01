@@ -91,6 +91,34 @@
       }
     ]
   },
+  "nextIssue": {
+    "number": "002",
+    "title": "THE HIDDEN DRAIN",
+    "cardSubtitle": "SECOND GREED LORD FILE",
+    "quote": "SOMETHING ELSE IS FEEDING.",
+    "cover": "assets/optimized/issue-002.jpg",
+    "summary": "The Farmer was only the beginning. A new mystery opens beneath the trenches.",
+    "coverIntro": "A hidden drain has been found. Enter the next transmission scene by scene.",
+    "shareText": "Issue 002: The Hidden Drain signal has been found.",
+    "scenes": [
+      {
+        "kicker": "THE TRAIL",
+        "title": "THE HIDDEN DRAIN",
+        "body": "A new mystery begins beneath the trenches. Loop finds the first sign that something else has been feeding in the dark.",
+        "video": "assets/scenes/sc01X.mp4",
+        "poster": "assets/optimized/issue-002.jpg",
+        "ariaLabel": "The Hidden Drain opening scene"
+      },
+      {
+        "kicker": "NEXT SIGNAL",
+        "title": "THE FARMER WAS ONLY THE BEGINNING.",
+        "body": "Something else has been feeding on the trenches. Loop just found the trail.",
+        "video": "assets/scenes/sc02X.mp4",
+        "poster": "assets/optimized/scene-12.jpg",
+        "ariaLabel": "Loop discovers a new trail beyond the Farmer"
+      }
+    ]
+  },
   "lockedLords": [
     { "number": "02", "title": "THE HIDDEN DRAIN", "quote": "SOMETHING ELSE IS FEEDING.", "status": "SIGNAL FOUND" },
     { "number": "03", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
