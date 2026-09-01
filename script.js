@@ -1,6 +1,6 @@
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
-  const response = await fetch(`${path}${separator}v=20260901-4`,{cache:'no-store'});
+  const response = await fetch(`${path}${separator}v=20260901-5`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -549,7 +549,9 @@ function initInteractions(issueData){
 
   function updateSoundButtons(){
     soundToggleButtons.forEach(button=>{
-      button.textContent = soundEnabled ? 'SOUND ON' : 'SOUND OFF';
+      button.textContent = button.dataset.soundShort !== undefined
+        ? (soundEnabled ? 'ON' : 'OFF')
+        : (soundEnabled ? 'SOUND ON' : 'SOUND OFF');
       button.setAttribute('aria-pressed',String(soundEnabled));
     });
   }
