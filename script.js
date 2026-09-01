@@ -1,6 +1,6 @@
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
-  const response = await fetch(`${path}${separator}v=20260831-2`,{cache:'no-store'});
+  const response = await fetch(`${path}${separator}v=20260901-1`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -178,6 +178,41 @@ function renderIssue(issueData,siteData = {}){
   `;
 }
 
+function renderNextIssuePreview(issueData){
+  const preview = issueData?.nextIssue;
+  const section = document.querySelector('.next-issue');
+  if(!preview || !section) return;
+
+  const scenes = preview.scenes || [];
+  section.innerHTML = `
+    <div class="section-head reveal visible">
+      <span>${escapeHtml(preview.kicker || 'NEXT ISSUE SIGNAL')}</span>
+      <h2>ISSUE ${escapeHtml(preview.number || '002')} — ${escapeHtml(preview.title || 'SIGNAL FOUND')}</h2>
+      <p>${escapeHtml(preview.summary || '')}</p>
+    </div>
+    <div class="next-signal-grid reveal visible">
+      ${scenes.map((scene,index)=>`
+        <article class="next-signal-card">
+          <div class="next-signal-media">
+            <video src="${escapeHtml(scene.video)}" muted loop playsinline preload="metadata" controls aria-label="${escapeHtml(scene.ariaLabel || scene.title)}"></video>
+          </div>
+          <div class="next-signal-copy">
+            <span>${escapeHtml(scene.kicker || `SCENE ${String(index + 1).padStart(2,'0')}`)}</span>
+            <h3>${escapeHtml(scene.title)}</h3>
+            <p>${escapeHtml(scene.body)}</p>
+          </div>
+        </article>
+      `).join('')}
+    </div>
+    <div class="next-issue-inner reveal visible">
+      <span class="kicker">TRAIL RECOVERED</span>
+      <h2>THE NEXT GREED LORD FILE IS OPENING.</h2>
+      <p>The Farmer was only the beginning. Loop has found the next signal.</p>
+      <a class="btn primary" href="https://x.com/loopgaiden" target="_blank" rel="noopener">${escapeHtml(preview.button || 'WATCH ON X')}</a>
+    </div>
+  `;
+}
+
 function renderMission(mission){
   const section = document.querySelector('#mission');
   if(!section || !mission) return;
@@ -339,6 +374,7 @@ function renderSite(site,socials,issues){
 
   renderSocialLinks(socials,site?.token?.buyUrl);
   renderIssue(issues,site);
+  renderNextIssuePreview(issues);
 }
 
 function initInteractions(issueData){

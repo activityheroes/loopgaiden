@@ -91,8 +91,31 @@
       }
     ]
   },
+  "nextIssue": {
+    "number": "002",
+    "title": "THE HIDDEN DRAIN",
+    "kicker": "NEXT ISSUE SIGNAL",
+    "summary": "A new mystery is opening in the trenches. The Farmer was only the beginning.",
+    "button": "WATCH THE SIGNAL",
+    "scenes": [
+      {
+        "kicker": "SCENE 01",
+        "title": "THE HIDDEN DRAIN",
+        "body": "A new mystery begins beneath the trenches. Loop finds the first sign that something else has been feeding in the dark.",
+        "video": "assets/scenes/sc01X.mp4",
+        "ariaLabel": "The Hidden Drain opening scene"
+      },
+      {
+        "kicker": "SCENE 02",
+        "title": "THE FARMER WAS ONLY THE BEGINNING.",
+        "body": "Something else has been feeding on the trenches. Loop just found the trail.",
+        "video": "assets/scenes/sc02X.mp4",
+        "ariaLabel": "Loop discovers a new trail beyond the Farmer"
+      }
+    ]
+  },
   "lockedLords": [
-    { "number": "02", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
+    { "number": "02", "title": "THE HIDDEN DRAIN", "quote": "SOMETHING ELSE IS FEEDING.", "status": "SIGNAL FOUND" },
     { "number": "03", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
     { "number": "04", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
     { "number": "05", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
