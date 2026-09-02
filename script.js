@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260902-8`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260902-9`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -451,6 +451,7 @@ function initInteractions(issueData){
   let videoLoadObserver = null;
   let progressObserver = null;
   let soundEnabled = false;
+  let syncingVideoSound = false;
   let currentSceneNumber = 1;
   let currentIssueKey = 'activeIssue';
 
@@ -573,6 +574,17 @@ function initInteractions(issueData){
     soundEnabled = !soundEnabled;
     sceneVideos.forEach(video=>video.muted = !soundEnabled);
     updateSoundButtons();
+  }
+
+  function syncSoundFromVideo(video){
+    if(syncingVideoSound) return;
+    syncingVideoSound = true;
+    soundEnabled = !video.muted;
+    sceneVideos.forEach(sceneVideo=>{
+      if(sceneVideo !== video) sceneVideo.muted = video.muted;
+    });
+    updateSoundButtons();
+    syncingVideoSound = false;
   }
 
   async function shareIssue(){
@@ -704,6 +716,7 @@ function initInteractions(issueData){
       video.addEventListener('canplay',()=>video.closest('.scene-media')?.classList.add('loaded'));
       video.addEventListener('waiting',()=>video.closest('.scene-media')?.classList.remove('loaded'));
       video.addEventListener('play',()=>video.muted = !soundEnabled);
+      video.addEventListener('volumechange',()=>syncSoundFromVideo(video));
       video.addEventListener('error',()=>video.closest('.scene-media')?.classList.add('failed'));
     });
 
