@@ -137,7 +137,7 @@
         "kicker": "NETWORK BREAK",
         "title": "DESTROY THE NETWORK.",
         "body": "Loop tears into the network pipes feeding The Extractor, turning the drain into a major combat sequence.",
-        "video": "assets/scenes/web/sc05X-h264.mp4",
+        "video": "assets/scenes/web/sc05X-h264.mp4?v=20260903-audio",
         "poster": "assets/optimized/scene-15.jpg",
         "ariaLabel": "Loop destroys the network pipes feeding The Extractor"
       },
@@ -145,7 +145,7 @@
         "kicker": "THE LAST PIPE",
         "title": "THE LAST PIPE.",
         "body": "The network was dead... almost. One connection was still alive.",
-        "video": "assets/scenes/web/sc06X-h264.mp4",
+        "video": "assets/scenes/web/sc06X-h264.mp4?v=20260903-audio",
         "poster": "assets/optimized/scene-16.jpg",
         "ariaLabel": "Loop finds the last live network pipe"
       },
@@ -153,7 +153,7 @@
         "kicker": "HIGHER UP",
         "title": "HIGHER UP.",
         "body": "Loop looked up. The stolen value was not staying here... it was being sent higher.",
-        "video": "assets/scenes/web/sc07X-h264.mp4",
+        "video": "assets/scenes/web/sc07X-h264.mp4?v=20260903-audio",
         "poster": "assets/optimized/scene-17.jpg",
         "ariaLabel": "Loop sees the stolen value being sent higher"
       },
@@ -161,7 +161,7 @@
         "kicker": "WATCHING",
         "title": "SOMEONE WAS WATCHING.",
         "body": "And at the other end... someone was waiting. Watching everything.",
-        "video": "assets/scenes/web/sc08X-h264.mp4",
+        "video": "assets/scenes/web/sc08X-h264.mp4?v=20260903-audio",
         "poster": "assets/optimized/scene-18.jpg",
         "ariaLabel": "Someone watches Loop from the other end of the signal"
       }
