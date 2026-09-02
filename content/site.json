@@ -155,7 +155,7 @@
       "PUBLIC CREATOR WALLET",
       "TRANSPARENCY FIRST"
     ],
-    "ledgerText": "Use this section to publish actual creator-fee usage and transaction links. Never make the website claim something the wallet doesn't prove.",
+    "ledgerText": "Every fee has a trail. Buybacks, project fuel, and reserves stay visible so the Trenches can follow the flow.",
     "fees": [
       { "value": "70%", "label": "BUYBACKS" },
       { "value": "20%", "label": "PROJECT" },
