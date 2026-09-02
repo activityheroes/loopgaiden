@@ -124,6 +124,14 @@
         "video": "assets/scenes/web/sc03X-h264.mp4",
         "poster": "assets/optimized/scene-13.jpg",
         "ariaLabel": "Loop meets The Extractor"
+      },
+      {
+        "kicker": "FINAL FACE-OFF",
+        "title": "CONFRONTATION.",
+        "body": "Loop finally faces The Extractor as the drain workers close in and the next Greed Lord file turns dangerous.",
+        "video": "assets/scenes/web/sc04X-h264.mp4",
+        "poster": "assets/optimized/scene-14.jpg",
+        "ariaLabel": "Loop confronts The Extractor"
       }
     ]
   },
