@@ -132,6 +132,14 @@
         "video": "assets/scenes/web/sc04X-h264.mp4",
         "poster": "assets/optimized/scene-14.jpg",
         "ariaLabel": "Loop confronts The Extractor"
+      },
+      {
+        "kicker": "NETWORK BREAK",
+        "title": "DESTROY THE NETWORK.",
+        "body": "Loop tears into the network pipes feeding The Extractor, turning the drain into a major combat sequence.",
+        "video": "assets/scenes/web/sc05X-h264.mp4",
+        "poster": "assets/optimized/scene-15.jpg",
+        "ariaLabel": "Loop destroys the network pipes feeding The Extractor"
       }
     ]
   },
