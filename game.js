@@ -1,6 +1,15 @@
+function cleanHtmlUrl(){
+  if(window.location.pathname.endsWith('/game.html')){
+    window.history.replaceState(null,'',`/game/${window.location.search}${window.location.hash}`);
+  }
+}
+
+cleanHtmlUrl();
+
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
-  const response = await fetch(`${path}${separator}v=20260901-5`,{cache:'no-store'});
+  const url = path.startsWith('/') ? path : `/${path}`;
+  const response = await fetch(`${url}${separator}v=20260902-7`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
