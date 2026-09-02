@@ -373,7 +373,10 @@ function initInteractions(issueData){
     const open = navLinks.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded',String(open));
   });
-  navLinks?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>navLinks.classList.remove('open')));
+  navLinks?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+    navLinks.classList.remove('open');
+    menuBtn?.setAttribute('aria-expanded','false');
+  }));
 
   const heroVideo = document.querySelector('.hero-bg');
   const heroVideoToggle = document.querySelector('[data-hero-video-toggle]');

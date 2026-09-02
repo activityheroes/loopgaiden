@@ -36,7 +36,8 @@ footer{padding:30px 5vw;border-top:1px solid #293126;display:flex;align-items:ce
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:850px){
   body{padding-bottom:70px}
-  .nav-links{position:absolute;top:68px;left:0;right:0;display:none;flex-direction:column;padding:24px 5vw;background:#070906f5}.nav-links.open{display:flex}.menu-btn{display:block}
+  .nav{overflow:visible}
+  .nav-links{position:fixed;top:68px;left:0;right:0;z-index:49;display:none;flex-direction:column;padding:24px 5vw;background:#070906f5;border-bottom:1px solid #a8ef1635;box-shadow:0 24px 48px #000b}.nav-links.open{display:flex}.menu-btn{display:block}
   .latest-inner{align-items:flex-start;flex-direction:column}.latest-inner .btn{width:100%}
   .game-inner,.game-hero,.prototype-frame,.game-info-grid,.fame-grid{grid-template-columns:1fr}.game-cartridge,.game-hero-cart{min-height:420px;order:-1}.game-copy,.game-hero-copy{text-align:center}.game-copy p,.game-hero-copy p{margin-left:auto;margin-right:auto}.game-hero-actions{justify-content:center}.game-cta{width:100%}.game-hero{padding-top:120px;min-height:auto}.prototype-screen{min-height:auto}.prototype-hud{grid-template-columns:repeat(2,1fr)}.prototype-stage{min-height:380px}.devlog-filters,.leaderboard-tabs{overflow-x:auto;flex-wrap:nowrap}.devlog-filters button,.leaderboard-tabs button{white-space:nowrap}.devlog-progress{grid-template-columns:repeat(2,1fr)}.devlog-grid,.mode-grid,.competition-grid{grid-template-columns:1fr}.rules-panel,.rewards-panel{min-height:auto}.leaderboard-row{grid-template-columns:64px 1fr 1fr;gap:10px;padding:16px;min-height:auto}.leaderboard-row span:nth-child(4),.leaderboard-row span:nth-child(5){grid-column:2 / span 2}.leaderboard-head span:nth-child(4),.leaderboard-head span:nth-child(5){display:none}
   .hero{min-height:760px}.hero-bg{object-position:68% center}.hero-overlay{background:linear-gradient(90deg,#050705e8,#050705a3 70%,#05070568),linear-gradient(0deg,#070906,transparent 45%)}
@@ -199,7 +200,8 @@ footer{padding:30px 5vw;border-top:1px solid #293126;display:flex;align-items:ce
 @media(max-width:850px){
   html,body{max-width:100%;overflow-x:hidden!important;overscroll-behavior-x:none}
   body{width:100%;min-width:0;touch-action:pan-y}
-  .nav,main,footer,.grain{max-width:100%;overflow-x:hidden}
+  main,footer,.grain{max-width:100%;overflow-x:hidden}
+  .nav{max-width:100%;overflow:visible}
   .hero,
   .latest-transmission,
   .section,

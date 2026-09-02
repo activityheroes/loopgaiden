@@ -268,7 +268,10 @@ function initGameInteractions(data){
     const open = navLinks.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded',String(open));
   });
-  navLinks?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>navLinks.classList.remove('open')));
+  navLinks?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+    navLinks.classList.remove('open');
+    menuBtn?.setAttribute('aria-expanded','false');
+  }));
 
   document.querySelectorAll('video[autoplay]').forEach(video=>{
     video.muted = true;
