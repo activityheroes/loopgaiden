@@ -23,6 +23,11 @@ function escapeHtml(value = ''){
     .replaceAll("'",'&#039;');
 }
 
+function assetPath(path = ''){
+  if(!path || /^(https?:)?\/\//.test(path) || path.startsWith('/')) return path;
+  return `/${path}`;
+}
+
 function setText(selector,value){
   const element = document.querySelector(selector);
   if(element && value !== undefined) element.textContent = value;
@@ -30,7 +35,7 @@ function setText(selector,value){
 
 function setMeta(selector,value){
   const element = document.querySelector(selector);
-  if(element && value !== undefined) element.setAttribute('content',value);
+  if(element && value !== undefined) element.setAttribute('content',assetPath(value));
 }
 
 function renderLeaderboard(leaderboardData,activeTabId){
@@ -79,7 +84,7 @@ function renderDevlogPosts(posts = [],activeFilter = 'All'){
   devlogPosts.innerHTML = visiblePosts.map(post=>`
     <article class="devlog-card">
       <div class="devlog-image">
-        <img src="${escapeHtml(post.image)}" alt="" loading="lazy" />
+        <img src="${escapeHtml(assetPath(post.image))}" alt="" loading="lazy" />
       </div>
       <div class="devlog-copy">
         <div class="devlog-meta">
@@ -112,7 +117,7 @@ function renderGamePage(data){
   setText('.game-hero-copy p',data?.hero?.body);
   setText('.game-status',data?.hero?.status);
   const cartridge = document.querySelector('.game-hero-cart img');
-  if(cartridge && data?.hero?.image) cartridge.src = data.hero.image;
+  if(cartridge && data?.hero?.image) cartridge.src = assetPath(data.hero.image);
 
   setText('.prototype-copy .kicker',data?.prototype?.kicker);
   setText('.prototype-copy h2',data?.prototype?.title);
