@@ -167,9 +167,38 @@
       }
     ]
   },
+  "openIssues": [
+    {
+      "key": "manipulatorIssue",
+      "number": "003",
+      "title": "THE MANIPULATOR",
+      "cardSubtitle": "THIRD GREED LORD FILE",
+      "quote": "HE CONTROLLED IT.",
+      "cover": "assets/optimized/the-manipulator-issue-cover.jpg",
+      "summary": "The signal climbs higher. The next Greed Lord file opens with The Manipulator.",
+      "coverIntro": "The trail led higher. Someone had been watching everything.",
+      "shareText": "Issue 003: The Manipulator file is opening.",
+      "scenes": [
+        {
+          "kicker": "EPISODE 01",
+          "title": "THE WATCHER.",
+          "body": "The trail led higher. And someone had been watching everything.",
+          "video": "assets/scenes/web/sc31X-h264.mp4",
+          "poster": "assets/optimized/scene-31.jpg",
+          "ariaLabel": "The Watcher follows Loop from above"
+        },
+        {
+          "kicker": "THE NARRATIVE",
+          "title": "THE NARRATIVE.",
+          "body": "He did not follow the hype. He controlled it.",
+          "video": "assets/scenes/web/sc32X-h264.mp4",
+          "poster": "assets/optimized/scene-32.jpg",
+          "ariaLabel": "The Manipulator controls the narrative"
+        }
+      ]
+    }
+  ],
   "lockedLords": [
-    { "number": "02", "title": "THE EXTRACTOR", "quote": "SOMETHING ELSE IS FEEDING.", "status": "SIGNAL FOUND" },
-    { "number": "03", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
     { "number": "04", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
     { "number": "05", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
     { "number": "06", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },

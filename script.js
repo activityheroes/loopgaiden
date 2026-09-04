@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260903-1`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260904-1`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -78,7 +78,7 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
 }
 
 function getIssueList(issueData = {}){
-  return [issueData.activeIssue,issueData.nextIssue].filter(Boolean);
+  return [issueData.activeIssue,issueData.nextIssue,...(issueData.openIssues || [])].filter(Boolean);
 }
 
 function renderIssueContent(issue,siteData = {}){
@@ -174,8 +174,9 @@ function renderIssue(issueData,siteData = {}){
       ${issues.map((issue,index)=>{
         const issueNumber = escapeHtml(issue.number);
         const issueTitle = escapeHtml(issue.title);
+        const issueKey = escapeHtml(issue.key || (index === 0 ? 'activeIssue' : 'nextIssue'));
         return `
-          <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-issue-key="${index === 0 ? 'activeIssue' : 'nextIssue'}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
+          <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-issue-key="${issueKey}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
             <div class="cover-frame">
               <img src="${escapeHtml(issue.cover || 'assets/optimized/cover.jpg')}" alt="Issue ${issueNumber} cover" />
             </div>
@@ -183,7 +184,7 @@ function renderIssue(issueData,siteData = {}){
               <div class="lord-index">ISSUE ${issueNumber}</div>
               <h3>${issueTitle}</h3>
               <p>${escapeHtml(issue.cardSubtitle)}</p>
-              <span class="status active issue-button" data-issue-label="OPEN ISSUE ${issueNumber}" data-issue-key="${index === 0 ? 'activeIssue' : 'nextIssue'}">OPEN ISSUE ${issueNumber}</span>
+              <span class="status active issue-button" data-issue-label="OPEN ISSUE ${issueNumber}" data-issue-key="${issueKey}">OPEN ISSUE ${issueNumber}</span>
             </div>
           </article>
         `;
@@ -735,10 +736,12 @@ function initInteractions(issueData){
   }
 
   function selectIssue(issueKey = 'activeIssue'){
-    if(!issueData?.[issueKey]) return;
+    const openIssue = (issueData?.openIssues || []).find(issue=>issue.key === issueKey);
+    const issue = issueData?.[issueKey] || openIssue;
+    if(!issue) return;
     pauseSceneVideos();
     currentIssueKey = issueKey;
-    renderIssueContent(issueData[issueKey],window.loopGaidenSiteData || {});
+    renderIssueContent(issue,window.loopGaidenSiteData || {});
     refreshReaderRefs();
     setupScenePicker();
     bindReaderButtons();
