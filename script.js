@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260905-5`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260906-1`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -368,6 +368,66 @@ function setupIssueSlider(){
       window.requestAnimationFrame(updateSliderStatus);
     },{passive:true});
     window.addEventListener('resize',updateSliderStatus);
+  }
+  if(!slider.dataset.boundIssueDrag){
+    slider.dataset.boundIssueDrag = 'true';
+    let isPointerDown = false;
+    let didDrag = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let pointerId = null;
+
+    const stopDragging = event=>{
+      if(!isPointerDown) return;
+      isPointerDown = false;
+      if(pointerId !== null && slider.hasPointerCapture?.(pointerId)){
+        slider.releasePointerCapture(pointerId);
+      }
+      pointerId = null;
+      slider.classList.remove('is-dragging');
+      if(didDrag){
+        slider.dataset.draggedIssueSlider = 'true';
+        window.setTimeout(()=>{
+          delete slider.dataset.draggedIssueSlider;
+          didDrag = false;
+        },80);
+      }
+      window.requestAnimationFrame(updateSliderStatus);
+    };
+
+    slider.addEventListener('pointerdown',event=>{
+      if(event.pointerType === 'touch' || event.button !== 0 || event.target.closest('a,button')) return;
+      isPointerDown = true;
+      didDrag = false;
+      pointerId = event.pointerId;
+      startX = event.clientX;
+      startScrollLeft = slider.scrollLeft;
+      slider.setPointerCapture?.(event.pointerId);
+    });
+
+    slider.addEventListener('pointermove',event=>{
+      if(!isPointerDown || event.pointerId !== pointerId) return;
+      const distance = event.clientX - startX;
+      if(Math.abs(distance) > 4){
+        didDrag = true;
+        slider.classList.add('is-dragging');
+      }
+      if(didDrag){
+        event.preventDefault();
+        slider.scrollLeft = startScrollLeft - distance;
+      }
+    });
+
+    slider.addEventListener('pointerup',stopDragging);
+    slider.addEventListener('pointercancel',stopDragging);
+    slider.addEventListener('lostpointercapture',stopDragging);
+    slider.addEventListener('click',event=>{
+      if(slider.dataset.draggedIssueSlider === 'true'){
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+      }
+    },true);
   }
   updateSliderStatus();
 }
