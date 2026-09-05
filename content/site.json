@@ -25,10 +25,10 @@
   "game": {
     "kicker": "ARCADE FILE",
     "title": "LOOP GAIDEN GAME",
-    "body": "A 2D fight game in development where Loop clears Bundles, Goons, and Snipers before facing the Greed Lords behind the trenches.",
-    "status": "IN DEVELOPMENT",
+    "body": "A 2D fight game planned for the future where Loop clears Bundles, Goons, and Snipers before facing the Greed Lords behind the trenches.",
+    "status": "PAUSED",
     "image": "assets/game-clean.png",
-    "url": "/game/#trailer"
+    "url": "#mission"
   },
   "manifesto": {
     "kicker": "THE WORLD",
@@ -128,9 +128,10 @@
         "tone": "future",
         "status": "EXPLORATION / FUTURE MISSION",
         "title": "CHAPTER 06 — LOOP GAIDEN: THE GAME",
-        "body": "What if you could enter the Trenches yourself?",
+        "body": "The game is paused while the comic story leads the mission.",
         "items": [
-          "2D action / beat-'em-up in development",
+          "2D action / beat-'em-up planned for later",
+          "Comic chapters come first",
           "Play as Loop",
           "Fight Bundles",
           "Fight Snipers",
