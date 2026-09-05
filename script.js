@@ -246,7 +246,7 @@ function renderIssue(issueData,siteData = {}){
         `;
       }).join('')}
       ${getLockedIssueCards(issueData).filter(lord=>!activeNumbers.has(lord.number)).map(lord=>`
-        <article class="lord-card silhouette reveal">
+        <article class="lord-card silhouette reveal visible">
           <div>
             <b>${escapeHtml(lord.number)}</b>
             <h3>${escapeHtml(lord.title)}</h3>
@@ -259,6 +259,29 @@ function renderIssue(issueData,siteData = {}){
   }
 
   renderIssueContent(issueData.activeIssue,siteData,'activeIssue',issueData);
+  setupIssueSlider();
+}
+
+function setupIssueSlider(){
+  const slider = document.querySelector('[data-issue-slider]');
+  const controls = document.querySelectorAll('[data-issue-slide]');
+  if(!slider || !controls.length) return;
+  const getStep = ()=>{
+    const card = slider.querySelector('.lord-card');
+    if(!card) return slider.clientWidth * 0.85;
+    const gap = parseFloat(getComputedStyle(slider).columnGap || getComputedStyle(slider).gap || 0) || 0;
+    return card.getBoundingClientRect().width + gap;
+  };
+  controls.forEach(control=>{
+    if(control.dataset.boundIssueSlider) return;
+    control.dataset.boundIssueSlider = 'true';
+    control.addEventListener('click',()=>{
+      slider.scrollBy({
+        left: control.dataset.issueSlide === 'next' ? getStep() : -getStep(),
+        behavior: 'smooth'
+      });
+    });
+  });
 }
 
 function renderMission(mission){
