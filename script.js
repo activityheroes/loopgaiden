@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260906-2`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260906-3`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -395,7 +395,7 @@ function setupIssueSlider(){
     };
 
     slider.addEventListener('pointerdown',event=>{
-      if(event.pointerType === 'touch' || event.button !== 0 || event.target.closest('a,button')) return;
+      if(event.pointerType === 'touch' || event.button !== 0 || event.target.closest('a,button,.issue-cover')) return;
       isPointerDown = true;
       didDrag = false;
       pointerId = event.pointerId;
