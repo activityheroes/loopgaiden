@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260904-1`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260905-1`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -114,18 +114,29 @@ function getSceneLimit(issueData = {},issueKey = 'activeIssue',issue){
 function getLockedIssueCards(issueData = {}){
   const visibleIssues = new Set(getIssueList(issueData).map(issue=>issue.number));
   const release = issueData.release || {};
+  const lockedTeases = release.lockedTeases || {};
   const hiddenIssues = getIssueEntries(issueData)
     .map(entry=>entry.issue)
     .filter(issue=>!visibleIssues.has(issue.number))
-    .map(issue=>({
-      number: issue.number,
-      title: 'CLASSIFIED',
-      quote: release.lockedQuote || 'NEXT TRANSMISSION SEALED.',
-      status: release.lockedStatus || 'ISSUE LOCKED'
-    }));
+    .map(issue=>{
+      const tease = lockedTeases[issue.number] || lockedTeases[String(issue.number).padStart(3,'0')] || {};
+      return {
+        number: issue.number,
+        title: tease.title || 'CLASSIFIED',
+        quote: tease.quote || release.lockedQuote || 'NEXT TRANSMISSION SEALED.',
+        status: tease.status || release.lockedStatus || 'ISSUE LOCKED'
+      };
+    });
 
   const existingLocks = issueData.lockedLords || [];
   return [...hiddenIssues,...existingLocks].filter(lord=>!visibleIssues.has(lord.number));
+}
+
+function getLiveSceneLabel(sceneLimit,totalScenes){
+  const liveCount = Math.max(0,Math.min(Number(sceneLimit) || 0,totalScenes || 0));
+  if(!totalScenes) return 'FILE LIVE';
+  if(liveCount >= totalScenes) return `${String(totalScenes).padStart(2,'0')} SCENES LIVE`;
+  return `SCENE ${String(Math.max(liveCount,1)).padStart(2,'0')} LIVE`;
 }
 
 function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueData = {}){
@@ -144,6 +155,16 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   setText('#story .section-head h2',`ISSUE ${issue.number} — ${issue.title}`);
   setText('#story .section-head p',issue.summary);
   setText('#readerProgressText',`Scene 1 / ${Math.max(scenes.length,1)}`);
+
+  const releaseStatus = document.querySelector('[data-scene-release-status]');
+  if(releaseStatus){
+    const liveLabel = getLiveSceneLabel(sceneLimit,allScenes.length);
+    const nextScene = scenes.length < allScenes.length ? scenes.length + 1 : 0;
+    releaseStatus.innerHTML = `
+      <span>${escapeHtml(liveLabel)}</span>
+      <span>${nextScene ? `SCENE ${String(nextScene).padStart(2,'0')} UNLOCKS NEXT` : 'ISSUE COMPLETE'}</span>
+    `;
+  }
 
   const sceneStack = document.querySelector('.scene-stack');
   if(!sceneStack) return;
@@ -231,6 +252,8 @@ function renderIssue(issueData,siteData = {}){
         const issueNumber = escapeHtml(issue.number);
         const issueTitle = escapeHtml(issue.title);
         const issueKey = escapeHtml(entry.key || issue.key || (index === 0 ? 'activeIssue' : 'nextIssue'));
+        const sceneLimit = getSceneLimit(issueData,entry.key || issue.key || issue.number,issue);
+        const liveSceneLabel = getLiveSceneLabel(sceneLimit,(issue.scenes || []).length);
         return `
           <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-issue-key="${issueKey}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
             <div class="cover-frame">
@@ -238,6 +261,10 @@ function renderIssue(issueData,siteData = {}){
             </div>
             <div class="lord-info issue-card-info">
               <div class="lord-index">ISSUE ${issueNumber}</div>
+              <div class="issue-card-badges">
+                <span>LIVE NOW</span>
+                <span>${escapeHtml(liveSceneLabel)}</span>
+              </div>
               <h3>${issueTitle}</h3>
               <p>${escapeHtml(issue.cardSubtitle)}</p>
               <span class="status active issue-button" data-issue-label="OPEN ISSUE ${issueNumber}" data-issue-key="${issueKey}">OPEN ISSUE ${issueNumber}</span>

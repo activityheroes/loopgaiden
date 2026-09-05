@@ -6,6 +6,18 @@
     },
     "lockedStatus": "UNLOCKS AFTER TOKEN LAUNCH",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
+    "lockedTeases": {
+      "002": {
+        "title": "SIGNAL 002",
+        "quote": "THE DRAIN IS CALLING.",
+        "status": "NEXT ISSUE SEALED"
+      },
+      "003": {
+        "title": "SIGNAL 003",
+        "quote": "SOMEONE IS WATCHING.",
+        "status": "GREED LORD FILE SEALED"
+      }
+    },
     "lockedSceneTitle": "NEXT SCENE SEALED.",
     "lockedSceneBody": "The next transmission unlocks with the next launch beat."
   },
@@ -209,9 +221,9 @@
     }
   ],
   "lockedLords": [
-    { "number": "04", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
-    { "number": "05", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
-    { "number": "06", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" },
-    { "number": "07", "title": "CLASSIFIED", "quote": "SIGNAL HIDDEN.", "status": "ISSUE LOCKED" }
+    { "number": "04", "title": "DEEPER SIGNAL", "quote": "TRANSMISSION HIDDEN.", "status": "ISSUE LOCKED" },
+    { "number": "05", "title": "DARK MARKET", "quote": "FILE ENCRYPTED.", "status": "ISSUE LOCKED" },
+    { "number": "06", "title": "CONTROL ROOM", "quote": "GREED LORD SEALED.", "status": "ISSUE LOCKED" },
+    { "number": "07", "title": "FINAL LOOP", "quote": "LAST FILE LOCKED.", "status": "ISSUE LOCKED" }
   ]
 }
