@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260905-3`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260905-4`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -39,6 +39,11 @@ function setMeta(selector,value){
   if(element && value !== undefined) element.setAttribute('content',value);
 }
 
+function setLink(selector,value){
+  const element = document.querySelector(selector);
+  if(element && value !== undefined) element.setAttribute('href',value);
+}
+
 function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
   const socialHtml = socials.map(social=>`
     <a href="${escapeHtml(social.url)}" target="_blank" rel="noopener">${escapeHtml(social.label)}</a>
@@ -58,7 +63,7 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
     const tiktok = socials.find(social=>social.label.toLowerCase().includes('tiktok'));
     const instagram = socials.find(social=>social.label.toLowerCase().includes('instagram'));
     mobileSticky.innerHTML = `
-      <a href="#story" data-open-issue>Read</a>
+      <a href="#issue-001" data-open-issue>Read</a>
       <a href="#token">Status</a>
       ${x ? `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
       ${tiktok ? `<a href="${escapeHtml(tiktok.url)}" target="_blank" rel="noopener">TikTok</a>` : ''}
@@ -431,9 +436,13 @@ function renderSite(site,socials,issues){
     setMeta('meta[property="og:title"]',site.meta.shareTitle);
     setMeta('meta[property="og:description"]',site.meta.shareDescription);
     setMeta('meta[property="og:image"]',site.meta.shareImage);
+    setMeta('meta[property="og:image:alt"]',site.meta.shareImageAlt);
+    setMeta('meta[property="og:url"]',site.meta.shareUrl);
     setMeta('meta[name="twitter:title"]',site.meta.shareTitle);
     setMeta('meta[name="twitter:description"]',site.meta.shareDescription);
     setMeta('meta[name="twitter:image"]',site.meta.shareImage);
+    setMeta('meta[name="twitter:image:alt"]',site.meta.shareImageAlt);
+    setLink('link[rel="canonical"]',site.meta.canonicalUrl);
   }
 
   setText('.hero .eyebrow',site?.hero?.eyebrow);
@@ -627,6 +636,38 @@ function initInteractions(issueData){
   let currentSceneNumber = 1;
   let currentIssueKey = 'activeIssue';
 
+  function normalizeIssueNumber(number){
+    return String(number || '').replace(/\D/g,'').padStart(3,'0');
+  }
+
+  function getIssueHash(issue = getCurrentIssue(),sceneNumber = 0){
+    const issueNumber = normalizeIssueNumber(issue?.number || '001');
+    if(sceneNumber) return `#issue-${issueNumber}-scene-${String(sceneNumber).padStart(2,'0')}`;
+    return `#issue-${issueNumber}`;
+  }
+
+  function getIssueKeyFromNumber(issueNumber){
+    const normalized = normalizeIssueNumber(issueNumber);
+    const entry = getVisibleIssueEntries(issueData).find(item=>normalizeIssueNumber(item.issue.number) === normalized);
+    return entry?.key || null;
+  }
+
+  function parseIssueHash(hash = window.location.hash){
+    const cleanHash = hash || '';
+    if(cleanHash === '#story') return {issueKey:'activeIssue',sceneNumber:0};
+    if(cleanHash.startsWith('#scene-')){
+      return {issueKey:'activeIssue',sceneNumber:Number(cleanHash.replace('#scene-','')) || 0};
+    }
+    const match = cleanHash.match(/^#issue-(\d{1,3})(?:-scene-(\d{1,2}))?$/);
+    if(!match) return null;
+    const issueKey = getIssueKeyFromNumber(match[1]);
+    if(!issueKey) return null;
+    return {
+      issueKey,
+      sceneNumber: match[2] ? Number(match[2]) : 0
+    };
+  }
+
   function getCurrentIssue(){
     return getIssueByKey(issueData,currentIssueKey);
   }
@@ -723,6 +764,10 @@ function initInteractions(issueData){
     updateReaderProgress(number);
     prepareNearbyVideos(number);
     playSceneVideo(scene);
+    const sceneHash = getIssueHash(getCurrentIssue(),number);
+    if(issueViewer?.classList.contains('open') && window.location.hash !== sceneHash){
+      window.history.replaceState(null,'',sceneHash);
+    }
     scene.scrollIntoView({behavior:'smooth',block});
   }
 
@@ -761,8 +806,7 @@ function initInteractions(issueData){
 
   async function shareIssue(){
     const issue = getCurrentIssue();
-    const sceneId = getSceneByNumber(currentSceneNumber)?.id || 'story';
-    const shareUrl = `${window.location.origin}${window.location.pathname}#${sceneId}`;
+    const shareUrl = `${window.location.origin}${window.location.pathname}${getIssueHash(issue,currentSceneNumber)}`;
     const allScenes = issue?.scenes || [];
     const visibleScenes = getSceneLimit(issueData,currentIssueKey,issue);
     const nextSceneNumber = visibleScenes < allScenes.length ? visibleScenes + 1 : 0;
@@ -925,7 +969,7 @@ function initInteractions(issueData){
     updateReaderProgress(1);
   }
 
-  function openIssue(scrollIntoView = true,issueKey = currentIssueKey){
+  function openIssue(scrollIntoView = true,issueKey = currentIssueKey,sceneNumber = 0){
     if(!issueViewer) return;
     selectIssue(issueKey);
     document.body.classList.add('issue-reader-active','issue-reader-in-view');
@@ -939,9 +983,16 @@ function initInteractions(issueData){
     setIssueLabels();
     updateReaderProgress(1);
     prepareNearbyVideos(1);
+    if(scrollIntoView && !sceneNumber && window.location.hash !== getIssueHash(getCurrentIssue())){
+      window.history.pushState(null,'',getIssueHash(getCurrentIssue()));
+    }
 
     if(scrollIntoView){
-      issueCover?.scrollIntoView({behavior:'smooth',block:'start'});
+      if(sceneNumber){
+        setTimeout(()=>goToScene(sceneNumber),60);
+      }else{
+        issueCover?.scrollIntoView({behavior:'smooth',block:'start'});
+      }
     }
   }
 
@@ -1010,11 +1061,15 @@ function initInteractions(issueData){
     }
   });
 
-  if(window.location.hash === '#story' || window.location.hash.startsWith('#scene-')){
-    openIssue(false);
-    const sceneNumber = Number(document.querySelector(window.location.hash)?.dataset.progressScene);
-    if(sceneNumber) setTimeout(()=>goToScene(sceneNumber),100);
+  const initialIssueTarget = parseIssueHash();
+  if(initialIssueTarget){
+    openIssue(true,initialIssueTarget.issueKey,initialIssueTarget.sceneNumber);
   }
+
+  window.addEventListener('hashchange',()=>{
+    const target = parseIssueHash();
+    if(target) openIssue(true,target.issueKey,target.sceneNumber);
+  });
 
   document.getElementById('copyCA')?.addEventListener('click',async ()=>{
     const ca = document.getElementById('ca').textContent.trim();

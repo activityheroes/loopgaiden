@@ -1,10 +1,13 @@
 {
   "meta": {
     "title": "Loop Gaiden — Enter the Trenches",
-    "description": "Loop Gaiden — Greed broke the game. We put it back in motion.",
-    "shareTitle": "Loop Gaiden — Issue 001 Is Live",
-    "shareDescription": "Greed broke the game. Open Issue 001 and enter the Trenches.",
-    "shareImage": "assets/optimized/hero-loop-rooftop.jpg"
+    "description": "Loop Gaiden Issue 001 is live. Scene 01 is open now, and Scene 02 unlocks next.",
+    "canonicalUrl": "https://loopgaiden.com/",
+    "shareUrl": "https://loopgaiden.com/#issue-001",
+    "shareTitle": "Loop Gaiden — Issue 001: Scene 01 Is Live",
+    "shareDescription": "Open The Farmer file. Scene 01 is live now, and Scene 02 unlocks next.",
+    "shareImage": "https://loopgaiden.com/assets/optimized/cover.jpg",
+    "shareImageAlt": "Loop Gaiden Issue 001 comic cover"
   },
   "hero": {
     "eyebrow": "FROM THE TRENCHES. FOR THE TRENCHES.",
@@ -13,7 +16,7 @@
     "headline": "LOOP<br><span>GAIDEN</span>",
     "line": "GREED BROKE THE GAME.<br><strong>WE PUT IT BACK IN MOTION.</strong>",
     "primaryCta": "WATCH ISSUE 001",
-    "primaryUrl": "#story",
+    "primaryUrl": "#issue-001",
     "secondaryCta": "THE MISSION",
     "secondaryUrl": "#mission"
   },
