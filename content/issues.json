@@ -1,8 +1,13 @@
 {
   "release": {
     "visibleIssueKeys": ["activeIssue"],
+    "sceneLimits": {
+      "activeIssue": 1
+    },
     "lockedStatus": "UNLOCKS AFTER TOKEN LAUNCH",
-    "lockedQuote": "NEXT TRANSMISSION SEALED."
+    "lockedQuote": "NEXT TRANSMISSION SEALED.",
+    "lockedSceneTitle": "NEXT SCENE SEALED.",
+    "lockedSceneBody": "The next transmission unlocks with the next launch beat."
   },
   "activeIssue": {
     "number": "001",

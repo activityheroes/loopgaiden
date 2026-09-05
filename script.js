@@ -96,6 +96,21 @@ function getIssueList(issueData = {}){
   return getVisibleIssueEntries(issueData).map(entry=>entry.issue);
 }
 
+function getIssueByKey(issueData = {},issueKey = 'activeIssue'){
+  const entry = getIssueEntries(issueData).find(item=>item.key === issueKey || item.issue.number === issueKey);
+  return entry?.issue || issueData.activeIssue;
+}
+
+function getSceneLimit(issueData = {},issueKey = 'activeIssue',issue){
+  const scenes = issue?.scenes || [];
+  const limits = issueData.release?.sceneLimits || {};
+  const rawLimit = limits[issueKey] ?? limits[issue?.number];
+  if(rawLimit === undefined || rawLimit === null) return scenes.length;
+  const limit = Number(rawLimit);
+  if(!Number.isFinite(limit)) return scenes.length;
+  return Math.max(0,Math.min(scenes.length,Math.floor(limit)));
+}
+
 function getLockedIssueCards(issueData = {}){
   const visibleIssues = new Set(getIssueList(issueData).map(issue=>issue.number));
   const release = issueData.release || {};
@@ -113,16 +128,21 @@ function getLockedIssueCards(issueData = {}){
   return [...hiddenIssues,...existingLocks].filter(lord=>!visibleIssues.has(lord.number));
 }
 
-function renderIssueContent(issue,siteData = {}){
+function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueData = {}){
   if(!issue) return;
   const issueNumber = escapeHtml(issue.number);
   const issueTitle = escapeHtml(issue.title);
-  const scenes = issue.scenes || [];
+  const allScenes = issue.scenes || [];
+  const sceneLimit = getSceneLimit(issueData,issueKey,issue);
+  const scenes = allScenes.slice(0,sceneLimit);
+  const lockedSceneCount = Math.max(0,allScenes.length - scenes.length);
+  const hasLockedScenes = lockedSceneCount > 0;
+  const release = issueData.release || {};
   const buyUrl = siteData?.token?.buyUrl || '#token';
 
   setText('#story .section-head h2',`ISSUE ${issue.number} — ${issue.title}`);
   setText('#story .section-head p',issue.summary);
-  setText('#readerProgressText',`Scene 1 / ${scenes.length}`);
+  setText('#readerProgressText',`Scene 1 / ${Math.max(scenes.length,1)}`);
 
   const sceneStack = document.querySelector('.scene-stack');
   if(!sceneStack) return;
@@ -146,12 +166,14 @@ function renderIssueContent(issue,siteData = {}){
       const number = index + 1;
       const padded = String(number).padStart(2,'0');
       const prevId = number > 1 ? `scene-${String(number - 1).padStart(2,'0')}` : '';
-      const nextId = number < scenes.length ? `scene-${String(number + 1).padStart(2,'0')}` : '';
+      const hasNextVisibleScene = number < scenes.length;
+      const nextId = hasNextVisibleScene ? `scene-${String(number + 1).padStart(2,'0')}` : '';
       const poster = scene.poster ? ` poster="${escapeHtml(scene.poster)}"` : '';
       const reverse = number % 2 === 0 ? ' reverse' : '';
       const finalControls = number === scenes.length ? `
         <div class="scene-nav">
-          <button class="scene-next" type="button" data-prev-scene="${prevId}">PREVIOUS SCENE</button>
+          <button class="scene-next" type="button"${prevId ? ` data-prev-scene="${prevId}"` : ' disabled'}>PREVIOUS SCENE</button>
+          ${hasLockedScenes ? '<button class="scene-next" type="button" disabled>NEXT SCENE LOCKED</button>' : ''}
         </div>
       ` : `
         <div class="scene-nav">
@@ -179,9 +201,9 @@ function renderIssueContent(issue,siteData = {}){
     }).join('')}
     <article class="issue-complete-panel reveal visible" id="issue-complete">
       <div>
-        <span>ISSUE COMPLETE</span>
-        <h3>${issueNumber === '001' ? 'THE FARMER FILE IS OPEN.' : `${issueTitle} SIGNAL IS OPEN.`}</h3>
-        <p>Share the transmission, join the Trenches, or open the live $LGDN token.</p>
+        <span>${hasLockedScenes ? 'NEXT DROP LOCKED' : 'ISSUE COMPLETE'}</span>
+        <h3>${hasLockedScenes ? escapeHtml(release.lockedSceneTitle || 'NEXT SCENE SEALED.') : (issueNumber === '001' ? 'THE FARMER FILE IS OPEN.' : `${issueTitle} SIGNAL IS OPEN.`)}</h3>
+        <p>${hasLockedScenes ? escapeHtml(release.lockedSceneBody || 'The next transmission unlocks soon.') : 'Share the transmission, join the Trenches, or open the live $LGDN token.'}</p>
       </div>
       <div class="issue-actions issue-actions-bottom">
         <button class="btn" type="button" data-start-issue>START FROM BEGINNING</button>
@@ -235,7 +257,7 @@ function renderIssue(issueData,siteData = {}){
     `;
   }
 
-  renderIssueContent(issueData.activeIssue,siteData);
+  renderIssueContent(issueData.activeIssue,siteData,'activeIssue',issueData);
 }
 
 function renderMission(mission){
@@ -490,7 +512,7 @@ function initInteractions(issueData){
   let currentIssueKey = 'activeIssue';
 
   function getCurrentIssue(){
-    return issueData?.[currentIssueKey] || issueData?.activeIssue;
+    return getIssueByKey(issueData,currentIssueKey);
   }
 
   function refreshReaderRefs(){
@@ -769,12 +791,11 @@ function initInteractions(issueData){
   }
 
   function selectIssue(issueKey = 'activeIssue'){
-    const openIssue = (issueData?.openIssues || []).find(issue=>issue.key === issueKey);
-    const issue = issueData?.[issueKey] || openIssue;
+    const issue = getIssueByKey(issueData,issueKey);
     if(!issue) return;
     pauseSceneVideos();
     currentIssueKey = issueKey;
-    renderIssueContent(issue,window.loopGaidenSiteData || {});
+    renderIssueContent(issue,window.loopGaidenSiteData || {},currentIssueKey,issueData);
     refreshReaderRefs();
     setupScenePicker();
     bindReaderButtons();

@@ -255,7 +255,7 @@
         <h2>ISSUE 001 — THE FARMER</h2>
         <p>Opened from the active Greed Lord file. New scenes can be unlocked here as they drop on X.</p>
         <div class="reader-progress" aria-live="polite">
-          <span id="readerProgressText">Scene 1 / 7</span>
+          <span id="readerProgressText">Scene 1 / 1</span>
           <div class="progress-track"><span id="readerProgressBar"></span></div>
         </div>
         <div class="scene-picker" aria-label="Scene picker"></div>
@@ -269,7 +269,7 @@
         <div class="mobile-reader-dock" aria-label="Mobile comic reader controls">
           <button type="button" data-mobile-prev aria-label="Previous scene">PREV</button>
           <div>
-            <span data-mobile-progress-text>SCENE 01 / 10</span>
+            <span data-mobile-progress-text>SCENE 01 / 01</span>
             <i><b data-mobile-progress-bar></b></i>
           </div>
           <button type="button" data-sound-toggle data-sound-short aria-pressed="false">OFF</button>
@@ -306,12 +306,12 @@
             <p>The Trenches struggle below while the machine above keeps growing.</p>
             <div class="scene-nav">
               <button class="scene-next" type="button" disabled>PREVIOUS SCENE</button>
-              <button class="scene-next" type="button" data-next-scene="scene-02">NEXT SCENE</button>
+              <button class="scene-next" type="button" disabled>NEXT SCENE LOCKED</button>
             </div>
           </div>
         </article>
 
-        <article class="scene reveal reverse" id="scene-02" data-progress-scene="2">
+        <article class="scene reveal reverse" id="scene-02" data-progress-scene="2" hidden>
           <div class="scene-num">02</div>
           <div class="scene-media">
             <video poster="assets/optimized/scene-02.jpg" data-src="assets/scenes/web/sc2-h264.mp4" controls muted loop playsinline preload="none" aria-label="The Trenches below the factory"></video>
@@ -329,7 +329,7 @@
           </div>
         </article>
 
-        <article class="scene reveal" id="scene-03" data-progress-scene="3">
+        <article class="scene reveal" id="scene-03" data-progress-scene="3" hidden>
           <div class="scene-num">03</div>
           <div class="scene-media">
             <video poster="assets/optimized/scene-03.jpg" data-src="assets/scenes/web/sc3-h264.mp4" controls muted loop playsinline preload="none" aria-label="The central Loop Gaiden factory"></video>
@@ -347,7 +347,7 @@
           </div>
         </article>
 
-        <article class="scene reveal reverse" id="scene-04" data-progress-scene="4">
+        <article class="scene reveal reverse" id="scene-04" data-progress-scene="4" hidden>
           <div class="scene-num">04</div>
           <div class="scene-media">
             <video poster="assets/optimized/scene-04.jpg" data-src="assets/scenes/web/sc4-h264.mp4" controls muted loop playsinline preload="none" aria-label="The Farmer revealed in his vault"></video>
@@ -365,7 +365,7 @@
           </div>
         </article>
 
-        <article class="scene reveal" id="scene-05" data-progress-scene="5">
+        <article class="scene reveal" id="scene-05" data-progress-scene="5" hidden>
           <div class="scene-num">05</div>
           <div class="scene-media">
             <video data-src="assets/scenes/web/sc5-h264.mp4" controls muted loop playsinline preload="none" aria-label="The story continues in the Trenches"></video>
@@ -383,7 +383,7 @@
           </div>
         </article>
 
-        <article class="scene reveal reverse" id="scene-06" data-progress-scene="6">
+        <article class="scene reveal reverse" id="scene-06" data-progress-scene="6" hidden>
           <div class="scene-num">06</div>
           <div class="scene-media">
             <video data-src="assets/scenes/web/sc6-h264.mp4" controls muted loop playsinline preload="none" aria-label="The sixth Loop Gaiden comic scene"></video>
@@ -401,7 +401,7 @@
           </div>
         </article>
 
-        <article class="scene reveal" id="scene-07" data-progress-scene="7">
+        <article class="scene reveal" id="scene-07" data-progress-scene="7" hidden>
           <div class="scene-num">07</div>
           <div class="scene-media">
             <video data-src="assets/scenes/web/sc7mp4-h264.mp4" controls muted loop playsinline preload="none" aria-label="The seventh Loop Gaiden comic scene"></video>
