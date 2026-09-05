@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260905-1`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260905-2`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -58,11 +58,12 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
     const tiktok = socials.find(social=>social.label.toLowerCase().includes('tiktok'));
     const instagram = socials.find(social=>social.label.toLowerCase().includes('instagram'));
     mobileSticky.innerHTML = `
-      <a href="${escapeHtml(buyUrl)}" target="_blank" rel="noopener">Buy</a>
+      <a href="#story" data-open-issue>Read</a>
+      <a href="#token">Status</a>
       ${x ? `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
       ${tiktok ? `<a href="${escapeHtml(tiktok.url)}" target="_blank" rel="noopener">TikTok</a>` : ''}
       ${instagram ? `<a href="${escapeHtml(instagram.url)}" target="_blank" rel="noopener">Instagram</a>` : ''}
-      ${chart ? `<a href="${escapeHtml(chart.url)}" target="_blank" rel="noopener">Chart</a>` : ''}
+      ${!instagram && chart ? `<a href="${escapeHtml(chart.url)}" target="_blank" rel="noopener">Chart</a>` : ''}
     `;
   }
 
@@ -148,6 +149,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   const scenes = allScenes.slice(0,sceneLimit);
   const lockedSceneCount = Math.max(0,allScenes.length - scenes.length);
   const hasLockedScenes = lockedSceneCount > 0;
+  const nextLockedSceneNumber = scenes.length + 1;
   const release = issueData.release || {};
   const buyUrl = siteData?.token?.buyUrl || '#token';
   const buyLabel = siteData?.token?.buyUrl ? 'BUY $LGDN' : 'TOKEN STATUS';
@@ -221,6 +223,18 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
         </article>
       `;
     }).join('')}
+    ${hasLockedScenes ? `
+      <article class="locked-scene-teaser reveal visible" id="scene-${String(nextLockedSceneNumber).padStart(2,'0')}-locked">
+        <div>
+          <span>NEXT TRANSMISSION</span>
+          <strong>SCENE ${String(nextLockedSceneNumber).padStart(2,'0')}</strong>
+        </div>
+        <div>
+          <h3>${escapeHtml(release.lockedSceneTitle || 'NEXT SCENE SEALED.')}</h3>
+          <p>${escapeHtml(release.lockedSceneBody || 'The next transmission unlocks soon.')}</p>
+        </div>
+      </article>
+    ` : ''}
     <article class="issue-complete-panel reveal visible" id="issue-complete">
       <div>
         <span>${hasLockedScenes ? 'NEXT DROP LOCKED' : 'ISSUE COMPLETE'}</span>
@@ -292,13 +306,47 @@ function renderIssue(issueData,siteData = {}){
 function setupIssueSlider(){
   const slider = document.querySelector('[data-issue-slider]');
   const controls = document.querySelectorAll('[data-issue-slide]');
-  if(!slider || !controls.length) return;
+  if(!slider) return;
+  const status = document.querySelector('[data-issue-slider-status]');
+  const dots = document.querySelector('[data-issue-slider-dots]');
+  const getCards = ()=>Array.from(slider.querySelectorAll('.lord-card'));
   const getStep = ()=>{
     const card = slider.querySelector('.lord-card');
     if(!card) return slider.clientWidth * 0.85;
     const gap = parseFloat(getComputedStyle(slider).columnGap || getComputedStyle(slider).gap || 0) || 0;
     return card.getBoundingClientRect().width + gap;
   };
+  const getActiveIndex = ()=>{
+    const cards = getCards();
+    if(!cards.length) return 0;
+    const sliderLeft = slider.getBoundingClientRect().left;
+    return cards.reduce((best,card,index)=>{
+      const distance = Math.abs(card.getBoundingClientRect().left - sliderLeft);
+      return distance < best.distance ? {index,distance} : best;
+    },{index:0,distance:Number.POSITIVE_INFINITY}).index;
+  };
+  const updateSliderStatus = ()=>{
+    const cards = getCards();
+    const activeIndex = getActiveIndex();
+    const total = cards.length || 1;
+    if(status) status.textContent = `FILE ${String(activeIndex + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+    dots?.querySelectorAll('button').forEach((dot,index)=>{
+      const active = index === activeIndex;
+      dot.classList.toggle('active',active);
+      dot.setAttribute('aria-current',active ? 'true' : 'false');
+    });
+  };
+  if(dots){
+    dots.innerHTML = getCards().map((card,index)=>`
+      <button type="button" aria-label="Go to issue file ${index + 1}" data-issue-dot="${index}"></button>
+    `).join('');
+    dots.querySelectorAll('[data-issue-dot]').forEach(dot=>{
+      dot.addEventListener('click',()=>{
+        const card = getCards()[Number(dot.dataset.issueDot)];
+        card?.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'});
+      });
+    });
+  }
   controls.forEach(control=>{
     if(control.dataset.boundIssueSlider) return;
     control.dataset.boundIssueSlider = 'true';
@@ -309,6 +357,14 @@ function setupIssueSlider(){
       });
     });
   });
+  if(!slider.dataset.boundIssueProgress){
+    slider.dataset.boundIssueProgress = 'true';
+    slider.addEventListener('scroll',()=>{
+      window.requestAnimationFrame(updateSliderStatus);
+    },{passive:true});
+    window.addEventListener('resize',updateSliderStatus);
+  }
+  updateSliderStatus();
 }
 
 function renderMission(mission){
