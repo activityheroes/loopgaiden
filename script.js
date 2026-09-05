@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260906-1`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260906-2`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -374,8 +374,10 @@ function setupIssueSlider(){
     let isPointerDown = false;
     let didDrag = false;
     let startX = 0;
+    let startY = 0;
     let startScrollLeft = 0;
     let pointerId = null;
+    let suppressClickUntil = 0;
 
     const stopDragging = event=>{
       if(!isPointerDown) return;
@@ -386,12 +388,9 @@ function setupIssueSlider(){
       pointerId = null;
       slider.classList.remove('is-dragging');
       if(didDrag){
-        slider.dataset.draggedIssueSlider = 'true';
-        window.setTimeout(()=>{
-          delete slider.dataset.draggedIssueSlider;
-          didDrag = false;
-        },80);
+        suppressClickUntil = Date.now() + 120;
       }
+      didDrag = false;
       window.requestAnimationFrame(updateSliderStatus);
     };
 
@@ -401,20 +400,22 @@ function setupIssueSlider(){
       didDrag = false;
       pointerId = event.pointerId;
       startX = event.clientX;
+      startY = event.clientY;
       startScrollLeft = slider.scrollLeft;
       slider.setPointerCapture?.(event.pointerId);
     });
 
     slider.addEventListener('pointermove',event=>{
       if(!isPointerDown || event.pointerId !== pointerId) return;
-      const distance = event.clientX - startX;
-      if(Math.abs(distance) > 4){
+      const distanceX = event.clientX - startX;
+      const distanceY = event.clientY - startY;
+      if(Math.abs(distanceX) > 14 && Math.abs(distanceX) > Math.abs(distanceY)){
         didDrag = true;
         slider.classList.add('is-dragging');
       }
       if(didDrag){
         event.preventDefault();
-        slider.scrollLeft = startScrollLeft - distance;
+        slider.scrollLeft = startScrollLeft - distanceX;
       }
     });
 
@@ -422,7 +423,7 @@ function setupIssueSlider(){
     slider.addEventListener('pointercancel',stopDragging);
     slider.addEventListener('lostpointercapture',stopDragging);
     slider.addEventListener('click',event=>{
-      if(slider.dataset.draggedIssueSlider === 'true'){
+      if(Date.now() < suppressClickUntil){
         event.preventDefault();
         event.stopPropagation();
         event.stopImmediatePropagation();
