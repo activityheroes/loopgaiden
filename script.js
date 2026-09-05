@@ -77,8 +77,40 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
   }
 }
 
+function getIssueEntries(issueData = {}){
+  return [
+    { key: 'activeIssue', issue: issueData.activeIssue },
+    { key: 'nextIssue', issue: issueData.nextIssue },
+    ...(issueData.openIssues || []).map(issue=>({ key: issue.key, issue }))
+  ].filter(entry=>entry.issue);
+}
+
+function getVisibleIssueEntries(issueData = {}){
+  const entries = getIssueEntries(issueData);
+  const visibleKeys = issueData.release?.visibleIssueKeys;
+  if(!Array.isArray(visibleKeys) || !visibleKeys.length) return entries;
+  return entries.filter(entry=>visibleKeys.includes(entry.key) || visibleKeys.includes(entry.issue.number));
+}
+
 function getIssueList(issueData = {}){
-  return [issueData.activeIssue,issueData.nextIssue,...(issueData.openIssues || [])].filter(Boolean);
+  return getVisibleIssueEntries(issueData).map(entry=>entry.issue);
+}
+
+function getLockedIssueCards(issueData = {}){
+  const visibleIssues = new Set(getIssueList(issueData).map(issue=>issue.number));
+  const release = issueData.release || {};
+  const hiddenIssues = getIssueEntries(issueData)
+    .map(entry=>entry.issue)
+    .filter(issue=>!visibleIssues.has(issue.number))
+    .map(issue=>({
+      number: issue.number,
+      title: 'CLASSIFIED',
+      quote: release.lockedQuote || 'NEXT TRANSMISSION SEALED.',
+      status: release.lockedStatus || 'ISSUE LOCKED'
+    }));
+
+  const existingLocks = issueData.lockedLords || [];
+  return [...hiddenIssues,...existingLocks].filter(lord=>!visibleIssues.has(lord.number));
 }
 
 function renderIssueContent(issue,siteData = {}){
@@ -171,10 +203,11 @@ function renderIssue(issueData,siteData = {}){
   const lordGrid = document.querySelector('.lord-grid');
   if(lordGrid){
     lordGrid.innerHTML = `
-      ${issues.map((issue,index)=>{
+      ${getVisibleIssueEntries(issueData).map((entry,index)=>{
+        const issue = entry.issue;
         const issueNumber = escapeHtml(issue.number);
         const issueTitle = escapeHtml(issue.title);
-        const issueKey = escapeHtml(issue.key || (index === 0 ? 'activeIssue' : 'nextIssue'));
+        const issueKey = escapeHtml(entry.key || issue.key || (index === 0 ? 'activeIssue' : 'nextIssue'));
         return `
           <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-issue-key="${issueKey}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
             <div class="cover-frame">
@@ -189,7 +222,7 @@ function renderIssue(issueData,siteData = {}){
           </article>
         `;
       }).join('')}
-      ${(issueData.lockedLords || []).filter(lord=>!activeNumbers.has(lord.number)).map(lord=>`
+      ${getLockedIssueCards(issueData).filter(lord=>!activeNumbers.has(lord.number)).map(lord=>`
         <article class="lord-card silhouette reveal">
           <div>
             <b>${escapeHtml(lord.number)}</b>

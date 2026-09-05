@@ -1,4 +1,9 @@
 {
+  "release": {
+    "visibleIssueKeys": ["activeIssue"],
+    "lockedStatus": "UNLOCKS AFTER TOKEN LAUNCH",
+    "lockedQuote": "NEXT TRANSMISSION SEALED."
+  },
   "activeIssue": {
     "number": "001",
     "title": "THE FARMER",
