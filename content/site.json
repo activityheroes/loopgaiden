@@ -166,13 +166,13 @@
   "token": {
     "symbol": "$LGDN",
     "network": "LOOP GAIDEN · SOLANA",
-    "launchStatus": "LAUNCH STATUS: LIVE",
-    "contractStatus": "LIVE ON SOLANA",
-    "contractMessage": "OFFICIAL CONTRACT ADDRESS",
-    "contractAddress": "Eepq1Wpq4q8cA4PphwCGkkTSdPHnwJubAnyoTha2pump",
-    "buyUrl": "https://pump.fun/coin/Eepq1Wpq4q8cA4PphwCGkkTSdPHnwJubAnyoTha2pump",
-    "buyLabel": "BUY ON PUMP.FUN",
-    "fineprint": "Always verify the contract before trading."
+    "launchStatus": "RELAUNCH STATUS: PREPARING",
+    "contractStatus": "CONTRACT COMING SOON",
+    "contractMessage": "NEW OFFICIAL ADDRESS WILL BE POSTED HERE",
+    "contractAddress": "NOT LIVE YET",
+    "buyUrl": "",
+    "buyLabel": "TOKEN STATUS",
+    "fineprint": "Do not trust old contract links. The new official address will appear here when relaunch is live."
   },
   "community": {
     "kicker": "THE TRENCHES",

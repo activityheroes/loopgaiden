@@ -139,6 +139,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   const hasLockedScenes = lockedSceneCount > 0;
   const release = issueData.release || {};
   const buyUrl = siteData?.token?.buyUrl || '#token';
+  const buyLabel = siteData?.token?.buyUrl ? 'BUY $LGDN' : 'TOKEN STATUS';
 
   setText('#story .section-head h2',`ISSUE ${issue.number} — ${issue.title}`);
   setText('#story .section-head p',issue.summary);
@@ -208,7 +209,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
       <div class="issue-actions issue-actions-bottom">
         <button class="btn" type="button" data-start-issue>START FROM BEGINNING</button>
         <button class="btn" type="button" data-share-issue>SHARE ISSUE</button>
-        <a class="btn" href="${escapeHtml(buyUrl)}" target="_blank" rel="noopener">BUY $LGDN</a>
+        <a class="btn" href="${escapeHtml(buyUrl)}"${siteData?.token?.buyUrl ? ' target="_blank" rel="noopener"' : ''}>${buyLabel}</a>
         <a class="btn" href="#community">JOIN COMMUNITY</a>
         <button class="btn primary" type="button" data-close-issue>BACK TO GREED LORDS</button>
         <a class="btn" href="#top">FRONT PAGE</a>
@@ -401,9 +402,17 @@ function renderSite(site,socials,issues){
   setText('.launch-state strong',site?.token?.contractMessage);
   setText('#ca',site?.token?.contractAddress);
   const buyButton = document.querySelector('.token-actions .primary');
-  if(buyButton && site?.token?.buyUrl){
-    buyButton.href = site.token.buyUrl;
-    buyButton.textContent = site.token.buyLabel || buyButton.textContent;
+  if(buyButton){
+    buyButton.textContent = site?.token?.buyLabel || buyButton.textContent;
+    if(site?.token?.buyUrl){
+      buyButton.href = site.token.buyUrl;
+      buyButton.setAttribute('target','_blank');
+      buyButton.setAttribute('rel','noopener');
+    }else{
+      buyButton.href = '#token';
+      buyButton.removeAttribute('target');
+      buyButton.removeAttribute('rel');
+    }
   }
   setText('.fineprint',site?.token?.fineprint);
 
@@ -897,8 +906,8 @@ function initInteractions(issueData){
 
   document.getElementById('copyCA')?.addEventListener('click',async ()=>{
     const ca = document.getElementById('ca').textContent.trim();
-    if(ca === 'TBA AT LAUNCH'){
-      alert('Contract address unlocks at launch.');
+    if(!ca || ca === 'NOT LIVE YET'){
+      alert('The new contract address will be posted here when relaunch is live.');
       return;
     }
     try{

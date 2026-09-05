@@ -303,7 +303,7 @@ function initGameInteractions(data){
   const copyMessage = document.querySelector('[data-copy-message]');
   copyContract?.addEventListener('click',async ()=>{
     const value = contractAddress?.textContent?.trim();
-    if(!value) return;
+    if(!value || value === 'NOT LIVE YET') return;
     try{
       await navigator.clipboard.writeText(value);
       copyContract.textContent = 'COPIED';
