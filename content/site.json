@@ -127,23 +127,6 @@
           { "label": "06 ???", "state": "locked" },
           { "label": "07 ???", "state": "locked" }
         ]
-      },
-      {
-        "number": "06",
-        "tone": "future",
-        "status": "EXPLORATION / FUTURE MISSION",
-        "title": "CHAPTER 06 — LOOP GAIDEN: THE GAME",
-        "body": "The game is paused while the comic story leads the mission.",
-        "items": [
-          "2D action / beat-'em-up planned for later",
-          "Comic chapters come first",
-          "Play as Loop",
-          "Fight Bundles",
-          "Fight Snipers",
-          "Fight Goons",
-          "Battle the Seven Greed Lords",
-          "Browser prototype"
-        ]
       }
     ],
     "final": {
