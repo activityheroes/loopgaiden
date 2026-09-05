@@ -371,30 +371,25 @@ function renderSite(site,socials,issues){
   const gameImage = document.querySelector('.game-cartridge img');
   if(gameImage && site?.game?.image) gameImage.src = site.game.image;
 
-  setText('.manifesto .kicker',site?.manifesto?.kicker);
-  setHtml('.manifesto h2',site?.manifesto?.title);
-  const manifestoParagraph = document.querySelector('.manifesto-copy p:not(.accent-line)');
-  if(manifestoParagraph && site?.manifesto?.paragraphs?.[0]) manifestoParagraph.textContent = site.manifesto.paragraphs[0];
-  setText('.accent-line',site?.manifesto?.accent);
-
-  renderMission(site?.mission);
-
-  setHtml('.loop-code h2',site?.loopCode?.title);
-  const codeRules = document.querySelector('.code-rules');
-  if(codeRules && site?.loopCode?.rules){
-    codeRules.innerHTML = site.loopCode.rules.map((rule,index)=>`
-      <div><b>${String(index + 1).padStart(2,'0')}</b><span>${escapeHtml(rule)}</span></div>
-    `).join('');
+  setText('.manifesto .trenches-panel span',site?.manifesto?.kicker);
+  setText('.manifesto .trenches-panel h2',site?.manifesto?.title);
+  const manifestoCopy = document.querySelector('.manifesto .trenches-panel > div:first-child');
+  if(manifestoCopy && site?.manifesto?.paragraphs){
+    manifestoCopy.querySelectorAll('p').forEach(paragraph=>paragraph.remove());
+    site.manifesto.paragraphs.forEach(paragraph=>{
+      const element = document.createElement('p');
+      element.textContent = paragraph;
+      manifestoCopy.appendChild(element);
+    });
   }
-  setText('.trenches-panel span',site?.loopCode?.trenchesKicker);
-  setText('.trenches-panel h3',site?.loopCode?.trenchesTitle);
-  setText('.trenches-panel p',site?.loopCode?.trenchesBody);
-  const trenchesStatements = document.querySelector('.trenches-statements');
-  if(trenchesStatements && site?.loopCode?.trenchesStatements){
-    trenchesStatements.innerHTML = site.loopCode.trenchesStatements.map(statement=>`
+  const manifestoStatements = document.querySelector('.manifesto .trenches-statements');
+  if(manifestoStatements && site?.manifesto?.statements){
+    manifestoStatements.innerHTML = site.manifesto.statements.map(statement=>`
       <strong>${escapeHtml(statement)}</strong>
     `).join('');
   }
+
+  renderMission(site?.mission);
 
   setText('.token-card h2',site?.token?.symbol);
   const tokenNetwork = document.querySelector('.token-card h2 + p');

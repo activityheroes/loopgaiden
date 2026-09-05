@@ -31,12 +31,17 @@
     "url": "#mission"
   },
   "manifesto": {
-    "kicker": "THE WORLD",
-    "title": "THE TRENCHES<br>WEREN'T ALWAYS LIKE THIS.",
+    "kicker": "THE CULTURE",
+    "title": "THE TRENCHES",
     "paragraphs": [
-      "Meme coins were supposed to belong to the people. Somewhere along the way, value stopped circulating and started flowing in one direction."
+      "Meme coins were supposed to belong to the people. Somewhere along the way, value stopped circulating and started flowing in one direction.",
+      "Loop Gaiden is a story about what meme coin culture became — farmers, extractors, manipulators, bundles, bots, snipers and the people caught in between."
     ],
-    "accent": "Loop came to find out why. ∞"
+    "statements": [
+      "THE COMIC IS THE ROADMAP.",
+      "THE COMMUNITY IS THE MOVEMENT.",
+      "THE TRENCHES DECIDE WHAT HAPPENS NEXT."
+    ]
   },
   "mission": {
     "kicker": "THE MISSION ∞",
@@ -147,23 +152,6 @@
       "body": "Take back the trenches.",
       "status": "[ CLASSIFIED ]"
     }
-  },
-  "loopCode": {
-    "title": "DON'T TRUST THE SLOGAN.<br><em>VERIFY THE LOOP.</em>",
-    "rules": [
-      "NO PRESALE",
-      "NO HIDDEN BUNDLES",
-      "PUBLIC CREATOR WALLET",
-      "TRANSPARENCY FIRST"
-    ],
-    "trenchesKicker": "THE CULTURE",
-    "trenchesTitle": "THE TRENCHES",
-    "trenchesBody": "Loop Gaiden is a story about what meme coin culture became — farmers, extractors, manipulators, bundles, bots, snipers and the people caught in between.",
-    "trenchesStatements": [
-      "THE COMIC IS THE ROADMAP.",
-      "THE COMMUNITY IS THE MOVEMENT.",
-      "THE TRENCHES DECIDE WHAT HAPPENS NEXT."
-    ]
   },
   "token": {
     "symbol": "$LGDN",
