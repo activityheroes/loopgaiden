@@ -20,7 +20,11 @@
   "latest": {
     "kicker": "LATEST TRANSMISSION",
     "title": "ISSUE 001: THE FARMER IS LIVE",
-    "button": "OPEN ISSUE"
+    "button": "OPEN ISSUE",
+    "releaseLine": [
+      "ISSUE 001 LIVE",
+      "SCENE 02 UNLOCKS NEXT"
+    ]
   },
   "game": {
     "kicker": "ARCADE FILE",

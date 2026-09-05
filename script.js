@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260905-2`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260905-3`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -464,6 +464,10 @@ function renderSite(site,socials,issues){
   setText('.latest-inner .kicker',site?.latest?.kicker);
   setText('.latest-inner h2',site?.latest?.title);
   setText('.latest-inner button',site?.latest?.button);
+  const launchStrip = document.querySelector('.launch-strip');
+  if(launchStrip && Array.isArray(site?.latest?.releaseLine)){
+    launchStrip.innerHTML = site.latest.releaseLine.map(item=>`<span>${escapeHtml(item)}</span>`).join('');
+  }
 
   setText('.game-copy .kicker',site?.game?.kicker);
   setText('.game-copy h2',site?.game?.title);
@@ -759,9 +763,14 @@ function initInteractions(issueData){
     const issue = getCurrentIssue();
     const sceneId = getSceneByNumber(currentSceneNumber)?.id || 'story';
     const shareUrl = `${window.location.origin}${window.location.pathname}#${sceneId}`;
+    const allScenes = issue?.scenes || [];
+    const visibleScenes = getSceneLimit(issueData,currentIssueKey,issue);
+    const nextSceneNumber = visibleScenes < allScenes.length ? visibleScenes + 1 : 0;
+    const sceneLabel = `Scene ${String(currentSceneNumber).padStart(2,'0')}`;
+    const unlockLabel = nextSceneNumber ? ` Scene ${String(nextSceneNumber).padStart(2,'0')} unlocks next.` : ' The full issue is live.';
     const shareData = {
       title:`Loop Gaiden — Issue ${issue?.number || '001'}`,
-      text:`${issue?.shareText || 'Issue 001 is live.'} Scene ${currentSceneNumber} / ${totalScenes}.`,
+      text:`Issue ${issue?.number || '001'}: ${sceneLabel} is live.${unlockLabel}`,
       url:shareUrl
     };
 
@@ -773,14 +782,14 @@ function initInteractions(issueData){
     }
 
     try{
-      await navigator.clipboard.writeText(shareUrl);
+      await navigator.clipboard.writeText(`${shareData.text}\n${shareUrl}`);
       shareIssueButtons.forEach(button=>{
         const old = button.textContent;
         button.textContent = 'LINK COPIED';
         setTimeout(()=>button.textContent = old,1400);
       });
     }catch(e){
-      alert('Share this issue: ' + shareUrl);
+      alert(`${shareData.text}\n${shareUrl}`);
     }
   }
 
