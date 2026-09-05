@@ -386,11 +386,13 @@ function renderSite(site,socials,issues){
       <div><b>${String(index + 1).padStart(2,'0')}</b><span>${escapeHtml(rule)}</span></div>
     `).join('');
   }
-  setText('.ledger p',site?.loopCode?.ledgerText);
-  const feeGrid = document.querySelector('.fee-grid');
-  if(feeGrid && site?.loopCode?.fees){
-    feeGrid.innerHTML = site.loopCode.fees.map(fee=>`
-      <div><strong>${escapeHtml(fee.value)}</strong><span>${escapeHtml(fee.label)}</span></div>
+  setText('.trenches-panel span',site?.loopCode?.trenchesKicker);
+  setText('.trenches-panel h3',site?.loopCode?.trenchesTitle);
+  setText('.trenches-panel p',site?.loopCode?.trenchesBody);
+  const trenchesStatements = document.querySelector('.trenches-statements');
+  if(trenchesStatements && site?.loopCode?.trenchesStatements){
+    trenchesStatements.innerHTML = site.loopCode.trenchesStatements.map(statement=>`
+      <strong>${escapeHtml(statement)}</strong>
     `).join('');
   }
 

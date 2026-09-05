@@ -156,11 +156,13 @@
       "PUBLIC CREATOR WALLET",
       "TRANSPARENCY FIRST"
     ],
-    "ledgerText": "Every fee has a trail. Buybacks, project fuel, and reserves stay visible so the Trenches can follow the flow.",
-    "fees": [
-      { "value": "70%", "label": "BUYBACKS" },
-      { "value": "20%", "label": "PROJECT" },
-      { "value": "10%", "label": "RESERVE" }
+    "trenchesKicker": "THE CULTURE",
+    "trenchesTitle": "THE TRENCHES",
+    "trenchesBody": "Loop Gaiden is a story about what meme coin culture became — farmers, extractors, manipulators, bundles, bots, snipers and the people caught in between.",
+    "trenchesStatements": [
+      "THE COMIC IS THE ROADMAP.",
+      "THE COMMUNITY IS THE MOVEMENT.",
+      "THE TRENCHES DECIDE WHAT HAPPENS NEXT."
     ]
   },
   "token": {
