@@ -373,41 +373,6 @@ body:before{
   opacity:.72;
 }
 .hero{isolation:isolate}
-.hero-copy:before,.hero-copy:after{
-  position:absolute;
-  z-index:-1;
-  display:grid;
-  place-items:center;
-  border:2px solid #050705;
-  color:#081000;
-  font-family:'Bangers','Archivo Black',sans-serif;
-  letter-spacing:.02em;
-  box-shadow:6px 6px 0 #000b;
-  transform:rotate(-7deg);
-}
-.hero-copy:before{
-  content:"LFG";
-  right:12px;
-  top:88px;
-  width:104px;
-  height:70px;
-  background:var(--comic-pink);
-  color:#19020f;
-  font-size:42px;
-  clip-path:polygon(12% 0,100% 0,88% 100%,0 100%);
-  animation:stickerPop 3.2s ease-in-out infinite;
-}
-.hero-copy:after{
-  content:"NEW DROP";
-  right:116px;
-  top:22px;
-  min-width:132px;
-  min-height:48px;
-  padding:0 14px;
-  background:var(--gold);
-  font-size:26px;
-  transform:rotate(5deg);
-}
 .hero-actions .btn{min-height:56px;font-size:13px}
 .hero-actions .btn.primary{position:relative;overflow:hidden}
 .hero-actions .btn.primary:after,.latest-transmission:before{
@@ -568,21 +533,14 @@ body:before{
   border-color:#ff93e8;
   color:#17020f;
 }
-@keyframes stickerPop{
-  0%,100%{transform:rotate(-7deg) scale(1)}
-  50%{transform:rotate(-4deg) scale(1.06)}
-}
 @keyframes shinePass{
   0%,55%{transform:translateX(-130%)}
   78%,100%{transform:translateX(130%)}
 }
 @media(max-width:850px){
-  .hero-copy:before{right:0;top:58px;width:80px;height:54px;font-size:32px}
-  .hero-copy:after{right:74px;top:8px;min-width:104px;min-height:40px;font-size:21px}
   .scene-media{border-right:0;border-bottom:2px solid #c8ff2f33}
 }
 @media(max-width:560px){
-  .hero-copy:before,.hero-copy:after{display:none}
   .section-head h2:after,.trenches-panel h2:after{height:8px}
   .issue-slider-controls{transform:none}
   .lord-card.farmer .cover-frame{outline-offset:-6px}
