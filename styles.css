@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bangers&family=Inter:wght@400;600;700;800&display=swap');
 
 :root{
   --bg:#070906; --panel:#0d110d; --ink:#f6f3e8; --muted:#9aa294;
@@ -230,3 +230,74 @@ footer{padding:30px 5vw;border-top:1px solid #293126;display:flex;align-items:ce
 @media(max-width:850px){.lord-card.farmer{flex-basis:min(86vw,620px)}.hero:before{opacity:.18}.lord-grid:hover .lord-card:not(:hover):not(.farmer){opacity:1}}
 @media(max-width:560px){.lord-card.farmer:before{right:12px;top:12px;font-size:9px}.silhouette:before{font-size:58px}.silhouette span{width:100%;justify-content:center;text-align:center}}
 @media(prefers-reduced-motion:reduce){.hero video.hero-bg{display:none}.hero-poster{display:block}.game-cartridge img,.game-hero-cart img,.game-cta,.game-status,.hero:before{animation:none}.reveal{transition:none}}
+
+/* Comic color pass */
+:root{
+  --bg:#080c0d;
+  --panel:#101711;
+  --ink:#fff8e8;
+  --muted:#b4bdad;
+  --acid:#b8ff1f;
+  --acid2:#7fe01b;
+  --gold:#ffd15a;
+  --comic-cyan:#30d8ff;
+  --comic-pink:#ff4fd8;
+  --comic-orange:#ff9f2f;
+  --comic-blue:#315bff;
+  --line:#405139;
+}
+body{background:radial-gradient(circle at 14% 0%,#152017 0,#080c0d 42%,#050706 100%);color:var(--ink)}
+h1,h2,h3,.brand,.trenches-call,.issue-complete-panel h3{font-family:'Bangers','Archivo Black',sans-serif;font-weight:400;letter-spacing:0}
+.btn,.nav-links a,.kicker,.eyebrow,.mission-status,.status,.launch-strip span,.issue-card-badges span,.scene-release-strip span,.mobile-sticky a{letter-spacing:.06em}
+.nav{background:linear-gradient(#080c0df0,#080c0dcc);border-bottom-color:#b8ff1f24;box-shadow:0 12px 36px #0008}
+.brand-mark{color:var(--acid);text-shadow:0 0 18px #b8ff1f70}
+.nav-links a:hover{color:var(--comic-cyan)}
+.hero:before{background:radial-gradient(circle,#ffffff20 1px,transparent 1.7px);background-size:10px 10px;opacity:.12;mix-blend-mode:screen;animation:none}
+.hero:after{background:radial-gradient(ellipse at 72% 42%,transparent 0%,#07100922 28%,#05070595 74%,#050705 100%),linear-gradient(180deg,#05070518 0%,transparent 32%,#050705ba 100%)}
+.hero-overlay{background:linear-gradient(90deg,#050705e6 0%,#07110ace 36%,#05070535 68%,#0507058a 100%),linear-gradient(0deg,#070906 0%,transparent 42%)}
+.hero h1{color:var(--ink);text-shadow:5px 5px 0 #050705,8px 8px 0 #1e2a18,0 0 38px #b8ff1f18}
+.hero h1 span{color:var(--acid);text-shadow:5px 5px 0 #050705,8px 8px 0 #24430b,0 0 32px #b8ff1f3d}
+.hero-line strong{color:var(--gold)}
+.eyebrow,.hero-badge,.start-cue{box-shadow:0 0 0 1px #050705,5px 5px 0 #0008}
+.hero-badge{border-color:#b8ff1f80;background:#0b130dcc;color:var(--acid)}
+.start-cue,.btn.primary,.latest-transmission{background:var(--acid);color:#081000}
+.btn{border-color:#738267;background:#111910d6;box-shadow:4px 4px 0 #0008}
+.btn:hover,.btn:focus-visible{border-color:var(--comic-cyan);color:var(--comic-cyan);box-shadow:5px 5px 0 #000,0 0 24px #30d8ff24;outline:0}
+.btn.primary:hover,.btn.primary:focus-visible{color:#081000;border-color:var(--gold);background:var(--gold);box-shadow:5px 5px 0 #000,0 0 24px #ffd15a38}
+.btn.ghost{border-color:var(--comic-cyan);color:var(--comic-cyan)}
+.latest-transmission{box-shadow:inset 0 7px 0 #dfff73,inset 0 -7px 0 #74ba00}
+.latest-inner h2,.section-head h2,.trenches-panel h2,.community h2,.next-issue h2{letter-spacing:0;text-shadow:4px 4px 0 #050705,0 0 26px #b8ff1f12}
+.latest-inner h2{color:#081000;text-shadow:2px 2px 0 #dfff73}
+.launch-strip span:last-child{background:var(--comic-cyan);border-color:#081000;color:#081000}
+.trenches-panel,.mission-card,.lord-card,.token-card,.issue-start,.scene,.issue-complete-panel,.next-issue-inner,.hub-grid a{border-color:#b8ff1f33;background-image:radial-gradient(circle at 0 0,#b8ff1f14,transparent 34%),linear-gradient(135deg,#121b12,#080c0d 62%)}
+.token-card,.next-issue-inner,.hub-grid a{position:relative;overflow:hidden}
+.token-card>*,.next-issue-inner>*,.hub-grid a>*{position:relative;z-index:1}
+.trenches-panel:after,.mission-card:before,.lord-card:after,.token-card:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle,#ffffff10 1px,transparent 1.8px);background-size:12px 12px;opacity:.12;mix-blend-mode:screen}
+.trenches-panel{box-shadow:8px 8px 0 #0009,0 0 42px #b8ff1f12}
+.trenches-statements strong:nth-child(1){border-color:#b8ff1f66;color:var(--acid)}
+.trenches-statements strong:nth-child(2){border-color:#30d8ff66;color:var(--comic-cyan)}
+.trenches-statements strong:nth-child(3){border-color:#ff4fd866;color:var(--comic-pink)}
+.issue-slider-controls button:hover,.issue-slider-controls button:focus-visible,.issue-slider-dots button.active,.issue-slider-dots button:hover,.issue-slider-dots button:focus-visible{background:var(--comic-cyan);border-color:var(--comic-cyan);color:#061014}
+.lord-card.farmer{border-color:#b8ff1f80;box-shadow:8px 8px 0 #0009,0 0 0 1px #b8ff1f30,0 34px 80px #000b,0 0 54px #b8ff1f1f}
+.lord-card.farmer:before{background:var(--gold);color:#140c00}
+.lord-card.farmer:hover,.lord-card.farmer:focus-visible,.lord-card.farmer.issue-open{box-shadow:8px 8px 0 #000,0 0 0 1px #b8ff1fb0,0 0 56px #b8ff1f36,0 42px 92px #000d}
+.silhouette{background:radial-gradient(circle at 70% 10%,#21300f,#070906 58%);border-color:#b8ff1f38}
+.silhouette p{color:var(--comic-cyan)}
+.silhouette span{border-color:#ff4fd84d;color:#ffb7ed}
+.mission-marker{background:#0e160f;border-color:#b8ff1f80;box-shadow:4px 4px 0 #000,0 0 28px #b8ff1f24}
+.mission-chapter.next .mission-marker,.mission-chapter.next .mission-status{border-color:#ffd15a88;color:var(--gold)}
+.mission-card li:before{background:var(--comic-cyan);box-shadow:0 0 16px #30d8ff8a}
+.scene-picker button.active,.scene-picker button:hover,.scene-picker button:focus-visible{background:var(--comic-pink);border-color:var(--comic-pink);color:#17020f}
+.scene-next:hover,.scene-next:focus-visible{border-color:var(--comic-cyan);color:var(--comic-cyan)}
+.progress-track span,.mobile-reader-dock b{background:linear-gradient(90deg,var(--acid),var(--comic-cyan))}
+.scene-release-strip span:first-child,.issue-card-badges span:first-child{background:var(--gold);border-color:var(--gold);color:#140c00}
+.token-card h2{color:var(--gold);text-shadow:4px 4px 0 #050705,0 0 26px #ffd15a24}
+.social-links a:hover,.social-links a:focus-visible{border-color:var(--comic-pink);color:var(--comic-pink)}
+.community{background:radial-gradient(circle at 50% 35%,#263b1c,#0a0f0a 48%,#060806 76%)}
+.community:before{color:#30d8ff0a}
+.official-warning{border-color:#ffd15a66;color:var(--gold)!important}
+@media(max-width:560px){
+  .hero h1{font-size:60px;text-shadow:3px 3px 0 #050705,5px 5px 0 #1e2a18}
+  .section-head h2,.trenches-panel h2,.community h2,.next-issue h2{text-shadow:3px 3px 0 #050705}
+  .btn{box-shadow:3px 3px 0 #0009}
+}
