@@ -3,7 +3,7 @@
     "visibleIssueKeys": ["activeIssue", "nextIssue"],
     "sceneLimits": {
       "activeIssue": 10,
-      "nextIssue": 1
+      "nextIssue": 3
     },
     "lockedStatus": "TRANSMISSION SEALED",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
@@ -152,7 +152,7 @@
         "kicker": "FINAL FACE-OFF",
         "title": "CONFRONTATION.",
         "body": "Loop finally faces The Extractor as the drain workers close in and the next Greed Lord file turns dangerous.",
-        "video": "assets/scenes/web/sc04X-h264.mp4",
+        "video": "assets/scenes/web/sc04X-h264.mp4?v=20260907-sc04x",
         "poster": "assets/optimized/scene-14.jpg",
         "ariaLabel": "Loop confronts The Extractor"
       },
