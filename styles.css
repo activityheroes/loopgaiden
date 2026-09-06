@@ -548,3 +548,71 @@ body:before{
   .issue-slider-controls{transform:none}
   .lord-card.farmer .cover-frame{outline-offset:-6px}
 }
+
+/* Readability lift */
+:root{
+  --bg:#142111;
+  --panel:#20331a;
+  --muted:#e0e9d8;
+  --line:#8cb56f;
+}
+body{
+  background:
+    radial-gradient(circle at 15% 0%,#4b8127 0,#27451d 22%,#142111 55%,#0b120c 100%);
+}
+.hero-overlay{
+  background:
+    linear-gradient(90deg,#0b120cbe 0%,#1b3818a0 34%,#1b38182b 70%,#0b120c3f 100%),
+    linear-gradient(0deg,#0f1b0e 0%,transparent 50%);
+}
+.hero:after{
+  background:
+    radial-gradient(ellipse at 72% 42%,transparent 0%,#1f401716 34%,#0b120c54 78%,#0b120c 100%),
+    linear-gradient(180deg,#c8ff2f12 0%,transparent 44%,#0f1b0e8c 100%);
+}
+.hero-line{
+  color:#fffde9;
+  text-shadow:0 3px 20px #000;
+}
+.culture-section,.mission,.lords,.story,.token,.next-issue,.link-hub{
+  background:
+    radial-gradient(circle at 9% 0%,#426d25,#182914 40%,#0e180f 100%);
+}
+.trenches-panel,.mission-card,.lord-card,.token-card,.issue-start,.scene,.issue-complete-panel,.next-issue-inner,.hub-grid a{
+  background-image:
+    radial-gradient(circle at 10% 0%,#d4ff4b30,transparent 38%),
+    radial-gradient(circle at 88% 14%,#38e4ff1c,transparent 34%),
+    linear-gradient(135deg,#253d1f,#142315 68%);
+  border-color:#c8ff2f78;
+}
+.lord-card.farmer,.trenches-panel,.token-card,.next-issue-inner{
+  box-shadow:7px 7px 0 #020302,0 0 54px #c8ff2f2d;
+}
+.issue-card-info{
+  background:
+    radial-gradient(circle at 78% 16%,#ff62dd1f,transparent 35%),
+    linear-gradient(145deg,#243b1e,#132113 72%);
+}
+.silhouette{
+  background:radial-gradient(circle at 76% 10%,#426d25,#182914 54%,#0b120c 100%);
+  filter:saturate(1.06) brightness(1.05);
+}
+.mission-card p,.scene-copy p,.trenches-panel p,.token-card p,.community p,.section-head p,.lord-info p{
+  color:#edf4e7;
+}
+.latest-transmission{
+  background:linear-gradient(90deg,#d8ff39,#fff06b 48%,#45e8ff);
+}
+.btn.primary,.issue-button{
+  background:linear-gradient(135deg,#d8ff39,#fff06b);
+}
+.community{
+  background:radial-gradient(circle at 50% 32%,#528a2c,#20331a 48%,#10190f 78%);
+}
+@media(max-width:850px){
+  .hero-overlay{
+    background:
+      linear-gradient(90deg,#0b120cce,#1b381895 72%,#1b38184d),
+      linear-gradient(0deg,#0f1b0e,transparent 54%);
+  }
+}
