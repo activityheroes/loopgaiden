@@ -301,3 +301,60 @@ h1,h2,h3,.brand,.trenches-call,.issue-complete-panel h3{font-family:'Bangers','A
   .section-head h2,.trenches-panel h2,.community h2,.next-issue h2{text-shadow:3px 3px 0 #050705}
   .btn{box-shadow:3px 3px 0 #0009}
 }
+
+/* Brighter meme-coin comic pass */
+:root{
+  --bg:#10190f;
+  --panel:#172414;
+  --ink:#fffbe9;
+  --muted:#d1dac8;
+  --acid:#c8ff2f;
+  --acid2:#8cff22;
+  --gold:#ffda63;
+  --comic-cyan:#38e4ff;
+  --comic-pink:#ff62dd;
+  --comic-orange:#ffae34;
+  --line:#66825a;
+}
+body{background:radial-gradient(circle at 12% 0%,#35551f 0,#172414 27%,#0b130d 58%,#070a07 100%);color:var(--ink)}
+.nav{background:linear-gradient(#111d13f2,#0b120ce0);border-bottom-color:#c8ff2f4a}
+.hero-bg,.hero-poster{filter:saturate(1.24) contrast(1.08) brightness(1.08)}
+.hero-overlay{background:linear-gradient(90deg,#0b120cd8 0%,#10220fb2 34%,#10220f24 68%,#0b120c58 100%),linear-gradient(0deg,#0b120c 0%,transparent 46%)}
+.hero:after{background:radial-gradient(ellipse at 72% 42%,transparent 0%,#10220f08 32%,#0b120c73 78%,#0b120c 100%),linear-gradient(180deg,#c8ff2f08 0%,transparent 38%,#0b120c99 100%)}
+.hero h1{text-shadow:4px 4px 0 #061008,8px 8px 0 #2a4912,0 0 46px #c8ff2f30}
+.hero h1 span{text-shadow:4px 4px 0 #061008,8px 8px 0 #4b6b11,0 0 46px #c8ff2f70}
+.hero-line{color:#fffbe9;text-shadow:0 2px 18px #000}
+.hero-line strong{color:var(--comic-orange)}
+.eyebrow{background:#c8ff2f;color:#081000;border-left-color:#ffda63}
+.hero-badge{background:var(--comic-pink);border-color:var(--comic-pink);color:#16040f}
+.start-cue{background:var(--comic-cyan);border-left-color:#fffbe9;color:#051014}
+.latest-transmission{background:linear-gradient(90deg,var(--acid),#fff06b 52%,var(--comic-cyan));box-shadow:inset 0 8px 0 #fff7a1,inset 0 -8px 0 #73ba00}
+.launch-strip span{border-color:#081000;background:#081000;color:#fffbe9}.launch-strip span:last-child{background:var(--comic-pink);color:#16040f}
+.section{background-color:#10190f}
+.culture-section,.mission,.lords,.story,.token,.next-issue,.link-hub{background:radial-gradient(circle at 10% 0%,#263b1c,#10190f 44%,#09100b 100%)}
+.section-head p,.mission-card p,.scene-copy p,.trenches-panel p,.token-card p,.community p,.latest-inner p{color:#d9e2d1}
+.trenches-panel,.mission-card,.lord-card,.token-card,.issue-start,.scene,.issue-complete-panel,.next-issue-inner,.hub-grid a{background-image:radial-gradient(circle at 12% 0%,#c8ff2f21,transparent 36%),radial-gradient(circle at 90% 12%,#38e4ff12,transparent 30%),linear-gradient(135deg,#1a2b17,#0e180f 68%);border-color:#c8ff2f57}
+.trenches-panel,.lord-card.farmer,.token-card,.next-issue-inner{box-shadow:7px 7px 0 #020302,0 0 46px #c8ff2f1f}
+.trenches-panel h2,.section-head h2,.community h2,.next-issue h2{color:#fffbe9;text-shadow:4px 4px 0 #061008,0 0 24px #c8ff2f24}
+.trenches-statements strong{background:#10190fe0}
+.trenches-statements strong:nth-child(1){background:#15260f;color:var(--acid)}
+.trenches-statements strong:nth-child(2){background:#0d2225;color:var(--comic-cyan)}
+.trenches-statements strong:nth-child(3){background:#261020;color:var(--comic-pink)}
+.btn{background:#182616e3;border-color:#c8ff2f60;color:#fffbe9}
+.btn.primary{background:linear-gradient(135deg,var(--acid),#fff06b);border-color:#fff06b;color:#081000}
+.btn.ghost{background:#0e1f22;border-color:var(--comic-cyan);color:var(--comic-cyan)}
+.btn:hover,.btn:focus-visible{background:#0e1f22;border-color:var(--comic-cyan);color:var(--comic-cyan)}
+.mission-card li,.lord-info p,.silhouette p{color:#dbe7d3}
+.kicker,.section-head>span,.mission-status,.status,.reader-progress,.locked-scene-teaser span{color:var(--acid)}
+.mission-chapter.live .mission-status,.issue-card-badges span:first-child,.scene-release-strip span:first-child{background:var(--comic-orange);border-color:var(--comic-orange);color:#160b00}
+.lord-card.farmer:before{background:var(--comic-cyan);color:#061014}
+.silhouette{background:radial-gradient(circle at 76% 10%,#31551a,#10190f 54%,#081009 100%);filter:saturate(1) brightness(.95)}
+.silhouette:before{color:#c8ff2f12}.silhouette b{color:#ffffff20}.silhouette h3{color:#fffbe9}
+.silhouette p{color:var(--comic-cyan)}.silhouette span{background:#160f18;border-color:#ff62dd80;color:#ffc6f0}
+.scene-picker button{background:#10190f;border-color:#66825a;color:#fffbe9}
+.community{background:radial-gradient(circle at 50% 32%,#3d6321,#172414 48%,#0a100b 78%)}
+.community:before{color:#ff62dd0d}
+.mobile-sticky a:first-child{background:linear-gradient(135deg,var(--acid),#fff06b)}
+@media(max-width:850px){
+  .hero-overlay{background:linear-gradient(90deg,#0b120cde,#10220fa8 72%,#10220f4d),linear-gradient(0deg,#0b120c,transparent 50%)}
+}
