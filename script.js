@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260906-8`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260906-9`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -1136,7 +1136,7 @@ function initInteractions(issueData){
   document.getElementById('copyCA')?.addEventListener('click',async ()=>{
     const ca = document.getElementById('ca').textContent.trim();
     if(!ca || ca === 'NOT LIVE YET'){
-      alert('The new contract address will be posted here when relaunch is live.');
+      alert('The official contract address will be posted in this section.');
       return;
     }
     try{

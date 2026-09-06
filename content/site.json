@@ -117,14 +117,14 @@
   },
   "token": {
     "symbol": "$LGDN",
-    "network": "LOOP GAIDEN · SOLANA",
-    "launchStatus": "RELAUNCH STATUS: PREPARING",
-    "contractStatus": "CONTRACT COMING SOON",
-    "contractMessage": "NEW OFFICIAL ADDRESS WILL BE POSTED HERE",
-    "contractAddress": "NOT LIVE YET",
+    "network": "LOOP GAIDEN · OFFICIAL TOKEN",
+    "launchStatus": "TOKEN STATUS: LIVE",
+    "contractStatus": "OFFICIAL CONTRACT",
+    "contractMessage": "ONLY TRUST THE ADDRESS POSTED HERE",
+    "contractAddress": "0xfB1fdD825220c888368A5f145d7670c7ae2E5c6E",
     "buyUrl": "",
     "buyLabel": "TOKEN STATUS",
-    "fineprint": "Do not trust old contract links. The new official address will appear here when relaunch is live."
+    "fineprint": "Only trust the contract address posted on this official Loop Gaiden website and @loopgaiden."
   },
   "community": {
     "kicker": "THE TRENCHES",
