@@ -1,10 +1,11 @@
 {
   "release": {
-    "visibleIssueKeys": ["activeIssue"],
+    "visibleIssueKeys": ["activeIssue", "nextIssue"],
     "sceneLimits": {
-      "activeIssue": 6
+      "activeIssue": 10,
+      "nextIssue": 1
     },
-    "lockedStatus": "UNLOCKS AFTER TOKEN LAUNCH",
+    "lockedStatus": "TRANSMISSION SEALED",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
     "lockedTeases": {
       "002": {

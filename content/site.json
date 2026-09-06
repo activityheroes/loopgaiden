@@ -15,19 +15,19 @@
     "video": "assets/web-video/hero-bg-h264.mp4",
     "headline": "LOOP<br><span>GAIDEN</span>",
     "line": "A COMIC ABOUT THE MEMECOIN TRENCHES.",
-    "primaryCta": "WATCH ISSUE 001",
-    "primaryUrl": "#issue-001",
+    "primaryCta": "WATCH ISSUE 002",
+    "primaryUrl": "#issue-002",
     "secondaryCta": "THE TRENCHES",
     "secondaryUrl": "#mission"
   },
   "latest": {
     "kicker": "LATEST TRANSMISSION",
-    "title": "ISSUE 001: THE FARMER IS LIVE",
+    "title": "ISSUE 002: THE EXTRACTOR IS LIVE",
     "button": "OPEN ISSUE",
     "releaseLine": [
-      "ISSUE 001 LIVE",
-      "SCENES 01-06 LIVE",
-      "SCENE 07 UNLOCKS NEXT"
+      "ISSUE 001 COMPLETE",
+      "ISSUE 002 LIVE",
+      "SCENE 01 LIVE"
     ]
   },
   "game": {
@@ -83,7 +83,7 @@
         "body": "Seven manifestations of the greed that took over the trenches.",
         "bosses": [
           { "label": "ISSUE 001 — THE FARMER", "state": "defeated" },
-          { "label": "ISSUE 002 — ???", "state": "locked" },
+          { "label": "ISSUE 002 — THE EXTRACTOR", "state": "active" },
           { "label": "ISSUE 003 — ???", "state": "locked" },
           { "label": "ISSUE 004 — ???", "state": "locked" },
           { "label": "ISSUE 005 — ???", "state": "locked" },

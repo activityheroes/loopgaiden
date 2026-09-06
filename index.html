@@ -20,7 +20,7 @@
   <title>Loop Gaiden — Enter the Trenches</title>
   <link rel="icon" href="assets/loop.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/loop.png" />
-  <link rel="stylesheet" href="styles.css?v=20260906-8" />
+  <link rel="stylesheet" href="styles.css?v=20260906-9" />
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -49,12 +49,12 @@
       <div class="hero-overlay"></div>
       <div class="hero-copy reveal">
         <div class="eyebrow">FROM THE TRENCHES. FOR THE TRENCHES.</div>
-        <div class="hero-badge">ISSUE 001 LIVE</div>
-        <div class="start-cue">START HERE · SCENES 01-06 LIVE</div>
+        <div class="hero-badge">ISSUE 002 LIVE</div>
+        <div class="start-cue">ISSUE 001 COMPLETE · ISSUE 002 SCENE 01 LIVE</div>
         <h1>LOOP<br><span>GAIDEN</span></h1>
         <p class="hero-line">A COMIC ABOUT THE MEMECOIN TRENCHES.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#issue-001" data-open-issue>WATCH ISSUE 001</a>
+          <a class="btn primary" href="#issue-002" data-open-issue="nextIssue">WATCH ISSUE 002</a>
           <a class="btn" href="#mission">THE TRENCHES</a>
           <a class="btn ghost" href="#token">TOKEN STATUS</a>
         </div>
@@ -67,13 +67,14 @@
       <div class="latest-inner reveal">
         <div>
           <span class="kicker">LATEST TRANSMISSION</span>
-          <h2>ISSUE 001: THE FARMER IS LIVE</h2>
+          <h2>ISSUE 002: THE EXTRACTOR IS LIVE</h2>
           <div class="launch-strip">
-            <span>ISSUE 001 LIVE</span>
-            <span>SCENES 01-06 LIVE</span>
+            <span>ISSUE 001 COMPLETE</span>
+            <span>ISSUE 002 LIVE</span>
+            <span>SCENE 01 LIVE</span>
           </div>
         </div>
-        <button class="btn primary" type="button" data-open-issue>OPEN ISSUE</button>
+        <button class="btn primary" type="button" data-open-issue="nextIssue">OPEN ISSUE</button>
       </div>
     </section>
 
@@ -131,7 +132,7 @@
             <div class="issue-card-badges">
               <span>LIVE NOW</span>
               <span>READ NOW</span>
-              <span>SCENES 01-06 LIVE</span>
+              <span>10 SCENES LIVE</span>
             </div>
             <h3>THE FARMER</h3>
             <p>FIRST GREED LORD FILE</p>
@@ -139,7 +140,22 @@
           </div>
         </article>
 
-        <article class="lord-card silhouette reveal"><div><b>002</b><h3>CLASSIFIED</h3><p>NEXT TRANSMISSION SEALED.</p><span>ISSUE LOCKED</span></div></article>
+        <article class="lord-card farmer issue-cover reveal visible next-file" data-issue-key="nextIssue" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
+          <div class="cover-frame">
+            <img src="assets/optimized/the-extractor-issue-cover.jpg" alt="Issue 002 cover" />
+          </div>
+          <div class="lord-info issue-card-info">
+            <div class="lord-index">ISSUE 002</div>
+            <div class="issue-card-badges">
+              <span>LIVE NOW</span>
+              <span>READ NOW</span>
+              <span>SCENE 01 LIVE</span>
+            </div>
+            <h3>THE EXTRACTOR</h3>
+            <p>SECOND GREED LORD FILE</p>
+            <span class="status active issue-button" data-issue-label="OPEN ISSUE 002" data-issue-key="nextIssue">OPEN ISSUE 002</span>
+          </div>
+        </article>
         <article class="lord-card silhouette reveal"><div><b>003</b><h3>CLASSIFIED</h3><p>NEXT TRANSMISSION SEALED.</p><span>ISSUE LOCKED</span></div></article>
         <article class="lord-card silhouette reveal"><div><b>04</b><h3>CLASSIFIED</h3><p>TRANSMISSION SEALED.</p><span>ISSUE LOCKED</span></div></article>
         <article class="lord-card silhouette reveal"><div><b>05</b><h3>CLASSIFIED</h3><p>TRANSMISSION SEALED.</p><span>ISSUE LOCKED</span></div></article>
@@ -193,7 +209,7 @@
             <p>Seven manifestations of the greed that took over the trenches.</p>
             <div class="boss-grid">
               <span class="defeated">ISSUE 001 — THE FARMER</span>
-              <span>ISSUE 002 — ???</span>
+              <span class="active">ISSUE 002 — THE EXTRACTOR</span>
               <span>ISSUE 003 — ???</span>
               <span>ISSUE 004 — ???</span>
               <span>ISSUE 005 — ???</span>
@@ -236,11 +252,11 @@
         <h2>ISSUE 001 — THE FARMER</h2>
         <p>Opened from the active comic file. New scenes can be unlocked here as they drop on X.</p>
         <div class="scene-release-strip" data-scene-release-status>
-          <span>SCENES 01-06 LIVE</span>
-          <span>SCENE 07 UNLOCKS NEXT</span>
+          <span>10 SCENES LIVE</span>
+          <span>ISSUE COMPLETE</span>
         </div>
         <div class="reader-progress" aria-live="polite">
-          <span id="readerProgressText">Scene 1 / 6</span>
+          <span id="readerProgressText">Scene 1 / 10</span>
           <div class="progress-track"><span id="readerProgressBar"></span></div>
         </div>
         <div class="scene-picker" aria-label="Scene picker"></div>
@@ -254,7 +270,7 @@
         <div class="mobile-reader-dock" aria-label="Mobile comic reader controls">
           <button type="button" data-mobile-prev aria-label="Previous scene">PREV</button>
           <div>
-            <span data-mobile-progress-text>SCENE 01 / 06</span>
+            <span data-mobile-progress-text>SCENE 01 / 10</span>
             <i><b data-mobile-progress-bar></b></i>
           </div>
           <button type="button" data-sound-toggle data-sound-short aria-pressed="false">OFF</button>
@@ -498,6 +514,6 @@
     <a href="https://www.instagram.com/loopgaiden/" target="_blank" rel="noopener">Instagram</a>
   </div>
 
-  <script src="script.js?v=20260906-9"></script>
+  <script src="script.js?v=20260906-10"></script>
 </body>
 </html>
