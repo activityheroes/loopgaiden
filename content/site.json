@@ -1,11 +1,11 @@
 {
   "meta": {
     "title": "Loop Gaiden — Enter the Trenches",
-    "description": "Loop Gaiden Issue 001 is live. Scene 01 is open now, and Scene 02 unlocks next.",
+    "description": "Loop Gaiden is a comic about the memecoin trenches: farmers, extractors, manipulators, bots, bundles, snipers, communities and everyone caught in between.",
     "canonicalUrl": "https://loopgaiden.com/",
     "shareUrl": "https://loopgaiden.com/#issue-001",
-    "shareTitle": "Loop Gaiden — Issue 001: Scene 01 Is Live",
-    "shareDescription": "Open The Farmer file. Scene 01 is live now, and Scene 02 unlocks next.",
+    "shareTitle": "Loop Gaiden — A Comic About the Memecoin Trenches",
+    "shareDescription": "Follow Loop through farmers, extractors, manipulators, bots, bundles, snipers, communities and the chaos of the trenches.",
     "shareImage": "https://loopgaiden.com/assets/optimized/cover.jpg",
     "shareImageAlt": "Loop Gaiden Issue 001 comic cover"
   },
@@ -14,10 +14,10 @@
     "image": "assets/optimized/hero-loop-rooftop.jpg",
     "video": "assets/web-video/hero-bg-h264.mp4",
     "headline": "LOOP<br><span>GAIDEN</span>",
-    "line": "GREED BROKE THE GAME.<br><strong>WE PUT IT BACK IN MOTION.</strong>",
+    "line": "A COMIC ABOUT THE MEMECOIN TRENCHES.<br><br>Farmers. Extractors. Manipulators.<br>Bots. Bundles. Snipers. Communities.<br><br>One warrior fights through it all.<br><strong>THE TRENCHES DECIDE WHAT HAPPENS NEXT. ∞</strong>",
     "primaryCta": "WATCH ISSUE 001",
     "primaryUrl": "#issue-001",
-    "secondaryCta": "THE MISSION",
+    "secondaryCta": "THE TRENCHES",
     "secondaryUrl": "#mission"
   },
   "latest": {
@@ -38,109 +38,80 @@
     "url": "#mission"
   },
   "manifesto": {
-    "kicker": "THE CULTURE",
+    "kicker": "THE WORLD",
     "title": "THE TRENCHES",
     "paragraphs": [
-      "Meme coins were supposed to belong to the people. Somewhere along the way, value stopped circulating and started flowing in one direction.",
-      "Loop Gaiden is a story about what meme coin culture became — farmers, extractors, manipulators, bundles, bots, snipers and the people caught in between."
+      "Loop Gaiden is a story about what memecoin culture became — farmers, extractors, manipulators, bundles, bots, snipers, insiders, devs, traders, communities, and everyone caught in between.",
+      "Through Loop, the comic explores the chaos, greed, humor, hope, wins, losses and absurdity of life in the trenches.",
+      "The Seven Greed Lords are part of the story.",
+      "The trenches are the story."
     ],
     "statements": [
-      "THE COMIC IS THE ROADMAP.",
-      "THE COMMUNITY IS THE MOVEMENT.",
-      "THE TRENCHES DECIDE WHAT HAPPENS NEXT."
+      "THE TRENCHES DECIDE WHAT HAPPENS NEXT. ∞"
     ]
   },
   "mission": {
-    "kicker": "THE MISSION ∞",
-    "title": "FROM THE TRENCHES TO THE SEVEN GREED LORDS",
-    "body": "A living path through the Loop Gaiden universe. Each issue reveals the next threat.",
+    "kicker": "STORIES",
+    "title": "STORIES FROM THE TRENCHES",
+    "body": "Loop Gaiden is an expanding comic universe inspired by the culture, characters, chaos and conflicts of the memecoin trenches.",
     "chapters": [
       {
         "number": "01",
         "tone": "live",
-        "status": "STATUS: LIVE ✓",
-        "title": "CHAPTER 01 — LOOP AWAKENS",
-        "body": "The trenches have been farmed long enough.",
+        "status": "THE UNIVERSE",
+        "title": "LOOP GAIDEN",
+        "body": "The trenches are the world. Loop is the protagonist. The comic can explore many stories from the culture around launches, hype, conviction, chaos and survival.",
         "items": [
-          "$LGDN launched",
-          "Loop Gaiden universe begins",
-          "X community launched",
-          "TikTok launched",
-          "Official website",
-          "First animated story releases"
+          "Farmers",
+          "Extractors",
+          "Manipulators",
+          "Bundles",
+          "Bots",
+          "Snipers",
+          "Insiders",
+          "Devs",
+          "Traders",
+          "Communities"
         ]
       },
       {
         "number": "02",
         "tone": "active",
-        "status": "STATUS: IN PROGRESS ⚔️",
-        "title": "CHAPTER 02 — THE FARMER",
-        "body": "Loop discovers the system feeding on the trenches.",
-        "items": [
-          "Issue #001 — THE FARMER",
-          "Animated comic series",
-          "The Farmer confrontation",
-          "Community begins forming",
-          "DEX Screener profile",
-          "Jupiter verification"
+        "status": "CURRENT STORY ARC",
+        "title": "THE GREED LORDS",
+        "body": "Seven manifestations of the greed that took over the trenches.",
+        "bosses": [
+          { "label": "ISSUE 001 — THE FARMER", "state": "defeated" },
+          { "label": "ISSUE 002 — THE EXTRACTOR", "state": "active" },
+          { "label": "ISSUE 003 — THE MANIPULATOR", "state": "active" },
+          { "label": "ISSUE 004 — ???", "state": "locked" },
+          { "label": "ISSUE 005 — ???", "state": "locked" },
+          { "label": "ISSUE 006 — ???", "state": "locked" },
+          { "label": "ISSUE 007 — ???", "state": "locked" }
         ],
-        "badge": "01 FARMER ✓"
+        "callout": "The Greed Lords are only one chapter of the trenches."
       },
       {
         "number": "03",
         "tone": "next",
-        "status": "STATUS: NEXT",
-        "title": "CHAPTER 03 — BUILD THE TRENCHES",
-        "body": "Loop can't fight the system alone.",
+        "status": "FUTURE STORIES",
+        "title": "BEYOND THE GREED LORDS",
+        "body": "Future Loop Gaiden stories can move through rugs, CTOs, insiders, whales, KOLs, bots, devs, communities, launches, bull markets, bear markets, fake hype and real conviction.",
         "items": [
-          "Grow the $LGDN community",
-          "Community memes & artwork",
-          "X Spaces",
-          "Community competitions",
-          "Creator collaborations",
-          "Expand Loop Gaiden lore",
-          "Regular comic + animation releases"
+          "New trench characters",
+          "New comic arcs",
+          "Community lore",
+          "Animated releases",
+          "Loop keeps moving"
         ],
-        "callout": "WELCOME TO THE TRENCHES."
-      },
-      {
-        "number": "04",
-        "tone": "sealed",
-        "status": "TARGET: GREED LORD #2",
-        "title": "CHAPTER 04 — CLASSIFIED",
-        "body": "The next signal has been found, but the file stays sealed until release.",
-        "items": [
-          "Next issue file sealed",
-          "New animated chapter",
-          "New enemies",
-          "New locations",
-          "Second Greed Lord confrontation",
-          "Continue the hunt"
-        ],
-        "silhouette": "?"
-      },
-      {
-        "number": "05",
-        "tone": "hunt",
-        "status": "THE HUNT CONTINUES",
-        "title": "CHAPTER 05 — THE SEVEN GREED LORDS",
-        "body": "Each time a new issue begins, another Greed Lord gets revealed.",
-        "bosses": [
-          { "label": "01 FARMER ✓", "state": "defeated" },
-          { "label": "02 ???", "state": "locked" },
-          { "label": "03 ???", "state": "locked" },
-          { "label": "04 ???", "state": "locked" },
-          { "label": "05 ???", "state": "locked" },
-          { "label": "06 ???", "state": "locked" },
-          { "label": "07 ???", "state": "locked" }
-        ]
+        "callout": "THE UNIVERSE CONTINUES."
       }
     ],
     "final": {
       "kicker": "∞ THE LOOP CONTINUES",
-      "title": "Seven Greed Lords.<br>Seven battles.<br>One mission.",
-      "body": "Take back the trenches.",
-      "status": "[ CLASSIFIED ]"
+      "title": "The trenches are the world.<br>Loop is the hero.<br>The story keeps expanding.",
+      "body": "The Seven Greed Lords are part of the story, not the whole story.",
+      "status": "THE TRENCHES DECIDE WHAT HAPPENS NEXT. ∞"
     }
   },
   "token": {
@@ -157,7 +128,7 @@
   "community": {
     "kicker": "THE TRENCHES",
     "title": "THIS IS OUR LOOP.",
-    "body": "A community, not just holders.<br>Built by the people, for the people.<br>One mission. One culture. One Loop.",
+    "body": "A community, not just holders.<br>The trenches are the world.<br>Loop is the hero we build around.",
     "warning": "Only trust links from this page and @loopgaiden.",
     "joinLabel": "JOIN ON X",
     "readLabel": "READ ISSUE 001"

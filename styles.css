@@ -533,6 +533,9 @@ body:before{
   border-color:#ff93e8;
   color:#17020f;
 }
+.boss-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.boss-grid span{line-height:1.25}
+.mission-final strong{max-width:100%;text-align:center;white-space:normal}
 @keyframes shinePass{
   0%,55%{transform:translateX(-130%)}
   78%,100%{transform:translateX(130%)}

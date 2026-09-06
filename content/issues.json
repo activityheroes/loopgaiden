@@ -27,7 +27,7 @@
     "cardSubtitle": "FIRST GREED LORD FILE",
     "quote": "I NEED MORE.",
     "cover": "assets/optimized/cover.jpg",
-    "summary": "Opened from the active Greed Lord file. New scenes can be unlocked here as they drop on X.",
+    "summary": "Opened from the active comic file. New scenes can be unlocked here as they drop on X.",
     "coverIntro": "Start with the cover, then enter the transmission scene by scene.",
     "shareText": "Issue 001: The Farmer is live.",
     "scenes": [
@@ -106,7 +106,7 @@
       {
         "kicker": "TRANSMISSION COMPLETE",
         "title": "THE LOOP CONTINUES.",
-        "body": "Issue 001 is complete. The first Greed Lord file is open, and the next signal is already calling.",
+      "body": "Issue 001 is complete. The Farmer file is open, and the next signal is already calling.",
         "video": "assets/scenes/web/sc10-h264.mp4?v=20260901",
         "poster": "assets/optimized/scene-10.jpg",
         "ariaLabel": "The tenth Loop Gaiden comic scene"
