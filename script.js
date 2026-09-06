@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260906-6`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260906-7`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -282,6 +282,7 @@ function renderIssue(issueData,siteData = {}){
               <div class="lord-index">ISSUE ${issueNumber}</div>
               <div class="issue-card-badges">
                 <span>LIVE NOW</span>
+                <span>READ NOW</span>
                 <span>${escapeHtml(liveSceneLabel)}</span>
               </div>
               <h3>${issueTitle}</h3>

@@ -616,3 +616,111 @@ body{
       linear-gradient(0deg,#0f1b0e,transparent 54%);
   }
 }
+
+/* Comic shelf polish */
+.issue-cover .issue-card-info{
+  position:relative;
+}
+.issue-cover .issue-card-info:before{
+  content:"TAP TO READ";
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  padding:9px 11px;
+  border:2px solid #050705;
+  background:var(--comic-cyan);
+  color:#061014;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.08em;
+  box-shadow:4px 4px 0 #0009;
+  transform:rotate(-2deg);
+}
+.lord-card.farmer{
+  animation:activeIssueGlow 2.8s ease-in-out infinite;
+}
+.lord-card.farmer:hover,.lord-card.farmer:focus-visible,.lord-card.farmer.issue-open{
+  animation:none;
+}
+.silhouette{
+  isolation:isolate;
+}
+.silhouette:before{
+  content:"CLASSIFIED";
+  color:#c8ff2f14;
+}
+.silhouette:after{
+  opacity:.24;
+}
+.silhouette h3{
+  filter:blur(.2px);
+}
+.silhouette div{
+  position:relative;
+  z-index:2;
+}
+.silhouette div:after{
+  content:"SIGNAL LOCKED";
+  position:absolute;
+  left:0;
+  top:-44px;
+  padding:7px 9px;
+  border:1px solid #38e4ff80;
+  background:#071516d9;
+  color:var(--comic-cyan);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+  box-shadow:3px 3px 0 #0008;
+}
+.issue-unlock-cue{
+  max-width:var(--max);
+  margin:18px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:16px 18px;
+  border:2px dashed #c8ff2f80;
+  background:
+    repeating-linear-gradient(-45deg,#c8ff2f12 0 10px,transparent 10px 20px),
+    #10190fd9;
+  box-shadow:5px 5px 0 #0009;
+}
+.issue-unlock-cue span{
+  color:var(--comic-pink);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.issue-unlock-cue strong{
+  color:#fffde9;
+  font-family:'Bangers','Archivo Black',sans-serif;
+  font-size:clamp(24px,3vw,38px);
+  font-weight:400;
+  letter-spacing:0;
+  text-align:right;
+  text-shadow:3px 3px 0 #050705;
+}
+@keyframes activeIssueGlow{
+  0%,100%{box-shadow:7px 7px 0 #020302,0 0 54px #c8ff2f2d}
+  50%{box-shadow:7px 7px 0 #020302,0 0 74px #c8ff2f55}
+}
+@media(max-width:850px){
+  .issue-unlock-cue{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .issue-unlock-cue strong{text-align:left}
+}
+@media(max-width:560px){
+  .issue-cover .issue-card-info:before{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    display:inline-flex;
+    width:max-content;
+    margin-top:18px;
+  }
+}
