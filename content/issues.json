@@ -2,7 +2,7 @@
   "release": {
     "visibleIssueKeys": ["activeIssue"],
     "sceneLimits": {
-      "activeIssue": 1
+      "activeIssue": 6
     },
     "lockedStatus": "UNLOCKS AFTER TOKEN LAUNCH",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
