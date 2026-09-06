@@ -82,8 +82,8 @@
         "body": "Seven manifestations of the greed that took over the trenches.",
         "bosses": [
           { "label": "ISSUE 001 — THE FARMER", "state": "defeated" },
-          { "label": "ISSUE 002 — THE EXTRACTOR", "state": "active" },
-          { "label": "ISSUE 003 — THE MANIPULATOR", "state": "active" },
+          { "label": "ISSUE 002 — ???", "state": "locked" },
+          { "label": "ISSUE 003 — ???", "state": "locked" },
           { "label": "ISSUE 004 — ???", "state": "locked" },
           { "label": "ISSUE 005 — ???", "state": "locked" },
           { "label": "ISSUE 006 — ???", "state": "locked" },
