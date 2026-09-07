@@ -4,7 +4,7 @@
     "sceneLimits": {
       "activeIssue": 10,
       "nextIssue": 8,
-      "manipulatorIssue": 2
+      "manipulatorIssue": 3
     },
     "lockedStatus": "TRANSMISSION SEALED",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
@@ -218,6 +218,14 @@
           "video": "assets/scenes/web/sc32X-h264.mp4",
           "poster": "assets/optimized/scene-32.jpg",
           "ariaLabel": "The Manipulator controls the narrative"
+        },
+        {
+          "kicker": "THE WISE ONE",
+          "title": "THE WISE ONE.",
+          "body": "Some enemies cannot be defeated with a sword. An old friend from the trenches shows Loop the Manipulator's true weapon: control the hype, control the minds.",
+          "video": "assets/scenes/web/sc33X-h264.mp4?v=20260907-sc33x",
+          "poster": "assets/optimized/scene-33.jpg",
+          "ariaLabel": "The Wise One shows Loop the Manipulator's true weapon"
         }
       ]
     }
