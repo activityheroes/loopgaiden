@@ -1,9 +1,10 @@
 {
   "release": {
-    "visibleIssueKeys": ["activeIssue", "nextIssue"],
+    "visibleIssueKeys": ["activeIssue", "nextIssue", "manipulatorIssue"],
     "sceneLimits": {
       "activeIssue": 10,
-      "nextIssue": 3
+      "nextIssue": 8,
+      "manipulatorIssue": 2
     },
     "lockedStatus": "TRANSMISSION SEALED",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
@@ -160,7 +161,7 @@
         "kicker": "NETWORK BREAK",
         "title": "DESTROY THE NETWORK.",
         "body": "Loop tears into the network pipes feeding The Extractor, turning the drain into a major combat sequence.",
-        "video": "assets/scenes/web/sc05X-h264.mp4?v=20260903-audio",
+        "video": "assets/scenes/web/sc05X-h264.mp4?v=20260907-sc05x",
         "poster": "assets/optimized/scene-15.jpg",
         "ariaLabel": "Loop destroys the network pipes feeding The Extractor"
       },

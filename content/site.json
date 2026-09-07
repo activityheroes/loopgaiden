@@ -3,11 +3,11 @@
     "title": "Loop Gaiden — Enter the Trenches",
     "description": "Loop Gaiden is a comic about the memecoin trenches: farmers, extractors, manipulators, bots, bundles, snipers, communities and everyone caught in between.",
     "canonicalUrl": "https://loopgaiden.com/",
-    "shareUrl": "https://loopgaiden.com/#issue-001",
+    "shareUrl": "https://loopgaiden.com/#issue-003",
     "shareTitle": "Loop Gaiden — A Comic About the Memecoin Trenches",
     "shareDescription": "Follow Loop through farmers, extractors, manipulators, bots, bundles, snipers, communities and the chaos of the trenches.",
-    "shareImage": "https://loopgaiden.com/assets/optimized/cover.jpg",
-    "shareImageAlt": "Loop Gaiden Issue 001 comic cover"
+    "shareImage": "https://loopgaiden.com/assets/optimized/the-manipulator-issue-cover.jpg",
+    "shareImageAlt": "Loop Gaiden Issue 003 comic cover"
   },
   "hero": {
     "eyebrow": "FROM THE TRENCHES. FOR THE TRENCHES.",
@@ -15,19 +15,19 @@
     "video": "assets/web-video/hero-bg-h264.mp4",
     "headline": "LOOP<br><span>GAIDEN</span>",
     "line": "A COMIC ABOUT THE MEMECOIN TRENCHES.",
-    "primaryCta": "WATCH ISSUE 002",
-    "primaryUrl": "#issue-002",
+    "primaryCta": "WATCH ISSUE 003",
+    "primaryUrl": "#issue-003",
     "secondaryCta": "THE TRENCHES",
     "secondaryUrl": "#mission"
   },
   "latest": {
     "kicker": "LATEST TRANSMISSION",
-    "title": "ISSUE 002: THE EXTRACTOR IS LIVE",
+    "title": "ISSUE 003: THE MANIPULATOR IS LIVE",
     "button": "OPEN ISSUE",
     "releaseLine": [
-      "ISSUE 001 COMPLETE",
-      "ISSUE 002 LIVE",
-      "SCENES 01-03 LIVE"
+      "ISSUE 002 COMPLETE",
+      "ISSUE 003 LIVE",
+      "SCENES 01-02 LIVE"
     ]
   },
   "game": {
@@ -83,8 +83,8 @@
         "body": "Seven manifestations of the greed that took over the trenches.",
         "bosses": [
           { "label": "ISSUE 001 — THE FARMER", "state": "defeated" },
-          { "label": "ISSUE 002 — THE EXTRACTOR", "state": "active" },
-          { "label": "ISSUE 003 — ???", "state": "locked" },
+          { "label": "ISSUE 002 — THE EXTRACTOR", "state": "defeated" },
+          { "label": "ISSUE 003 — THE MANIPULATOR", "state": "active" },
           { "label": "ISSUE 004 — ???", "state": "locked" },
           { "label": "ISSUE 005 — ???", "state": "locked" },
           { "label": "ISSUE 006 — ???", "state": "locked" },
@@ -132,7 +132,7 @@
     "body": "A community, not just holders.<br>The trenches are the world.<br>Loop is the hero we build around.",
     "warning": "Only trust links from this page and @loopgaiden.",
     "joinLabel": "JOIN ON X",
-    "readLabel": "READ ISSUE 001"
+    "readLabel": "READ ISSUE 003"
   },
   "nextIssue": {
     "kicker": "NEXT FILE",
