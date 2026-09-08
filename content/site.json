@@ -118,10 +118,10 @@
   "token": {
     "symbol": "$LGDN",
     "network": "LOOP GAIDEN · OFFICIAL TOKEN",
-    "launchStatus": "TOKEN STATUS: LIVE",
-    "contractStatus": "OFFICIAL CONTRACT",
-    "contractMessage": "ONLY TRUST THE ADDRESS POSTED HERE",
-    "contractAddress": "0xfB1fdD825220c888368A5f145d7670c7ae2E5c6E",
+    "launchStatus": "TOKEN STATUS: PAUSED",
+    "contractStatus": "CONTRACT HIDDEN",
+    "contractMessage": "OFFICIAL ADDRESS HIDDEN UNTIL FURTHER NOTICE",
+    "contractAddress": "",
     "buyUrl": "",
     "buyLabel": "TOKEN STATUS",
     "fineprint": "Only trust the contract address posted on this official Loop Gaiden website and @loopgaiden."
