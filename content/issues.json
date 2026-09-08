@@ -4,7 +4,7 @@
     "sceneLimits": {
       "activeIssue": 10,
       "nextIssue": 8,
-      "manipulatorIssue": 4
+      "manipulatorIssue": 5
     },
     "lockedStatus": "TRANSMISSION SEALED",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
@@ -234,6 +234,14 @@
           "video": "assets/scenes/web/sc34X-h264.mp4?v=20260907-sc34x",
           "poster": "assets/optimized/scene-34.jpg",
           "ariaLabel": "Unipcs points Loop toward Times Square"
+        },
+        {
+          "kicker": "THE STRINGS",
+          "title": "THE STRINGS.",
+          "body": "Everyone saw the hype. Loop saw who was pulling the strings.",
+          "video": "assets/scenes/web/sc35X-h264.mp4?v=20260908-sc35x",
+          "poster": "assets/optimized/scene-35.jpg",
+          "ariaLabel": "Loop sees who is pulling the strings behind the hype"
         }
       ]
     }
