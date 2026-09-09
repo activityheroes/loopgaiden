@@ -4,7 +4,7 @@
     "sceneLimits": {
       "activeIssue": 10,
       "nextIssue": 8,
-      "manipulatorIssue": 6
+      "manipulatorIssue": 7
     },
     "lockedStatus": "TRANSMISSION SEALED",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
@@ -250,6 +250,14 @@
           "video": "assets/scenes/web/sc36X-h264.mp4?v=20260909-sc36x",
           "poster": "assets/optimized/scene-36.jpg",
           "ariaLabel": "Loop confronts The Manipulator as the trenches turn against him"
+        },
+        {
+          "kicker": "THE SAME SOURCE",
+          "title": "THE SAME SOURCE.",
+          "body": "Loop follows the manipulation through KOLs, bots, FOMO and media - and discovers every signal leads back to the same source.",
+          "video": "assets/scenes/web/sc37X-h264.mp4?v=20260910-sc37x",
+          "poster": "assets/optimized/scene-37.jpg",
+          "ariaLabel": "Loop follows manipulated signals back to the same source"
         }
       ]
     }
