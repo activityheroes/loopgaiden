@@ -4,7 +4,7 @@
     "sceneLimits": {
       "activeIssue": 10,
       "nextIssue": 8,
-      "manipulatorIssue": 5
+      "manipulatorIssue": 6
     },
     "lockedStatus": "TRANSMISSION SEALED",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
@@ -242,6 +242,14 @@
           "video": "assets/scenes/web/sc35X-h264.mp4?v=20260908-sc35x",
           "poster": "assets/optimized/scene-35.jpg",
           "ariaLabel": "Loop sees who is pulling the strings behind the hype"
+        },
+        {
+          "kicker": "THE CONFRONTATION",
+          "title": "THE CONFRONTATION.",
+          "body": "Loop came ready to fight. The Manipulator turned the trenches against him.",
+          "video": "assets/scenes/web/sc36X-h264.mp4?v=20260909-sc36x",
+          "poster": "assets/optimized/scene-36.jpg",
+          "ariaLabel": "Loop confronts The Manipulator as the trenches turn against him"
         }
       ]
     }
