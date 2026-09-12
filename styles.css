@@ -724,3 +724,67 @@ body{
     margin-top:18px;
   }
 }
+
+/* Mobile performance pass */
+@media(max-width:850px){
+  html{scroll-behavior:auto}
+  .grain,
+  body:before{
+    display:none;
+  }
+  .nav,
+  .hero-video-toggle,
+  .mobile-reader-dock{
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+  .hero-bg{
+    display:none;
+  }
+  .hero-poster{
+    display:block;
+    filter:saturate(1.08) contrast(1.02);
+  }
+  .hero:before,
+  .hero:after,
+  .trailer-player,
+  .lord-card.farmer,
+  .trenches-panel,
+  .token-card,
+  .next-issue-inner{
+    box-shadow:none;
+  }
+  .lord-card.farmer,
+  .game-cartridge img,
+  .game-glow,
+  .game-cta,
+  .mission-chapter.active .mission-marker,
+  .hero-actions .btn.primary:after,
+  .latest-transmission:before{
+    animation:none;
+  }
+  .scene-media:before{
+    display:none;
+  }
+  .scene,
+  .issue-start,
+  .issue-complete-panel,
+  .mission-card,
+  .trenches-panel,
+  .token-card,
+  .next-issue-inner,
+  .hub-grid a{
+    box-shadow:3px 3px 0 #020302;
+  }
+  .section,
+  .scene,
+  .issue-start,
+  .issue-complete-panel,
+  .mission-chapter,
+  .token-card,
+  .community,
+  .next-issue-inner{
+    content-visibility:auto;
+    contain-intrinsic-size:1px 780px;
+  }
+}
