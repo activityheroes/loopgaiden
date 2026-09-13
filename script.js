@@ -649,18 +649,6 @@ function initInteractions(issueData){
     heroVideo.defaultMuted = true;
     heroVideo.setAttribute('muted','');
     heroVideo.setAttribute('playsinline','');
-    if(mobilePerfMedia.matches){
-      heroVideoUserPaused = true;
-      heroVideo.pause();
-      heroVideo.removeAttribute('autoplay');
-      heroVideo.querySelectorAll('source').forEach(source=>{
-        if(!source.dataset.src) source.dataset.src = source.getAttribute('src') || '';
-        source.removeAttribute('src');
-      });
-      heroVideo.load();
-      setHeroVideoPaused(true);
-      if(heroVideoToggle) heroVideoToggle.hidden = true;
-    }
     function requestHeroVideoPlay(){
       if(heroVideoUserPaused) return;
       heroVideo.play?.().catch(()=>{});
@@ -671,10 +659,8 @@ function initInteractions(issueData){
     heroVideo.addEventListener('play',()=>setHeroVideoPaused(false));
     if(heroVideo.readyState >= 2) heroVideo.classList.add('loaded');
     setHeroVideoPaused(heroVideo.paused);
-    if(!mobilePerfMedia.matches){
-      requestHeroVideoPlay();
-      setTimeout(requestHeroVideoPlay,600);
-    }
+    requestHeroVideoPlay();
+    setTimeout(requestHeroVideoPlay,600);
     heroVideoToggle?.addEventListener('click',()=>{
       if(heroVideo.paused){
         heroVideoUserPaused = false;
@@ -802,7 +788,7 @@ function initInteractions(issueData){
   }
 
   function prepareNearbyVideos(sceneNumber){
-    const preloadDistance = mobilePerfMedia.matches ? 0 : 1;
+    const preloadDistance = 1;
     progressScenes.forEach(scene=>{
       const number = Number(scene.dataset.progressScene);
       const video = scene.querySelector('video');
@@ -870,6 +856,14 @@ function initInteractions(issueData){
     soundEnabled = !soundEnabled;
     sceneVideos.forEach(video=>video.muted = !soundEnabled);
     updateSoundButtons();
+    if(soundEnabled){
+      const currentScene = getSceneByNumber(currentSceneNumber);
+      const currentVideo = currentScene?.querySelector('video');
+      if(currentVideo){
+        loadSceneVideo(currentVideo);
+        currentVideo.play().catch(()=>{});
+      }
+    }
   }
 
   function syncSoundFromVideo(video){
@@ -994,7 +988,7 @@ function initInteractions(issueData){
           loadSceneVideo(entry.target.querySelector('video'));
         }
       });
-    },{rootMargin: mobilePerfMedia.matches ? '120px 0px' : '500px 0px'});
+    },{rootMargin: mobilePerfMedia.matches ? '360px 0px' : '500px 0px'});
 
     progressObserver = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
