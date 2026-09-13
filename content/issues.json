@@ -4,7 +4,7 @@
     "sceneLimits": {
       "activeIssue": 10,
       "nextIssue": 8,
-      "manipulatorIssue": 7
+      "manipulatorIssue": 9
     },
     "lockedStatus": "TRANSMISSION SEALED",
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
@@ -258,6 +258,22 @@
           "video": "assets/scenes/web/sc37X-h264.mp4?v=20260910-sc37x",
           "poster": "assets/optimized/scene-37.jpg",
           "ariaLabel": "Loop follows manipulated signals back to the same source"
+        },
+        {
+          "kicker": "THE BIG GUNS",
+          "title": "THE BIG GUNS.",
+          "body": "Loop found the source. But some battles are too big to fight alone. He called Meow - and together they took the Manipulator's broadcast network offline.",
+          "video": "assets/scenes/web/sc38X-h264.mp4?v=20260913-sc38x",
+          "poster": "assets/optimized/scene-38.jpg",
+          "ariaLabel": "Loop and Meow take the Manipulator's broadcast network offline"
+        },
+        {
+          "kicker": "THE TRUTH",
+          "title": "THE TRUTH.",
+          "body": "The signal was gone. The strings were broken. For the first time, nobody was telling the trenches what to believe. They could finally see the truth for themselves.",
+          "video": "assets/scenes/web/sc39X-h264.mp4?v=20260913-sc39x",
+          "poster": "assets/optimized/scene-39.jpg",
+          "ariaLabel": "The trenches finally see the truth for themselves"
         }
       ]
     }
