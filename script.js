@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260913-sc39x`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260916-sc38x`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -64,7 +64,7 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
     const instagram = socials.find(social=>social.label.toLowerCase().includes('instagram'));
     mobileSticky.innerHTML = `
       <a href="#issue-001" data-open-issue>Read</a>
-      <a href="#token">Status</a>
+      <a href="#token">Buy</a>
       ${x ? `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
       ${tiktok ? `<a href="${escapeHtml(tiktok.url)}" target="_blank" rel="noopener">TikTok</a>` : ''}
       ${instagram ? `<a href="${escapeHtml(instagram.url)}" target="_blank" rel="noopener">Instagram</a>` : ''}
@@ -157,7 +157,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   const nextLockedSceneNumber = scenes.length + 1;
   const release = issueData.release || {};
   const buyUrl = siteData?.token?.buyUrl || '#token';
-  const buyLabel = siteData?.token?.buyUrl ? 'BUY $LGDN' : 'TOKEN STATUS';
+  const buyLabel = 'BUY';
 
   setText('#story .section-head h2',`ISSUE ${issue.number} — ${issue.title}`);
   setText('#story .section-head p',issue.summary);
@@ -244,7 +244,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
       <div>
         <span>${hasLockedScenes ? 'NEXT DROP LOCKED' : 'ISSUE COMPLETE'}</span>
         <h3>${hasLockedScenes ? escapeHtml(release.lockedSceneTitle || 'NEXT SCENE SEALED.') : (issueNumber === '001' ? 'THE FARMER FILE IS OPEN.' : `${issueTitle} SIGNAL IS OPEN.`)}</h3>
-        <p>${hasLockedScenes ? escapeHtml(release.lockedSceneBody || 'The next transmission unlocks soon.') : 'Share the transmission, join the Trenches, or open the live $LGDN token.'}</p>
+        <p>${hasLockedScenes ? escapeHtml(release.lockedSceneBody || 'The next transmission unlocks soon.') : 'Share the transmission, join the Trenches, or check the official token launch status.'}</p>
       </div>
       <div class="issue-actions issue-actions-bottom">
         <button class="btn" type="button" data-start-issue>START FROM BEGINNING</button>

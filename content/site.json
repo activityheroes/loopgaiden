@@ -116,14 +116,14 @@
     }
   },
   "token": {
-    "symbol": "$LGDN",
-    "network": "LOOP GAIDEN · OFFICIAL TOKEN",
+    "symbol": "COMING SOON",
+    "network": "OFFICIAL TOKEN",
     "launchStatus": "TOKEN STATUS: PAUSED",
     "contractStatus": "CONTRACT HIDDEN",
     "contractMessage": "OFFICIAL ADDRESS HIDDEN UNTIL FURTHER NOTICE",
     "contractAddress": "",
     "buyUrl": "",
-    "buyLabel": "TOKEN STATUS",
+    "buyLabel": "BUY",
     "fineprint": "Only trust the contract address posted on this official Loop Gaiden website and @loopgaiden."
   },
   "community": {
