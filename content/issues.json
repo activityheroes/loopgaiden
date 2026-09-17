@@ -1,6 +1,6 @@
 {
   "release": {
-    "visibleIssueKeys": ["activeIssue", "nextIssue", "manipulatorIssue"],
+    "visibleIssueKeys": ["activeIssue"],
     "sceneLimits": {
       "activeIssue": 10,
       "nextIssue": 8,

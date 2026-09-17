@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260916-sc38x`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260917-lock-issues`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -1029,8 +1029,10 @@ function initInteractions(issueData){
   }
 
   function selectIssue(issueKey = 'activeIssue'){
+    const isVisible = getVisibleIssueEntries(issueData).some(entry=>entry.key === issueKey || entry.issue.number === issueKey);
+    if(!isVisible) return false;
     const issue = getIssueByKey(issueData,issueKey);
-    if(!issue) return;
+    if(!issue) return false;
     pauseSceneVideos();
     currentIssueKey = issueKey;
     renderIssueContent(issue,window.loopGaidenSiteData || {},currentIssueKey,issueData);
@@ -1040,11 +1042,12 @@ function initInteractions(issueData){
     observeReaderScenes();
     updateSoundButtons();
     updateReaderProgress(1);
+    return true;
   }
 
   function openIssue(scrollIntoView = true,issueKey = currentIssueKey,sceneNumber = 0){
     if(!issueViewer) return;
-    selectIssue(issueKey);
+    if(!selectIssue(issueKey)) return;
     document.body.classList.add('issue-reader-active','issue-reader-in-view');
     issueViewer.classList.add('open');
     issueViewer.removeAttribute('aria-hidden');
