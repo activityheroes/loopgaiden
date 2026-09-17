@@ -2,7 +2,7 @@
   "release": {
     "visibleIssueKeys": ["activeIssue"],
     "sceneLimits": {
-      "activeIssue": 10,
+      "activeIssue": 6,
       "nextIssue": 8,
       "manipulatorIssue": 9
     },
@@ -34,84 +34,52 @@
     "shareText": "Issue 001: The Farmer is live.",
     "scenes": [
       {
-        "kicker": "DISCOVER",
-        "title": "SOMETHING IS WRONG.",
-        "body": "The Trenches struggle below while the machine above keeps growing.",
-        "video": "assets/scenes/web/sc1mp4-h264.mp4",
-        "poster": "assets/optimized/scene-01.jpg",
-        "ariaLabel": "Loop overlooking the Trenches"
+        "kicker": "THE TRENCHES",
+        "title": "THE TRENCHES.",
+        "body": "Farmers. Rugs. Insiders. Everyone wanted a piece of the trenches. Loop watches a system built on taking.",
+        "video": "assets/scenes/web/farmer01-h264.mp4?v=20260917-farmer-recut",
+        "poster": "assets/optimized/farmer-scene-01.jpg?v=20260917-farmer-recut",
+        "ariaLabel": "Loop watches a system built on taking from the trenches"
       },
       {
-        "kicker": "FOLLOW THE MONEY",
-        "title": "THE MACHINE GREW.",
-        "body": "That wasn't a coincidence. Loop follows the flow toward its source.",
-        "video": "assets/scenes/web/sc2-h264.mp4",
-        "poster": "assets/optimized/scene-02.jpg",
-        "ariaLabel": "The Trenches below the factory"
+        "kicker": "FARMER CAPITAL",
+        "title": "FARMER CAPITAL.",
+        "body": "What looked like chaos had become a business. Above the trenches, Farmer Capital turned extraction into an industry.",
+        "video": "assets/scenes/web/farmer02-h264.mp4?v=20260917-farmer-recut",
+        "poster": "assets/optimized/farmer-scene-02.jpg?v=20260917-farmer-recut",
+        "ariaLabel": "Farmer Capital turns extraction into an industry"
       },
       {
-        "kicker": "THE SOURCE",
-        "title": "IT WASN'T A FACTORY.",
-        "body": "Everything taken from the Trenches flowed through here. It was a farm.",
-        "video": "assets/scenes/web/sc3-h264.mp4",
-        "poster": "assets/optimized/scene-03.jpg",
-        "ariaLabel": "The central Loop Gaiden factory"
+        "kicker": "INFILTRATION",
+        "title": "INFILTRATION.",
+        "body": "Loop slips inside Farmer Capital, searching for what the polished walls were designed to hide.",
+        "video": "assets/scenes/web/farmer03-h264.mp4?v=20260917-farmer-recut",
+        "poster": "assets/optimized/farmer-scene-03.jpg?v=20260917-farmer-recut",
+        "ariaLabel": "Loop infiltrates Farmer Capital"
       },
       {
-        "kicker": "THE FIRST GREED LORD",
+        "kicker": "THE OPERATION",
+        "title": "THE OPERATION.",
+        "body": "Behind closed doors, Loop discovers the machinery behind the farming - communities, liquidity, hype and extraction.",
+        "video": "assets/scenes/web/farmer04-h264.mp4?v=20260917-farmer-recut",
+        "poster": "assets/optimized/farmer-scene-04.jpg?v=20260917-farmer-recut",
+        "ariaLabel": "Loop discovers the machinery behind the farming operation"
+      },
+      {
+        "kicker": "PRIVATE RESERVES",
+        "title": "PRIVATE RESERVES.",
+        "body": "Loop follows the trail deeper and discovers where everything taken from the trenches ultimately ends up.",
+        "video": "assets/scenes/web/farmer05-h264.mp4?v=20260917-farmer-recut",
+        "poster": "assets/optimized/farmer-scene-05.jpg?v=20260917-farmer-recut",
+        "ariaLabel": "Loop discovers Farmer Capital's private reserves"
+      },
+      {
+        "kicker": "THE FARMER",
         "title": "THE FARMER.",
-        "body": "He owns the machine. He owns the flow. He always needs more.",
-        "video": "assets/scenes/web/sc4-h264.mp4",
-        "poster": "assets/optimized/scene-04.jpg",
-        "ariaLabel": "The Farmer revealed in his vault"
-      },
-      {
-        "kicker": "THE TRACE DEEPENS",
-        "title": "THE STORY MOVES.",
-        "body": "The first file keeps opening. Every answer points toward another locked door.",
-        "video": "assets/scenes/web/sc5-h264.mp4",
-        "poster": "assets/optimized/scene-05.jpg",
-        "ariaLabel": "The story continues in the Trenches"
-      },
-      {
-        "kicker": "SIGNAL RECOVERED",
-        "title": "THE FARM IS NOT DONE.",
-        "body": "The Trenches are still sending fragments. Loop follows the signal deeper.",
-        "video": "assets/scenes/web/sc6-h264.mp4",
-        "poster": "assets/optimized/scene-06.jpg",
-        "ariaLabel": "The sixth Loop Gaiden comic scene"
-      },
-      {
-        "kicker": "THE SIGNAL BREAKS",
-        "title": "LOOP PUSHES THROUGH.",
-        "body": "The Farmer's system fights back, but Loop keeps moving toward the heart of the machine.",
-        "video": "assets/scenes/web/sc7Xmp4-h264.mp4?v=20260907-sc7x-farmer",
-        "poster": "assets/optimized/scene-07.jpg",
-        "ariaLabel": "The seventh Loop Gaiden comic scene"
-      },
-      {
-        "kicker": "PRESSURE RISES",
-        "title": "THE TRENCHES WAKE UP.",
-        "body": "The farm can feel the resistance now. Every stolen signal starts pointing back at the Greed Lord.",
-        "video": "assets/scenes/web/sc8-h264.mp4",
-        "poster": "assets/optimized/scene-08.jpg",
-        "ariaLabel": "The eighth Loop Gaiden comic scene"
-      },
-      {
-        "kicker": "FINAL PUSH",
-        "title": "NO MORE HARVEST.",
-        "body": "Loop closes in as the Farmer's control begins to crack across the Trenches.",
-        "video": "assets/scenes/web/sc9-h264.mp4",
-        "poster": "assets/optimized/scene-09.jpg",
-        "ariaLabel": "The ninth Loop Gaiden comic scene"
-      },
-      {
-        "kicker": "TRANSMISSION COMPLETE",
-        "title": "THE LOOP CONTINUES.",
-      "body": "Issue 001 is complete. The Farmer file is open, and the next signal is already calling.",
-        "video": "assets/scenes/web/sc10-h264.mp4?v=20260901",
-        "poster": "assets/optimized/scene-10.jpg",
-        "ariaLabel": "The tenth Loop Gaiden comic scene"
+        "body": "At the top of the operation, Loop finally finds the one behind it all - The Farmer. Watching. Profiting. Always wanting more. ∞",
+        "video": "assets/scenes/web/farmer06-h264.mp4?v=20260917-farmer-recut",
+        "poster": "assets/optimized/farmer-scene-06.jpg?v=20260917-farmer-recut",
+        "ariaLabel": "Loop finds The Farmer at the top of the operation"
       }
     ]
   },
