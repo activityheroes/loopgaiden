@@ -2,7 +2,7 @@
   "release": {
     "visibleIssueKeys": ["activeIssue"],
     "sceneLimits": {
-      "activeIssue": 6,
+      "activeIssue": 12,
       "nextIssue": 8,
       "manipulatorIssue": 9
     },
@@ -80,6 +80,54 @@
         "video": "assets/scenes/web/farmer06-h264.mp4?v=20260917-farmer-recut",
         "poster": "assets/optimized/farmer-scene-06.jpg?v=20260917-farmer-recut",
         "ariaLabel": "Loop finds The Farmer at the top of the operation"
+      },
+      {
+        "kicker": "THE FARMER KNEW",
+        "title": "THE FARMER KNEW.",
+        "body": "Loop's investigation was never a secret. The Farmer has been watching him - and waiting.",
+        "video": "assets/scenes/web/farmer07-h264.mp4?v=20260918-farmer-12",
+        "poster": "assets/optimized/farmer-scene-07.jpg?v=20260918-farmer-12",
+        "ariaLabel": "The Farmer reveals that he has been watching Loop"
+      },
+      {
+        "kicker": "THE CYCLE",
+        "title": "THE CYCLE.",
+        "body": "The Farmer reveals the machine behind the harvest: launch, hype, community, liquidity, harvest... repeat.",
+        "video": "assets/scenes/web/farmer08-h264.mp4?v=20260918-farmer-12",
+        "poster": "assets/optimized/farmer-scene-08.jpg?v=20260918-farmer-12",
+        "ariaLabel": "The Farmer reveals the cycle behind the harvest"
+      },
+      {
+        "kicker": "THE EXPOSURE",
+        "title": "THE EXPOSURE.",
+        "body": "Loop doesn't destroy the operation. He exposes it - the wallets, the patterns and the cycle for everyone in the trenches to see.",
+        "video": "assets/scenes/web/farmer09-h264.mp4?v=20260918-farmer-12",
+        "poster": "assets/optimized/farmer-scene-09.jpg?v=20260918-farmer-12",
+        "ariaLabel": "Loop exposes the Farmer's wallets, patterns and cycle"
+      },
+      {
+        "kicker": "YOU RUINED ME",
+        "title": "YOU RUINED ME.",
+        "body": "The truth spreads through the trenches. Markets collapse, communities turn, and the Farmer watches his empire unravel.",
+        "video": "assets/scenes/web/farmer10-h264.mp4?v=20260918-farmer-12",
+        "poster": "assets/optimized/farmer-scene-10.jpg?v=20260918-farmer-12",
+        "ariaLabel": "The Farmer watches his empire unravel"
+      },
+      {
+        "kicker": "YOU CAN'T KILL GREED",
+        "title": "YOU CAN'T KILL GREED.",
+        "body": "The Farmer warns Loop that another will always take his chair. Loop already knows. Greed can't be killed - but it can always be exposed.",
+        "video": "assets/scenes/web/farmer11-h264.mp4?v=20260918-farmer-12",
+        "poster": "assets/optimized/farmer-scene-11.jpg?v=20260918-farmer-12",
+        "ariaLabel": "The Farmer warns Loop that greed cannot be killed"
+      },
+      {
+        "kicker": "THE TRENCHES DECIDE",
+        "title": "THE TRENCHES DECIDE.",
+        "body": "With the Farmer exposed and his guards defeated, Loop rides back into the trenches. What happens next is no longer his decision. The trenches decide. ∞",
+        "video": "assets/scenes/web/farmer12-h264.mp4?v=20260918-farmer-12",
+        "poster": "assets/optimized/farmer-scene-12.jpg?v=20260918-farmer-12",
+        "ariaLabel": "Loop rides back into the trenches after exposing The Farmer"
       }
     ]
   },
