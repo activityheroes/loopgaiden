@@ -116,13 +116,13 @@
     }
   },
   "token": {
-    "symbol": "COMING SOON",
-    "network": "OFFICIAL TOKEN",
-    "launchStatus": "TOKEN STATUS: PAUSED",
-    "contractStatus": "CONTRACT HIDDEN",
-    "contractMessage": "OFFICIAL ADDRESS HIDDEN UNTIL FURTHER NOTICE",
-    "contractAddress": "",
-    "buyUrl": "",
+    "symbol": "$GAIDEN",
+    "network": "OFFICIAL TOKEN · SOLANA",
+    "launchStatus": "TOKEN LIVE",
+    "contractStatus": "OFFICIAL CONTRACT",
+    "contractMessage": "VERIFY THIS ADDRESS BEFORE BUYING",
+    "contractAddress": "4ojJQxfpRAkHcnDsfEWCAfwPXDoeHYq9axKZP8mnpump",
+    "buyUrl": "https://pump.fun/coin/4ojJQxfpRAkHcnDsfEWCAfwPXDoeHYq9axKZP8mnpump",
     "buyLabel": "BUY",
     "fineprint": "Only trust the contract address posted on this official Loop Gaiden website and @loopgaiden."
   },
