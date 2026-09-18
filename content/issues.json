@@ -1,9 +1,9 @@
 {
   "release": {
-    "visibleIssueKeys": ["activeIssue"],
+    "visibleIssueKeys": ["activeIssue", "nextIssue"],
     "sceneLimits": {
       "activeIssue": 12,
-      "nextIssue": 8,
+      "nextIssue": 1,
       "manipulatorIssue": 9
     },
     "lockedStatus": "TRANSMISSION SEALED",
@@ -133,77 +133,22 @@
   },
   "nextIssue": {
     "number": "002",
-    "title": "THE EXTRACTOR",
+    "title": "THE CROWN",
+    "complete": false,
     "cardSubtitle": "SECOND GREED LORD FILE",
-    "quote": "SOMETHING ELSE IS FEEDING.",
-    "cover": "assets/optimized/the-extractor-issue-cover.jpg",
-    "summary": "The Farmer was only the beginning. The next Greed Lord file opens with The Extractor.",
-    "coverIntro": "The Extractor has been found. Enter the next transmission scene by scene.",
-    "shareText": "Issue 002: The Extractor signal has been found.",
+    "quote": "LOOK AT ME.",
+    "cover": "assets/optimized/the-crown-issue-cover.jpg?v=20260919-crown-01",
+    "summary": "The Farmer was only the beginning. The next Greed Lord file opens with The Crown.",
+    "coverIntro": "The Crown does not hide his greed. Enter the next transmission scene by scene.",
+    "shareText": "Issue 002: The Crown is live.",
     "scenes": [
       {
-        "kicker": "THE TRAIL",
-        "title": "THE EXTRACTOR",
-        "body": "A new mystery begins beneath the trenches. Loop finds the first sign of The Extractor feeding in the dark.",
-        "video": "assets/scenes/web/sc01X-h264.mp4",
-        "poster": "assets/optimized/the-extractor-issue-cover.jpg",
-        "ariaLabel": "The Extractor opening scene"
-      },
-      {
-        "kicker": "NEXT SIGNAL",
-        "title": "THE FARMER WAS ONLY THE BEGINNING.",
-        "body": "Something else has been feeding on the trenches. Loop just found the trail.",
-        "video": "assets/scenes/web/sc02X-h264.mp4?v=20260902-6",
-        "poster": "assets/optimized/scene-12.jpg?v=20260902-6",
-        "ariaLabel": "Loop discovers a new trail beyond the Farmer"
-      },
-      {
-        "kicker": "THE DRAIN WORKERS",
-        "title": "MEET THE EXTRACTOR.",
-        "body": "The trail opens into a huge cinematic reveal of the Greed Lord behind the drain workers.",
-        "video": "assets/scenes/web/sc03X-h264.mp4",
-        "poster": "assets/optimized/scene-13.jpg",
-        "ariaLabel": "Loop meets The Extractor"
-      },
-      {
-        "kicker": "FINAL FACE-OFF",
-        "title": "CONFRONTATION.",
-        "body": "Loop finally faces The Extractor as the drain workers close in and the next Greed Lord file turns dangerous.",
-        "video": "assets/scenes/web/sc04X-h264.mp4?v=20260907-sc04x",
-        "poster": "assets/optimized/scene-14.jpg",
-        "ariaLabel": "Loop confronts The Extractor"
-      },
-      {
-        "kicker": "NETWORK BREAK",
-        "title": "DESTROY THE NETWORK.",
-        "body": "Loop tears into the network pipes feeding The Extractor, turning the drain into a major combat sequence.",
-        "video": "assets/scenes/web/sc05X-h264.mp4?v=20260907-sc05x",
-        "poster": "assets/optimized/scene-15.jpg",
-        "ariaLabel": "Loop destroys the network pipes feeding The Extractor"
-      },
-      {
-        "kicker": "THE LAST PIPE",
-        "title": "THE LAST PIPE.",
-        "body": "The network was dead... almost. One connection was still alive.",
-        "video": "assets/scenes/web/sc06X-h264.mp4?v=20260903-audio",
-        "poster": "assets/optimized/scene-16.jpg",
-        "ariaLabel": "Loop finds the last live network pipe"
-      },
-      {
-        "kicker": "HIGHER UP",
-        "title": "HIGHER UP.",
-        "body": "Loop looked up. The stolen value was not staying here... it was being sent higher.",
-        "video": "assets/scenes/web/sc07X-h264.mp4?v=20260907-sc07x-extractor",
-        "poster": "assets/optimized/scene-17.jpg",
-        "ariaLabel": "Loop sees the stolen value being sent higher"
-      },
-      {
-        "kicker": "WATCHING",
-        "title": "SOMEONE WAS WATCHING.",
-        "body": "And at the other end... someone was waiting. Watching everything.",
-        "video": "assets/scenes/web/sc08X-h264.mp4?v=20260903-audio",
-        "poster": "assets/optimized/scene-18.jpg",
-        "ariaLabel": "Someone watches Loop from the other end of the signal"
+        "kicker": "LOOK AT ME",
+        "title": "LOOK AT ME.",
+        "body": "The Crown doesn't hide his greed. He puts it on display. Wealth, followers, luxury and attention have made him one of the most visible figures in the trenches.",
+        "video": "assets/scenes/web/crown01-h264.mp4?v=20260919-crown-01",
+        "poster": "assets/optimized/crown-scene-01.jpg?v=20260919-crown-01",
+        "ariaLabel": "The Crown displays his wealth, followers, luxury and influence"
       }
     ]
   },

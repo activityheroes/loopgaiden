@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260918-gaiden-live`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260919-crown-01`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -63,7 +63,7 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
     const tiktok = socials.find(social=>social.label.toLowerCase().includes('tiktok'));
     const instagram = socials.find(social=>social.label.toLowerCase().includes('instagram'));
     mobileSticky.innerHTML = `
-      <a href="#issue-001" data-open-issue>Read</a>
+      <a href="#issue-002" data-open-issue="nextIssue">Read</a>
       <a href="#token">Buy</a>
       ${x ? `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
       ${tiktok ? `<a href="${escapeHtml(tiktok.url)}" target="_blank" rel="noopener">TikTok</a>` : ''}
@@ -141,6 +141,7 @@ function getLockedIssueCards(issueData = {}){
 function getLiveSceneLabel(sceneLimit,totalScenes){
   const liveCount = Math.max(0,Math.min(Number(sceneLimit) || 0,totalScenes || 0));
   if(!totalScenes) return 'FILE LIVE';
+  if(totalScenes === 1 && liveCount === 1) return 'SCENE 01 LIVE';
   if(liveCount >= totalScenes) return `${String(totalScenes).padStart(2,'0')} SCENES LIVE`;
   return `SCENE ${String(Math.max(liveCount,1)).padStart(2,'0')} LIVE`;
 }
@@ -153,7 +154,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   const sceneLimit = getSceneLimit(issueData,issueKey,issue);
   const scenes = allScenes.slice(0,sceneLimit);
   const lockedSceneCount = Math.max(0,allScenes.length - scenes.length);
-  const hasLockedScenes = lockedSceneCount > 0;
+  const hasLockedScenes = lockedSceneCount > 0 || issue.complete === false;
   const nextLockedSceneNumber = scenes.length + 1;
   const release = issueData.release || {};
   const buyUrl = siteData?.token?.buyUrl || '#token';
@@ -166,7 +167,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   const releaseStatus = document.querySelector('[data-scene-release-status]');
   if(releaseStatus){
     const liveLabel = getLiveSceneLabel(sceneLimit,allScenes.length);
-    const nextScene = scenes.length < allScenes.length ? scenes.length + 1 : 0;
+    const nextScene = hasLockedScenes ? scenes.length + 1 : 0;
     releaseStatus.innerHTML = `
       <span>${escapeHtml(liveLabel)}</span>
       <span>${nextScene ? `SCENE ${String(nextScene).padStart(2,'0')} UNLOCKS NEXT` : 'ISSUE COMPLETE'}</span>
