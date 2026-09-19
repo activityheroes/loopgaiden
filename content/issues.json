@@ -3,7 +3,7 @@
     "visibleIssueKeys": ["activeIssue", "nextIssue"],
     "sceneLimits": {
       "activeIssue": 12,
-      "nextIssue": 3,
+      "nextIssue": 4,
       "manipulatorIssue": 9
     },
     "lockedStatus": "TRANSMISSION SEALED",
@@ -165,6 +165,14 @@
         "video": "assets/scenes/web/crown03-h264.mp4?v=20260919-crown-03",
         "poster": "assets/optimized/crown-scene-03.jpg?v=20260919-crown-03",
         "ariaLabel": "The Crown gains likes, comments and new followers with every post"
+      },
+      {
+        "kicker": "BEHIND THE CAMERA",
+        "title": "BEHIND THE CAMERA.",
+        "body": "Loop looks beyond the image and discovers what the audience never sees - paid promotion, coordinated engagement and carefully manufactured influence.",
+        "video": "assets/scenes/web/crown04-h264.mp4?v=20260919-crown-04",
+        "poster": "assets/optimized/crown-scene-04.jpg?v=20260919-crown-04",
+        "ariaLabel": "Loop discovers the paid promotion and coordinated engagement behind The Crown"
       }
     ]
   },
