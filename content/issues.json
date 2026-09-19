@@ -3,7 +3,7 @@
     "visibleIssueKeys": ["activeIssue", "nextIssue"],
     "sceneLimits": {
       "activeIssue": 12,
-      "nextIssue": 4,
+      "nextIssue": 10,
       "manipulatorIssue": 9
     },
     "lockedStatus": "TRANSMISSION SEALED",
@@ -173,6 +173,54 @@
         "video": "assets/scenes/web/crown04-h264.mp4?v=20260919-crown-04",
         "poster": "assets/optimized/crown-scene-04.jpg?v=20260919-crown-04",
         "ariaLabel": "Loop discovers the paid promotion and coordinated engagement behind The Crown"
+      },
+      {
+        "kicker": "THE LOSERS",
+        "title": "THE LOSERS.",
+        "body": "The Crown celebrates the winners while the failures disappear from view. Behind every success story are people the feed conveniently forgot.",
+        "video": "assets/scenes/web/crown05-h264.mp4?v=20260919-crown-10",
+        "poster": "assets/optimized/crown-scene-05.jpg?v=20260919-crown-10",
+        "ariaLabel": "The Crown celebrates winners while failures disappear from view"
+      },
+      {
+        "kicker": "CAUGHT ON CAMERA",
+        "title": "CAUGHT ON CAMERA.",
+        "body": "Loop finally catches The Crown's operation in action. The perfect public image begins to crack as the machinery behind the influence is exposed.",
+        "video": "assets/scenes/web/crown06-h264.mp4?v=20260919-crown-10",
+        "poster": "assets/optimized/crown-scene-06.jpg?v=20260919-crown-10",
+        "ariaLabel": "Loop catches The Crown's operation in action"
+      },
+      {
+        "kicker": "WHO DO YOU BELIEVE?",
+        "title": "WHO DO YOU BELIEVE?",
+        "body": "The Crown built his power on a simple idea: if enough people follow you, others stop asking whether you are right.",
+        "video": "assets/scenes/web/crown07-h264.mp4?v=20260919-crown-10",
+        "poster": "assets/optimized/crown-scene-07.jpg?v=20260919-crown-10",
+        "ariaLabel": "The Crown uses follower count to make people trust him"
+      },
+      {
+        "kicker": "HALL OF MIRRORS",
+        "title": "HALL OF MIRRORS.",
+        "body": "Loop enters the world behind The Crown's image - a hall of selective wins, hidden failures, paid promotions and manufactured success.",
+        "video": "assets/scenes/web/crown08-h264.mp4?v=20260919-crown-10",
+        "poster": "assets/optimized/crown-scene-08.jpg?v=20260919-crown-10",
+        "ariaLabel": "Loop enters the hall of mirrors behind The Crown's image"
+      },
+      {
+        "kicker": "THE COMPLETE RECORD",
+        "title": "THE COMPLETE RECORD.",
+        "body": "Loop exposes what The Crown left out. The audience finally sees the wins, the losses and the manipulation together - not just the version they were sold.",
+        "video": "assets/scenes/web/crown09-h264.mp4?v=20260919-crown-10",
+        "poster": "assets/optimized/crown-scene-09.jpg?v=20260919-crown-10",
+        "ariaLabel": "Loop reveals the complete record behind The Crown's image"
+      },
+      {
+        "kicker": "NOBODY'S WATCHING",
+        "title": "NOBODY'S WATCHING.",
+        "body": "The illusion collapses when the attention disappears. Without the audience, the status and the spectacle, The Crown is just another frog in a chair.",
+        "video": "assets/scenes/web/crown10-h264.mp4?v=20260919-crown-10",
+        "poster": "assets/optimized/crown-scene-10.jpg?v=20260919-crown-10",
+        "ariaLabel": "The Crown sits alone after the audience and spectacle disappear"
       }
     ]
   },
