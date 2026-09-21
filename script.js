@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260919-crown-10`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260921-market-stories`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -128,14 +128,16 @@ function getLockedIssueCards(issueData = {}){
       const tease = lockedTeases[issue.number] || lockedTeases[String(issue.number).padStart(3,'0')] || {};
       return {
         number: issue.number,
-        title: tease.title || 'CLASSIFIED',
+        title: tease.title || '???',
         quote: tease.quote || release.lockedQuote || 'NEXT TRANSMISSION SEALED.',
         status: tease.status || release.lockedStatus || 'ISSUE LOCKED'
       };
     });
 
   const existingLocks = issueData.lockedLords || [];
-  return [...hiddenIssues,...existingLocks].filter(lord=>!visibleIssues.has(lord.number));
+  return [...hiddenIssues,...existingLocks]
+    .filter(lord=>!visibleIssues.has(lord.number))
+    .slice(0,1);
 }
 
 function getLiveSceneLabel(sceneLimit,totalScenes){
@@ -252,7 +254,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
         <button class="btn" type="button" data-share-issue>SHARE ISSUE</button>
         <a class="btn" href="${escapeHtml(buyUrl)}"${siteData?.token?.buyUrl ? ' target="_blank" rel="noopener"' : ''}>${buyLabel}</a>
         <a class="btn" href="#community">JOIN COMMUNITY</a>
-        <button class="btn primary" type="button" data-close-issue>BACK TO GREED LORDS</button>
+        <button class="btn primary" type="button" data-close-issue>BACK TO STORIES</button>
         <a class="btn" href="#top">FRONT PAGE</a>
       </div>
     </article>
@@ -509,6 +511,8 @@ function renderSite(site,socials,issues){
   }
 
   setText('.hero .eyebrow',site?.hero?.eyebrow);
+  setText('.hero .hero-badge',site?.hero?.badge);
+  setText('.hero .start-cue',site?.hero?.status);
   const heroMedia = document.querySelector('.hero-bg');
   const heroPoster = document.querySelector('.hero-poster');
   if(heroPoster && site?.hero?.image) heroPoster.src = site.hero.image;
@@ -532,6 +536,11 @@ function renderSite(site,socials,issues){
   if(heroSecondary && site?.hero){
     heroSecondary.textContent = site.hero.secondaryCta || heroSecondary.textContent;
     if(site.hero.secondaryUrl) heroSecondary.setAttribute('href',site.hero.secondaryUrl);
+  }
+  const heroThird = document.querySelector('.hero-actions .ghost');
+  if(heroThird && site?.hero){
+    heroThird.textContent = site.hero.thirdCta || heroThird.textContent;
+    if(site.hero.thirdUrl) heroThird.setAttribute('href',site.hero.thirdUrl);
   }
   setText('.latest-inner .kicker',site?.latest?.kicker);
   setText('.latest-inner h2',site?.latest?.title);
@@ -575,7 +584,8 @@ function renderSite(site,socials,issues){
 
   setText('.token-card h2',site?.token?.symbol);
   const tokenNetwork = document.querySelector('.token-card h2 + p');
-  if(tokenNetwork && site?.token?.network) tokenNetwork.textContent = site.token.network;
+  if(tokenNetwork && site?.token?.body) tokenNetwork.textContent = site.token.body;
+  setText('.token-tagline',site?.token?.tagline);
   setText('.launch-badge',site?.token?.launchStatus);
   setText('.launch-state span',site?.token?.contractStatus);
   setText('.launch-state strong',site?.token?.contractMessage);
@@ -607,6 +617,8 @@ function renderSite(site,socials,issues){
   setText('.next-issue h2',site?.nextIssue?.title);
   setText('.next-issue p',site?.nextIssue?.body);
   setText('.next-issue .btn',site?.nextIssue?.button);
+  const finalCta = document.querySelector('.next-issue .btn');
+  if(finalCta && site?.nextIssue?.url) finalCta.setAttribute('href',site.nextIssue.url);
 
   renderSocialLinks(socials,site?.token?.buyUrl);
   renderIssue(issues,site);
@@ -1084,7 +1096,7 @@ function initInteractions(issueData){
       trigger.classList.remove('issue-open');
     });
     setIssueLabels();
-    document.getElementById('lords')?.scrollIntoView({behavior:'smooth',block:'start'});
+    document.getElementById('stories')?.scrollIntoView({behavior:'smooth',block:'start'});
   }
 
   issueTriggers.forEach(trigger=>{

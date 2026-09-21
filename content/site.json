@@ -1,11 +1,11 @@
 {
   "meta": {
     "title": "Loop Gaiden — Enter the Trenches",
-    "description": "Loop Gaiden is a comic about the memecoin trenches: farmers, extractors, manipulators, bots, bundles, snipers, communities and everyone caught in between.",
+    "description": "Loop Gaiden is a comic universe inspired by crypto, stocks, Wall Street and the madness of modern markets.",
     "canonicalUrl": "https://loopgaiden.com/",
     "shareUrl": "https://loopgaiden.com/#issue-002",
-    "shareTitle": "Loop Gaiden — A Comic About the Memecoin Trenches",
-    "shareDescription": "Follow Loop through farmers, extractors, manipulators, bots, bundles, snipers, communities and the chaos of the trenches.",
+    "shareTitle": "Loop Gaiden — Stories From the Trenches",
+    "shareDescription": "Market culture becomes comic-book fiction. The market changes. The stories move with it.",
     "shareImage": "https://loopgaiden.com/assets/optimized/the-crown-issue-cover.jpg?v=20260919-crown-01",
     "shareImageAlt": "Loop Gaiden Issue 002 The Crown comic cover"
   },
@@ -14,11 +14,15 @@
     "image": "assets/optimized/hero-loop-rooftop.jpg",
     "video": "assets/web-video/hero-bg-h264.mp4",
     "headline": "LOOP<br><span>GAIDEN</span>",
-    "line": "A COMIC ABOUT THE MEMECOIN TRENCHES.",
-    "primaryCta": "WATCH ISSUE 002",
+    "badge": "STORIES FROM THE MARKET",
+    "status": "NEW STORIES. NEW NARRATIVES. SAME TRENCHES.",
+    "line": "<strong>STORIES FROM THE TRENCHES.</strong><br><span>A comic universe inspired by crypto, stocks, Wall Street and the madness of modern markets.</span><br><small>The market changes.<br>The stories move with it.</small>",
+    "primaryCta": "READ THE LATEST ISSUE",
     "primaryUrl": "#issue-002",
     "secondaryCta": "THE TRENCHES",
-    "secondaryUrl": "#mission"
+    "secondaryUrl": "#trenches",
+    "thirdCta": "BUY $GAIDEN",
+    "thirdUrl": "#token"
   },
   "latest": {
     "kicker": "LATEST TRANSMISSION",
@@ -33,86 +37,64 @@
   "game": {
     "kicker": "ARCADE FILE",
     "title": "LOOP GAIDEN GAME",
-    "body": "A 2D fight game planned for the future where Loop clears Bundles, Goons, and Snipers before facing the Greed Lords behind the trenches.",
+    "body": "A future 2D fight game set inside the wider Loop Gaiden universe, where Loop battles through market culture one threat at a time.",
     "status": "PAUSED",
     "image": "assets/game-clean.png",
-    "url": "#mission"
+    "url": "#stories"
   },
   "manifesto": {
-    "kicker": "THE WORLD",
+    "kicker": "THE TRENCHES",
     "title": "THE TRENCHES",
     "paragraphs": [
-      "Loop Gaiden is a story about what memecoin culture became — farmers, extractors, manipulators, bundles, bots, snipers, insiders, devs, traders, communities, and everyone caught in between.",
-      "Through Loop, the comic explores the chaos, greed, humor, hope, wins, losses and absurdity of life in the trenches.",
-      "The Seven Greed Lords are part of the story.",
+      "Loop Gaiden is a comic universe inspired by the chaos of modern markets — crypto, stocks, Wall Street, memes, hype, fear, greed, wins, losses and the people caught in the middle of it all.",
+      "Every issue takes inspiration from the narratives, characters and madness moving the markets right now.",
+      "One week it might be a memecoin frenzy.\n\nThe next, a stock everyone suddenly cannot stop talking about.\n\nAn IPO.\nA short squeeze.\nAn AI narrative.\nA market crash.\nA rotation nobody saw coming.",
+      "Through Loop, those moments become stories.",
       "The trenches are the story."
     ],
     "statements": [
-      "THE TRENCHES DECIDE WHAT HAPPENS NEXT. ∞"
+      "THE MARKET WRITES THE HEADLINES.\nTHE TRENCHES TURN THEM INTO STORIES. ♾️"
     ]
   },
   "mission": {
-    "kicker": "STORIES",
-    "title": "STORIES FROM THE TRENCHES",
-    "body": "Loop Gaiden is an expanding comic universe inspired by the culture, characters, chaos and conflicts of the memecoin trenches.",
+    "kicker": "FUTURE STORIES",
+    "title": "THE STORY MOVES WITH THE MARKET",
+    "body": "The markets never stay still. Neither does Loop Gaiden.",
     "chapters": [
       {
         "number": "01",
         "tone": "live",
-        "status": "THE UNIVERSE",
-        "title": "LOOP GAIDEN",
-        "body": "The trenches are the world. Loop is the protagonist. The comic can explore many stories from the culture around launches, hype, conviction, chaos and survival.",
+        "status": "FUTURE STORIES",
+        "title": "THE STORY MOVES WITH THE MARKET",
+        "body": "Future stories can move through memecoin mania, Wall Street chaos, stock-market euphoria, crashes, squeezes, launches, IPOs, hype cycles, traders, influencers, communities and whatever narrative takes over next. Nothing needs to fit inside one fixed saga. If people are talking about it in the markets, it can inspire a Loop Gaiden story.",
         "items": [
-          "Farmers",
-          "Extractors",
-          "Manipulators",
-          "Bundles",
-          "Bots",
-          "Snipers",
-          "Insiders",
-          "Devs",
-          "Traders",
-          "Communities"
-        ]
+          "Market-inspired comic issues", "New trench characters", "Wall Street and stock-market stories", "Crypto and memecoin culture", "Community-driven ideas", "Animated releases", "Timely market narratives", "Loop keeps moving"
+        ],
+        "callout": "THE MARKET NEVER STOPS. NEITHER DO THE STORIES. ∞"
       },
       {
         "number": "02",
         "tone": "active",
-        "status": "CURRENT STORY ARC",
-        "title": "THE GREED LORDS",
-        "body": "Seven manifestations of the greed that took over the trenches.",
-        "bosses": [
-          { "label": "ISSUE 001 — THE FARMER", "state": "defeated" },
-          { "label": "ISSUE 002 — THE CROWN", "state": "active" },
-          { "label": "ISSUE 003 — THE MANIPULATOR", "state": "locked" },
-          { "label": "ISSUE 004 — ???", "state": "locked" },
-          { "label": "ISSUE 005 — ???", "state": "locked" },
-          { "label": "ISSUE 006 — ???", "state": "locked" },
-          { "label": "ISSUE 007 — ???", "state": "locked" }
-        ],
-        "callout": "The Greed Lords are only one chapter of the trenches."
+        "status": "THE FORMAT",
+        "title": "MARKET MOMENT → COMIC STORY",
+        "body": "Loop Gaiden takes the culture, characters and narratives moving through the markets and transforms them into fictional comic stories. The goal is not to report the market. The goal is to turn its madness into stories.",
+        "items": ["01 — THE MARKET MOVES: A new narrative captures everyone's attention.", "02 — THE TRENCHES REACT: Traders, communities and the internet turn it into culture.", "03 — LOOP ENTERS THE STORY: That moment becomes a new Loop Gaiden chapter."],
+        "callout": "CRYPTO. STOCKS. WALL STREET. MEMES. MARKET PSYCHOLOGY. INTERNET CULTURE."
       },
       {
         "number": "03",
         "tone": "next",
-        "status": "FUTURE STORIES",
-        "title": "BEYOND THE GREED LORDS",
-        "body": "Future Loop Gaiden stories can move through rugs, CTOs, insiders, whales, KOLs, bots, devs, communities, launches, bull markets, bear markets, fake hype and real conviction.",
-        "items": [
-          "New trench characters",
-          "New comic arcs",
-          "Community lore",
-          "Animated releases",
-          "Loop keeps moving"
-        ],
-        "callout": "THE UNIVERSE CONTINUES."
+        "status": "LOOP GAIDEN",
+        "title": "ONE CHARACTER. INFINITE STORIES.",
+        "body": "Loop moves through the shadows of the market. Different cities. Different narratives. Different characters. Different battles. But the trenches are always there. The world around Loop can change with each issue while his identity remains constant. He is the thread connecting every story.",
+        "callout": "THE MARKET CHANGES. LOOP KEEPS MOVING. ∞"
       }
     ],
     "final": {
-      "kicker": "∞ THE LOOP CONTINUES",
-      "title": "The trenches are the world.<br>Loop is the hero.<br>The story keeps expanding.",
-      "body": "The Seven Greed Lords are part of the story, not the whole story.",
-      "status": "THE TRENCHES DECIDE WHAT HAPPENS NEXT. ∞"
+      "kicker": "THE NEXT STORY",
+      "title": "The next story<br>is already happening.",
+      "body": "Somewhere in crypto, stocks or Wall Street, the next narrative is already starting. When the trenches start talking, Loop is watching.",
+      "status": "THE MARKET WRITES THE HEADLINES. WE TURN THEM INTO COMICS. ∞"
     }
   },
   "token": {
@@ -123,21 +105,24 @@
     "contractMessage": "VERIFY THIS ADDRESS BEFORE BUYING",
     "contractAddress": "4ojJQxfpRAkHcnDsfEWCAfwPXDoeHYq9axKZP8mnpump",
     "buyUrl": "https://pump.fun/coin/4ojJQxfpRAkHcnDsfEWCAfwPXDoeHYq9axKZP8mnpump",
-    "buyLabel": "BUY",
+    "buyLabel": "BUY $GAIDEN",
+    "body": "$GAIDEN is the token at the center of the Loop Gaiden universe. The comic gives the project its identity. The community gives it its energy. The market gives it new stories.",
+    "tagline": "THE COMIC IS THE CONTENT. THE TRENCHES ARE THE CULTURE. $GAIDEN CONNECTS THE UNIVERSE.",
     "fineprint": "Only trust the contract address posted on this official Loop Gaiden website and @loopgaiden."
   },
   "community": {
     "kicker": "THE TRENCHES",
-    "title": "THIS IS OUR LOOP.",
-    "body": "A community, not just holders.<br>The trenches are the world.<br>Loop is the hero we build around.",
+    "title": "THE COMMUNITY IS PART OF THE STORY",
+    "body": "Loop Gaiden is built around the culture of the trenches.<br><br>The memes. The theories. The wins. The losses. The ridiculous moments. The stories traders remember.<br><br>The community can help surface the narratives, characters and moments worth turning into future issues.<br><br><strong>THE TRENCHES DON'T JUST WATCH THE STORY.<br>THEY LIVE IN IT.</strong>",
     "warning": "Only trust links from this page and @loopgaiden.",
-    "joinLabel": "JOIN ON X",
+    "joinLabel": "JOIN THE TRENCHES",
     "readLabel": "READ ISSUE 002"
   },
   "nextIssue": {
-    "kicker": "NEXT FILE",
-    "title": "CLASSIFIED TRANSMISSION",
-    "body": "The next Greed Lord file is sealed. The issue name and number unlock when it is ready.",
-    "button": "WATCH ON X"
+    "kicker": "THE NEXT STORY",
+    "title": "THE NEXT STORY IS ALREADY HAPPENING.",
+    "body": "Somewhere in crypto, stocks or Wall Street, the next narrative is already starting. When the trenches start talking, Loop is watching.",
+    "button": "ENTER THE TRENCHES",
+    "url": "#community"
   }
 }

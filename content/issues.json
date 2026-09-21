@@ -10,13 +10,13 @@
     "lockedQuote": "NEXT TRANSMISSION SEALED.",
     "lockedTeases": {
       "002": {
-        "title": "CLASSIFIED",
-        "quote": "NEXT TRANSMISSION SEALED.",
+        "title": "???",
+        "quote": "FUTURE STORY.",
         "status": "ISSUE LOCKED"
       },
       "003": {
-        "title": "CLASSIFIED",
-        "quote": "NEXT TRANSMISSION SEALED.",
+        "title": "???",
+        "quote": "FUTURE STORY.",
         "status": "ISSUE LOCKED"
       }
     },
@@ -26,7 +26,7 @@
   "activeIssue": {
     "number": "001",
     "title": "THE FARMER",
-    "cardSubtitle": "FIRST GREED LORD FILE",
+    "cardSubtitle": "ISSUE COMPLETE",
     "quote": "I NEED MORE.",
     "cover": "assets/optimized/farmer-cover.jpg?v=20260917-farmer-cover",
     "summary": "Opened from the active comic file. New scenes can be unlocked here as they drop on X.",
@@ -135,10 +135,10 @@
     "number": "002",
     "title": "THE CROWN",
     "complete": false,
-    "cardSubtitle": "SECOND GREED LORD FILE",
+    "cardSubtitle": "CURRENT STORY · LIVE",
     "quote": "LOOK AT ME.",
     "cover": "assets/optimized/the-crown-issue-cover.jpg?v=20260919-crown-01",
-    "summary": "The Farmer was only the beginning. The next Greed Lord file opens with The Crown.",
+    "summary": "The Crown turns wealth, followers and attention into influence — until Loop exposes what the audience never sees.",
     "coverIntro": "The Crown does not hide his greed. Enter the next transmission scene by scene.",
     "shareText": "Issue 002: The Crown is live.",
     "scenes": [
@@ -229,10 +229,10 @@
       "key": "manipulatorIssue",
       "number": "003",
       "title": "THE MANIPULATOR",
-      "cardSubtitle": "THIRD GREED LORD FILE",
+      "cardSubtitle": "FUTURE STORY",
       "quote": "HE CONTROLLED IT.",
       "cover": "assets/optimized/the-manipulator-issue-cover.jpg",
-      "summary": "The signal climbs higher. The next Greed Lord file opens with The Manipulator.",
+      "summary": "Loop follows a manufactured signal through KOLs, bots, FOMO and media until every trail leads to the same source.",
       "coverIntro": "The trail led higher. Someone had been watching everything.",
       "shareText": "Issue 003: The Manipulator file is opening.",
       "scenes": [
@@ -311,10 +311,5 @@
       ]
     }
   ],
-  "lockedLords": [
-    { "number": "04", "title": "CLASSIFIED", "quote": "TRANSMISSION SEALED.", "status": "ISSUE LOCKED" },
-    { "number": "05", "title": "CLASSIFIED", "quote": "TRANSMISSION SEALED.", "status": "ISSUE LOCKED" },
-    { "number": "06", "title": "CLASSIFIED", "quote": "TRANSMISSION SEALED.", "status": "ISSUE LOCKED" },
-    { "number": "07", "title": "CLASSIFIED", "quote": "TRANSMISSION SEALED.", "status": "ISSUE LOCKED" }
-  ]
+  "lockedLords": []
 }
