@@ -647,7 +647,7 @@ body{
   isolation:isolate;
 }
 .silhouette:before{
-  content:"FUTURE STORY";
+  content:"NEXT STORY";
   color:#c8ff2f14;
 }
 .silhouette:after{

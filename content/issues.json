@@ -6,32 +6,32 @@
       "nextIssue": 10,
       "manipulatorIssue": 9
     },
-    "lockedStatus": "TRANSMISSION SEALED",
-    "lockedQuote": "NEXT TRANSMISSION SEALED.",
+    "lockedStatus": "COMING NEXT",
+    "lockedQuote": "NEXT STORY SEALED.",
     "lockedTeases": {
       "002": {
         "title": "???",
-        "quote": "FUTURE STORY.",
-        "status": "ISSUE LOCKED"
+        "quote": "NEXT STORY SEALED.",
+        "status": "COMING NEXT"
       },
       "003": {
         "title": "???",
-        "quote": "FUTURE STORY.",
-        "status": "ISSUE LOCKED"
+        "quote": "NEXT STORY SEALED.",
+        "status": "COMING NEXT"
       }
     },
-    "lockedSceneTitle": "NEXT SCENE SEALED.",
-    "lockedSceneBody": "The next transmission unlocks with the next launch beat."
+    "lockedSceneTitle": "NEXT EPISODE SEALED.",
+    "lockedSceneBody": "The next short episode unlocks with the next story beat."
   },
   "activeIssue": {
     "number": "001",
     "title": "THE FARMER",
-    "cardSubtitle": "ISSUE COMPLETE",
+    "cardSubtitle": "STORY COMPLETE",
     "quote": "I NEED MORE.",
     "cover": "assets/optimized/farmer-cover.jpg?v=20260917-farmer-cover",
     "summary": "Opened from the active comic file. New scenes can be unlocked here as they drop on X.",
     "coverIntro": "Start with the cover, then enter the transmission scene by scene.",
-    "shareText": "Issue 001: The Farmer is live.",
+    "shareText": "Season 01, Story 01: The Farmer.",
     "scenes": [
       {
         "kicker": "THE TRENCHES",
@@ -135,12 +135,12 @@
     "number": "002",
     "title": "THE CROWN",
     "complete": false,
-    "cardSubtitle": "CURRENT STORY · LIVE",
+    "cardSubtitle": "NOW PLAYING",
     "quote": "LOOK AT ME.",
     "cover": "assets/optimized/the-crown-issue-cover.jpg?v=20260919-crown-01",
     "summary": "The Crown turns wealth, followers and attention into influence — until Loop exposes what the audience never sees.",
     "coverIntro": "The Crown does not hide his greed. Enter the next transmission scene by scene.",
-    "shareText": "Issue 002: The Crown is live.",
+    "shareText": "Season 01, Story 02: The Crown is live.",
     "scenes": [
       {
         "kicker": "LOOK AT ME",

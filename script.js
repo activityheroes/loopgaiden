@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260921-market-stories`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260922-seasons`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -63,7 +63,7 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
     const tiktok = socials.find(social=>social.label.toLowerCase().includes('tiktok'));
     const instagram = socials.find(social=>social.label.toLowerCase().includes('instagram'));
     mobileSticky.innerHTML = `
-      <a href="#issue-002" data-open-issue="nextIssue">Read</a>
+      <a href="#issue-002" data-open-issue="nextIssue">Watch</a>
       <a href="#token">Buy</a>
       ${x ? `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
       ${tiktok ? `<a href="${escapeHtml(tiktok.url)}" target="_blank" rel="noopener">TikTok</a>` : ''}
@@ -130,7 +130,7 @@ function getLockedIssueCards(issueData = {}){
         number: issue.number,
         title: tease.title || '???',
         quote: tease.quote || release.lockedQuote || 'NEXT TRANSMISSION SEALED.',
-        status: tease.status || release.lockedStatus || 'ISSUE LOCKED'
+        status: tease.status || release.lockedStatus || 'COMING NEXT'
       };
     });
 
@@ -142,10 +142,10 @@ function getLockedIssueCards(issueData = {}){
 
 function getLiveSceneLabel(sceneLimit,totalScenes){
   const liveCount = Math.max(0,Math.min(Number(sceneLimit) || 0,totalScenes || 0));
-  if(!totalScenes) return 'FILE LIVE';
-  if(totalScenes === 1 && liveCount === 1) return 'SCENE 01 LIVE';
-  if(liveCount >= totalScenes) return `${String(totalScenes).padStart(2,'0')} SCENES LIVE`;
-  return `SCENE ${String(Math.max(liveCount,1)).padStart(2,'0')} LIVE`;
+  if(!totalScenes) return 'STORY LIVE';
+  if(totalScenes === 1 && liveCount === 1) return 'EPISODE 01 LIVE';
+  if(liveCount >= totalScenes) return `${String(totalScenes).padStart(2,'0')} EPISODES`;
+  return `EPISODE ${String(Math.max(liveCount,1)).padStart(2,'0')} LIVE`;
 }
 
 function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueData = {}){
@@ -162,9 +162,9 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   const buyUrl = siteData?.token?.buyUrl || '#token';
   const buyLabel = 'BUY';
 
-  setText('#story .section-head h2',`ISSUE ${issue.number} — ${issue.title}`);
+  setText('#story .section-head h2',`SEASON 01 · STORY ${issue.number} — ${issue.title}`);
   setText('#story .section-head p',issue.summary);
-  setText('#readerProgressText',`Scene 1 / ${Math.max(scenes.length,1)}`);
+  setText('#readerProgressText',`Episode 1 / ${Math.max(scenes.length,1)}`);
 
   const releaseStatus = document.querySelector('[data-scene-release-status]');
   if(releaseStatus){
@@ -172,7 +172,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
     const nextScene = hasLockedScenes ? scenes.length + 1 : 0;
     releaseStatus.innerHTML = `
       <span>${escapeHtml(liveLabel)}</span>
-      <span>${nextScene ? `SCENE ${String(nextScene).padStart(2,'0')} UNLOCKS NEXT` : 'ISSUE COMPLETE'}</span>
+      <span>${nextScene ? `EPISODE ${String(nextScene).padStart(2,'0')} UNLOCKS NEXT` : 'STORY COMPLETE'}</span>
     `;
   }
 
@@ -182,15 +182,15 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   sceneStack.innerHTML = `
     <article class="issue-start reveal visible" id="issue-cover" data-issue-cover>
       <div class="issue-start-cover">
-        <img src="${escapeHtml(issue.cover)}" alt="Issue ${issueNumber} cover" />
+        <img src="${escapeHtml(issue.cover)}" alt="Story ${issueNumber} cover" />
       </div>
       <div class="issue-start-copy">
-        <span class="kicker">ISSUE ${issueNumber}</span>
+        <span class="kicker">SEASON 01 · STORY ${issueNumber}</span>
         <h3>${issueTitle}</h3>
         <p>${escapeHtml(issue.coverIntro)}</p>
         <div class="issue-actions">
-          <button class="btn primary" type="button" data-start-scenes>START SCENE 01</button>
-          <button class="btn" type="button" data-share-issue>SHARE ISSUE</button>
+          <button class="btn primary" type="button" data-start-scenes>START EPISODE 01</button>
+          <button class="btn" type="button" data-share-issue>SHARE STORY</button>
         </div>
       </div>
     </article>
@@ -204,13 +204,13 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
       const reverse = number % 2 === 0 ? ' reverse' : '';
       const finalControls = number === scenes.length ? `
         <div class="scene-nav">
-          <button class="scene-next" type="button"${prevId ? ` data-prev-scene="${prevId}"` : ' disabled'}>PREVIOUS SCENE</button>
-          ${hasLockedScenes ? '<button class="scene-next" type="button" disabled>NEXT SCENE LOCKED</button>' : ''}
+          <button class="scene-next" type="button"${prevId ? ` data-prev-scene="${prevId}"` : ' disabled'}>PREVIOUS EPISODE</button>
+          ${hasLockedScenes ? '<button class="scene-next" type="button" disabled>NEXT EPISODE LOCKED</button>' : ''}
         </div>
       ` : `
         <div class="scene-nav">
-          <button class="scene-next" type="button"${prevId ? ` data-prev-scene="${prevId}"` : ' disabled'}>PREVIOUS SCENE</button>
-          <button class="scene-next" type="button" data-next-scene="${nextId}">NEXT SCENE</button>
+          <button class="scene-next" type="button"${prevId ? ` data-prev-scene="${prevId}"` : ' disabled'}>PREVIOUS EPISODE</button>
+          <button class="scene-next" type="button" data-next-scene="${nextId}">NEXT EPISODE</button>
         </div>
       `;
 
@@ -234,24 +234,24 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
     ${hasLockedScenes ? `
       <article class="locked-scene-teaser reveal visible" id="scene-${String(nextLockedSceneNumber).padStart(2,'0')}-locked">
         <div>
-          <span>NEXT TRANSMISSION</span>
-          <strong>SCENE ${String(nextLockedSceneNumber).padStart(2,'0')}</strong>
+          <span>NEXT EPISODE</span>
+          <strong>EPISODE ${String(nextLockedSceneNumber).padStart(2,'0')}</strong>
         </div>
         <div>
-          <h3>${escapeHtml(release.lockedSceneTitle || 'NEXT SCENE SEALED.')}</h3>
-          <p>${escapeHtml(release.lockedSceneBody || 'The next transmission unlocks soon.')}</p>
+          <h3>${escapeHtml(release.lockedSceneTitle || 'NEXT EPISODE SEALED.')}</h3>
+          <p>${escapeHtml(release.lockedSceneBody || 'The next episode unlocks soon.')}</p>
         </div>
       </article>
     ` : ''}
     <article class="issue-complete-panel reveal visible" id="issue-complete">
       <div>
-        <span>${hasLockedScenes ? 'NEXT DROP LOCKED' : 'ISSUE COMPLETE'}</span>
-        <h3>${hasLockedScenes ? escapeHtml(release.lockedSceneTitle || 'NEXT SCENE SEALED.') : (issueNumber === '001' ? 'THE FARMER FILE IS OPEN.' : `${issueTitle} SIGNAL IS OPEN.`)}</h3>
-        <p>${hasLockedScenes ? escapeHtml(release.lockedSceneBody || 'The next transmission unlocks soon.') : 'Share the transmission, join the Trenches, or check the official token launch status.'}</p>
+        <span>${hasLockedScenes ? 'NEXT EPISODE LOCKED' : 'STORY COMPLETE'}</span>
+        <h3>${hasLockedScenes ? escapeHtml(release.lockedSceneTitle || 'NEXT EPISODE SEALED.') : (issueNumber === '001' ? 'THE FARMER STORY IS COMPLETE.' : `${issueTitle} IS NOW PLAYING.`)}</h3>
+        <p>${hasLockedScenes ? escapeHtml(release.lockedSceneBody || 'The next episode unlocks soon.') : 'Share the story, join the Trenches, or check the official token launch status.'}</p>
       </div>
       <div class="issue-actions issue-actions-bottom">
         <button class="btn" type="button" data-start-issue>START FROM BEGINNING</button>
-        <button class="btn" type="button" data-share-issue>SHARE ISSUE</button>
+        <button class="btn" type="button" data-share-issue>SHARE STORY</button>
         <a class="btn" href="${escapeHtml(buyUrl)}"${siteData?.token?.buyUrl ? ' target="_blank" rel="noopener"' : ''}>${buyLabel}</a>
         <a class="btn" href="#community">JOIN COMMUNITY</a>
         <button class="btn primary" type="button" data-close-issue>BACK TO STORIES</button>
@@ -279,10 +279,10 @@ function renderIssue(issueData,siteData = {}){
         return `
           <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-issue-key="${issueKey}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
             <div class="cover-frame">
-              <img src="${escapeHtml(issue.cover || 'assets/optimized/farmer-cover.jpg')}" alt="Issue ${issueNumber} cover" />
+              <img src="${escapeHtml(issue.cover || 'assets/optimized/farmer-cover.jpg')}" alt="Story ${issueNumber} cover" />
             </div>
             <div class="lord-info issue-card-info">
-              <div class="lord-index">ISSUE ${issueNumber}</div>
+              <div class="lord-index">SEASON 01 · STORY ${issueNumber}</div>
               <div class="issue-card-badges">
                 <span>LIVE NOW</span>
                 <span>READ NOW</span>
@@ -290,7 +290,7 @@ function renderIssue(issueData,siteData = {}){
               </div>
               <h3>${issueTitle}</h3>
               <p>${escapeHtml(issue.cardSubtitle)}</p>
-              <span class="status active issue-button" data-issue-label="OPEN ISSUE ${issueNumber}" data-issue-key="${issueKey}">OPEN ISSUE ${issueNumber}</span>
+              <span class="status active issue-button" data-issue-label="OPEN STORY ${issueNumber}" data-issue-key="${issueKey}">OPEN STORY ${issueNumber}</span>
             </div>
           </article>
         `;
@@ -298,7 +298,7 @@ function renderIssue(issueData,siteData = {}){
       ${getLockedIssueCards(issueData).filter(lord=>!activeNumbers.has(lord.number)).map(lord=>`
         <article class="lord-card silhouette reveal visible">
           <div>
-            <b>${escapeHtml(lord.number)}</b>
+            <b>NEXT</b>
             <h3>${escapeHtml(lord.title)}</h3>
             <p>${escapeHtml(lord.quote)}</p>
             <span>${escapeHtml(lord.status)}</span>
@@ -347,7 +347,7 @@ function setupIssueSlider(){
   };
   if(dots){
     dots.innerHTML = getCards().map((card,index)=>`
-      <button type="button" aria-label="Go to issue file ${index + 1}" data-issue-dot="${index}"></button>
+      <button type="button" aria-label="Go to story ${index + 1}" data-issue-dot="${index}"></button>
     `).join('');
     dots.querySelectorAll('[data-issue-dot]').forEach(dot=>{
       dot.addEventListener('click',()=>{
@@ -773,9 +773,9 @@ function initInteractions(issueData){
   function updateReaderProgress(sceneNumber){
     currentSceneNumber = sceneNumber;
     const progress = `${(sceneNumber / totalScenes) * 100}%`;
-    if(readerProgressText) readerProgressText.textContent = `Scene ${sceneNumber} / ${totalScenes}`;
+    if(readerProgressText) readerProgressText.textContent = `Episode ${sceneNumber} / ${totalScenes}`;
     if(readerProgressBar) readerProgressBar.style.width = progress;
-    if(mobileProgressText) mobileProgressText.textContent = `SCENE ${String(sceneNumber).padStart(2,'0')} / ${String(totalScenes).padStart(2,'0')}`;
+    if(mobileProgressText) mobileProgressText.textContent = `EPISODE ${String(sceneNumber).padStart(2,'0')} / ${String(totalScenes).padStart(2,'0')}`;
     if(mobileProgressBar) mobileProgressBar.style.width = progress;
     if(mobilePrevButton) mobilePrevButton.disabled = sceneNumber <= 1;
     if(mobileNextButton) mobileNextButton.disabled = sceneNumber >= totalScenes;
@@ -897,10 +897,10 @@ function initInteractions(issueData){
     const visibleScenes = getSceneLimit(issueData,currentIssueKey,issue);
     const nextSceneNumber = visibleScenes < allScenes.length ? visibleScenes + 1 : 0;
     const sceneLabel = `Scene ${String(currentSceneNumber).padStart(2,'0')}`;
-    const unlockLabel = nextSceneNumber ? ` Scene ${String(nextSceneNumber).padStart(2,'0')} unlocks next.` : ' The full issue is live.';
+    const unlockLabel = nextSceneNumber ? ` Episode ${String(nextSceneNumber).padStart(2,'0')} unlocks next.` : ' The full story is live.';
     const shareData = {
-      title:`Loop Gaiden — Issue ${issue?.number || '001'}`,
-      text:`Issue ${issue?.number || '001'}: ${sceneLabel} is live.${unlockLabel}`,
+      title:`Loop Gaiden — Season 01, Story ${issue?.number || '001'}`,
+      text:`Season 01, Story ${issue?.number || '001'}: ${sceneLabel} is live.${unlockLabel}`,
       url:shareUrl
     };
 
@@ -927,7 +927,7 @@ function initInteractions(issueData){
     issueLabels.forEach(label=>{
       const baseLabel = label.dataset.issueLabel || label.textContent;
       const isCurrent = label.dataset.issueKey === currentIssueKey;
-      label.textContent = issueViewer?.classList.contains('open') && isCurrent ? baseLabel.replace('OPEN ISSUE','ISSUE') + ' — OPEN' : baseLabel;
+      label.textContent = issueViewer?.classList.contains('open') && isCurrent ? baseLabel.replace('OPEN STORY','STORY') + ' — OPEN' : baseLabel;
     });
   }
 

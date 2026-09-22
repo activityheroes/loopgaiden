@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "Loop Gaiden — Enter the Trenches",
-    "description": "Loop Gaiden is a comic universe inspired by crypto, stocks, Wall Street and the madness of modern markets.",
+    "description": "Loop Gaiden is an evolving comic and animated series inspired by crypto, stocks, Wall Street, Reddit trading culture, memes and internet-finance history.",
     "canonicalUrl": "https://loopgaiden.com/",
     "shareUrl": "https://loopgaiden.com/#issue-002",
     "shareTitle": "Loop Gaiden — Stories From the Trenches",
-    "shareDescription": "Market culture becomes comic-book fiction. The market changes. The stories move with it.",
+    "shareDescription": "Seasons and short episodes inspired by the markets, memes and internet-finance culture.",
     "shareImage": "https://loopgaiden.com/assets/optimized/the-crown-issue-cover.jpg?v=20260919-crown-01",
-    "shareImageAlt": "Loop Gaiden Issue 002 The Crown comic cover"
+    "shareImageAlt": "Loop Gaiden Season 01 The Crown story cover"
   },
   "hero": {
     "eyebrow": "FROM THE TRENCHES. FOR THE TRENCHES.",
@@ -15,9 +15,9 @@
     "video": "assets/web-video/hero-bg-h264.mp4",
     "headline": "LOOP<br><span>GAIDEN</span>",
     "badge": "STORIES FROM THE MARKET",
-    "status": "NEW STORIES. NEW NARRATIVES. SAME TRENCHES.",
-    "line": "<strong>STORIES FROM THE TRENCHES.</strong><br><span>A comic universe inspired by crypto, stocks, Wall Street and the madness of modern markets.</span><br><small>The market changes.<br>The stories move with it.</small>",
-    "primaryCta": "READ THE LATEST ISSUE",
+    "status": "NEW SEASONS. SHORT EPISODES. SAME TRENCHES.",
+    "line": "<strong>STORIES FROM THE TRENCHES.</strong><br><span>An evolving comic and animated series inspired by crypto, stocks, Wall Street, Reddit trading culture, memes and internet-finance history.</span><br><small>The market changes.<br>The stories move with it.</small>",
+    "primaryCta": "WATCH THE LATEST STORY",
     "primaryUrl": "#issue-002",
     "secondaryCta": "THE TRENCHES",
     "secondaryUrl": "#trenches",
@@ -25,13 +25,13 @@
     "thirdUrl": "#token"
   },
   "latest": {
-    "kicker": "LATEST TRANSMISSION",
-    "title": "ISSUE 002: THE CROWN IS LIVE",
-    "button": "OPEN ISSUE",
+    "kicker": "NOW PLAYING",
+    "title": "SEASON 01 · THE CROWN",
+    "button": "OPEN STORY",
     "releaseLine": [
-      "ISSUE 001 COMPLETE",
-      "ISSUE 002 LIVE",
-      "SCENES 01-10 LIVE"
+      "SEASON 01",
+      "STORY 02 LIVE",
+      "10 SHORT EPISODES"
     ]
   },
   "game": {
@@ -46,8 +46,8 @@
     "kicker": "THE TRENCHES",
     "title": "THE TRENCHES",
     "paragraphs": [
-      "Loop Gaiden is a comic universe inspired by the chaos of modern markets — crypto, stocks, Wall Street, memes, hype, fear, greed, wins, losses and the people caught in the middle of it all.",
-      "Every issue takes inspiration from the narratives, characters and madness moving the markets right now.",
+      "Loop Gaiden is an evolving comic and animated series inspired by the chaos of modern markets — crypto, stocks, Wall Street, Reddit trading culture, internet-finance history, memes and whatever the market is talking about now.",
+      "Stories unfold through seasons and short episodes. Each one takes inspiration from the narratives, characters and madness moving the markets right now.",
       "One week it might be a memecoin frenzy.\n\nThe next, a stock everyone suddenly cannot stop talking about.\n\nAn IPO.\nA short squeeze.\nAn AI narrative.\nA market crash.\nA rotation nobody saw coming.",
       "Through Loop, those moments become stories.",
       "The trenches are the story."
@@ -57,28 +57,28 @@
     ]
   },
   "mission": {
-    "kicker": "FUTURE STORIES",
-    "title": "THE STORY MOVES WITH THE MARKET",
+    "kicker": "SEASONS",
+    "title": "AN EVOLVING SERIES",
     "body": "The markets never stay still. Neither does Loop Gaiden.",
     "chapters": [
       {
         "number": "01",
         "tone": "live",
-        "status": "FUTURE STORIES",
+        "status": "SEASONS",
         "title": "THE STORY MOVES WITH THE MARKET",
-        "body": "Future stories can move through memecoin mania, Wall Street chaos, stock-market euphoria, crashes, squeezes, launches, IPOs, hype cycles, traders, influencers, communities and whatever narrative takes over next. Nothing needs to fit inside one fixed saga. If people are talking about it in the markets, it can inspire a Loop Gaiden story.",
+        "body": "Each season gathers stories from a moment in market culture. A season can move through memecoin mania, Wall Street chaos, Reddit-fueled trades, stock-market euphoria, crashes, squeezes, IPOs, hype cycles and whatever narrative takes over next. Stories are never locked to one saga. If the market is talking about it, it can enter the series.",
         "items": [
-          "Market-inspired comic issues", "New trench characters", "Wall Street and stock-market stories", "Crypto and memecoin culture", "Community-driven ideas", "Animated releases", "Timely market narratives", "Loop keeps moving"
+          "Evolving seasons", "Short comic episodes", "Animated releases", "New trench characters", "Wall Street and stock-market stories", "Crypto and memecoin culture", "Reddit and internet-finance history", "Loop keeps moving"
         ],
         "callout": "THE MARKET NEVER STOPS. NEITHER DO THE STORIES. ∞"
       },
       {
         "number": "02",
         "tone": "active",
-        "status": "THE FORMAT",
-        "title": "MARKET MOMENT → COMIC STORY",
-        "body": "Loop Gaiden takes the culture, characters and narratives moving through the markets and transforms them into fictional comic stories. The goal is not to report the market. The goal is to turn its madness into stories.",
-        "items": ["01 — THE MARKET MOVES: A new narrative captures everyone's attention.", "02 — THE TRENCHES REACT: Traders, communities and the internet turn it into culture.", "03 — LOOP ENTERS THE STORY: That moment becomes a new Loop Gaiden chapter."],
+        "status": "SHORT EPISODES",
+        "title": "MARKET MOMENT → SHORT STORY",
+        "body": "Loop Gaiden transforms the culture, characters and narratives moving through the markets into short fictional comic and animated episodes. The goal is not to report the market. The goal is to turn its madness into stories.",
+        "items": ["01 — THE MARKET MOVES: A new narrative captures everyone's attention.", "02 — THE TRENCHES REACT: Traders, communities and the internet turn it into culture.", "03 — LOOP ENTERS THE STORY: That moment becomes a run of short episodes."],
         "callout": "CRYPTO. STOCKS. WALL STREET. MEMES. MARKET PSYCHOLOGY. INTERNET CULTURE."
       },
       {
@@ -86,7 +86,7 @@
         "tone": "next",
         "status": "LOOP GAIDEN",
         "title": "ONE CHARACTER. INFINITE STORIES.",
-        "body": "Loop moves through the shadows of the market. Different cities. Different narratives. Different characters. Different battles. But the trenches are always there. The world around Loop can change with each issue while his identity remains constant. He is the thread connecting every story.",
+        "body": "Loop moves through the shadows of the market. Different seasons. Different narratives. Different characters. Different battles. But the trenches are always there. The world around Loop can change with every story while his identity remains constant. He is the thread connecting the entire series.",
         "callout": "THE MARKET CHANGES. LOOP KEEPS MOVING. ∞"
       }
     ],
@@ -113,10 +113,10 @@
   "community": {
     "kicker": "THE TRENCHES",
     "title": "THE COMMUNITY IS PART OF THE STORY",
-    "body": "Loop Gaiden is built around the culture of the trenches.<br><br>The memes. The theories. The wins. The losses. The ridiculous moments. The stories traders remember.<br><br>The community can help surface the narratives, characters and moments worth turning into future issues.<br><br><strong>THE TRENCHES DON'T JUST WATCH THE STORY.<br>THEY LIVE IN IT.</strong>",
+    "body": "Loop Gaiden is built around the culture of the trenches.<br><br>The memes. The theories. The wins. The losses. The ridiculous moments. The stories traders remember.<br><br>The community can help surface the narratives, characters and moments worth turning into future seasons and short episodes.<br><br><strong>THE TRENCHES DON'T JUST WATCH THE STORY.<br>THEY LIVE IN IT.</strong>",
     "warning": "Only trust links from this page and @loopgaiden.",
     "joinLabel": "JOIN THE TRENCHES",
-    "readLabel": "READ ISSUE 002"
+    "readLabel": "WATCH THE CROWN"
   },
   "nextIssue": {
     "kicker": "THE NEXT STORY",
