@@ -3,11 +3,11 @@
     "title": "Loop Gaiden — Enter the Trenches",
     "description": "Loop Gaiden is an evolving comic and animated series inspired by crypto, stocks, Wall Street, Reddit trading culture, memes and internet-finance history.",
     "canonicalUrl": "https://loopgaiden.com/",
-    "shareUrl": "https://loopgaiden.com/#issue-002",
+    "shareUrl": "https://loopgaiden.com/#issue-004",
     "shareTitle": "Loop Gaiden — Stories From the Trenches",
     "shareDescription": "Seasons and short episodes inspired by the markets, memes and internet-finance culture.",
-    "shareImage": "https://loopgaiden.com/assets/optimized/the-crown-issue-cover.jpg?v=20260919-crown-01",
-    "shareImageAlt": "Loop Gaiden Season 01 The Crown story cover"
+    "shareImage": "https://loopgaiden.com/assets/optimized/season-01-og-reddit.jpg?v=20260922-season-01",
+    "shareImageAlt": "Loop Gaiden Season 01 OG Reddit Trading Terms poster"
   },
   "hero": {
     "eyebrow": "FROM THE TRENCHES. FOR THE TRENCHES.",
@@ -17,8 +17,9 @@
     "badge": "STORIES FROM THE MARKET",
     "status": "NEW SEASONS. SHORT EPISODES. SAME TRENCHES.",
     "line": "<strong>STORIES FROM THE TRENCHES.</strong><br><span>An evolving comic and animated series inspired by crypto, stocks, Wall Street, Reddit trading culture, memes and internet-finance history.</span><br><small>The market changes.<br>The stories move with it.</small>",
-    "primaryCta": "WATCH THE LATEST STORY",
-    "primaryUrl": "#issue-002",
+    "primaryCta": "WATCH SEASON 01",
+    "primaryUrl": "#issue-004",
+    "issueKey": "featuredSeason",
     "secondaryCta": "THE TRENCHES",
     "secondaryUrl": "#trenches",
     "thirdCta": "BUY $GAIDEN",
@@ -26,12 +27,13 @@
   },
   "latest": {
     "kicker": "NOW PLAYING",
-    "title": "SEASON 01 · THE CROWN",
-    "button": "OPEN STORY",
+    "title": "SEASON 01: OG REDDIT TRADING TERMS",
+    "button": "OPEN SEASON",
+    "issueKey": "featuredSeason",
     "releaseLine": [
       "SEASON 01",
-      "STORY 02 LIVE",
-      "10 SHORT EPISODES"
+      "OG REDDIT TRADING TERMS",
+      "EPISODES 01-02 LIVE"
     ]
   },
   "game": {
@@ -130,7 +132,8 @@
     "body": "Loop Gaiden is built around the culture of the trenches.<br><br>The memes. The theories. The wins. The losses. The ridiculous moments. The stories traders remember.<br><br>The community can help surface the narratives, characters and moments worth turning into future seasons and short episodes.<br><br><strong>THE TRENCHES DON'T JUST WATCH THE STORY.<br>THEY LIVE IN IT.</strong>",
     "warning": "Only trust links from this page and @loopgaiden.",
     "joinLabel": "JOIN THE TRENCHES",
-    "readLabel": "WATCH THE CROWN"
+    "readLabel": "WATCH SEASON 01",
+    "issueKey": "featuredSeason"
   },
   "nextIssue": {
     "kicker": "THE NEXT STORY",

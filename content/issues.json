@@ -1,7 +1,8 @@
 {
   "release": {
-    "visibleIssueKeys": ["activeIssue", "nextIssue"],
+    "visibleIssueKeys": ["featuredSeason", "activeIssue", "nextIssue"],
     "sceneLimits": {
+      "featuredSeason": 2,
       "activeIssue": 12,
       "nextIssue": 10,
       "manipulatorIssue": 9
@@ -23,10 +24,50 @@
     "lockedSceneTitle": "NEXT EPISODE SEALED.",
     "lockedSceneBody": "The next short episode unlocks with the next story beat."
   },
+  "featuredSeason": {
+    "key": "featuredSeason",
+    "number": "004",
+    "title": "OG REDDIT TRADING TERMS",
+    "displayLabel": "SEASON 01",
+    "readerTitle": "SEASON 01 — OG REDDIT TRADING TERMS",
+    "buttonLabel": "OPEN SEASON 01",
+    "statusLabel": "NEW SEASON",
+    "actionLabel": "WATCH NOW",
+    "complete": false,
+    "cardSubtitle": "NEW SEASON · 2 EPISODES LIVE",
+    "quote": "THE INTERNET TAUGHT THE MARKET HOW TO SPEAK.",
+    "cover": "assets/optimized/season-01-og-reddit.jpg?v=20260922-season-01",
+    "summary": "Loop travels through the language and legends that shaped Reddit trading culture — one short episode at a time.",
+    "coverIntro": "Before the trenches had a name, the internet was already inventing its language. Start with Stonks, then meet the Apes.",
+    "shareText": "Loop Gaiden Season 01 — OG Reddit Trading Terms is live.",
+    "scenes": [
+      {
+        "kicker": "EPISODE 01",
+        "title": "STONKS.",
+        "body": "Loop came back to discover how the trenches were born. His investigation begins with one of the earliest laws of retail trading: Number goes up. Confidence goes up faster. No DD. No complicated thesis. Just a green chart, questionable amounts of caffeine, and one ancient word that somehow explained everything: STONKS. A story about luck, confidence, and the dangerous moment when a winning trade convinces you that you're a genius. 😂",
+        "video": "assets/scenes/web/stonks-h264.mp4?v=20260922-season-01",
+        "poster": "assets/optimized/stonks-episode.jpg?v=20260922-season-01",
+        "ariaLabel": "Loop investigates Stonks, luck and overconfidence in early retail trading culture"
+      },
+      {
+        "kicker": "EPISODE 02",
+        "title": "APES TOGETHER STRONG.",
+        "body": "Loop came back to discover how the trenches were born. This time, he discovered the Ape — an ordinary retail trader with no fancy terminal, no hedge fund, and one remarkable ability: refusing to sell. One ape wasn't unusual. Then Loop found another. And another. Different people. Same stock. Same red chart. Apes together strong. 🦍∞",
+        "video": "assets/scenes/web/apes-h264.mp4?v=20260922-season-01",
+        "poster": "assets/optimized/apes-episode.jpg?v=20260922-season-01",
+        "ariaLabel": "Loop discovers how retail traders became stronger together by refusing to sell"
+      }
+    ]
+  },
   "activeIssue": {
     "number": "001",
     "title": "THE FARMER",
-    "cardSubtitle": "STORY COMPLETE",
+    "displayLabel": "ARCHIVE STORY 001",
+    "readerTitle": "ARCHIVE STORY 001 — THE FARMER",
+    "buttonLabel": "OPEN THE FARMER",
+    "statusLabel": "ARCHIVE",
+    "actionLabel": "READ NOW",
+    "cardSubtitle": "ARCHIVE · COMPLETE",
     "quote": "I NEED MORE.",
     "cover": "assets/optimized/farmer-cover.jpg?v=20260917-farmer-cover",
     "summary": "Opened from the active comic file. New scenes can be unlocked here as they drop on X.",
@@ -135,7 +176,12 @@
     "number": "002",
     "title": "THE CROWN",
     "complete": false,
-    "cardSubtitle": "NOW PLAYING",
+    "displayLabel": "ARCHIVE STORY 002",
+    "readerTitle": "ARCHIVE STORY 002 — THE CROWN",
+    "buttonLabel": "OPEN THE CROWN",
+    "statusLabel": "ARCHIVE",
+    "actionLabel": "WATCH NOW",
+    "cardSubtitle": "ARCHIVE · 10 EPISODES",
     "quote": "LOOK AT ME.",
     "cover": "assets/optimized/the-crown-issue-cover.jpg?v=20260919-crown-01",
     "summary": "The Crown turns wealth, followers and attention into influence — until Loop exposes what the audience never sees.",

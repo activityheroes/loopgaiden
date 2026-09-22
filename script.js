@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260922-origin`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260922-reddit-season`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -85,6 +85,7 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
 
 function getIssueEntries(issueData = {}){
   return [
+    { key: 'featuredSeason', issue: issueData.featuredSeason },
     { key: 'activeIssue', issue: issueData.activeIssue },
     { key: 'nextIssue', issue: issueData.nextIssue },
     ...(issueData.openIssues || []).map(issue=>({ key: issue.key, issue }))
@@ -162,7 +163,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
   const buyUrl = siteData?.token?.buyUrl || '#token';
   const buyLabel = 'BUY';
 
-  setText('#story .section-head h2',`SEASON 01 · STORY ${issue.number} — ${issue.title}`);
+  setText('#story .section-head h2',issue.readerTitle || `STORY ${issue.number} — ${issue.title}`);
   setText('#story .section-head p',issue.summary);
   setText('#readerProgressText',`Episode 1 / ${Math.max(scenes.length,1)}`);
 
@@ -185,7 +186,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
         <img src="${escapeHtml(issue.cover)}" alt="Story ${issueNumber} cover" />
       </div>
       <div class="issue-start-copy">
-        <span class="kicker">SEASON 01 · STORY ${issueNumber}</span>
+        <span class="kicker">${escapeHtml(issue.displayLabel || `STORY ${issueNumber}`)}</span>
         <h3>${issueTitle}</h3>
         <p>${escapeHtml(issue.coverIntro)}</p>
         <div class="issue-actions">
@@ -277,20 +278,20 @@ function renderIssue(issueData,siteData = {}){
         const sceneLimit = getSceneLimit(issueData,entry.key || issue.key || issue.number,issue);
         const liveSceneLabel = getLiveSceneLabel(sceneLimit,(issue.scenes || []).length);
         return `
-          <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-issue-key="${issueKey}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
+          <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-ribbon="${escapeHtml(issue.statusLabel || 'LIVE FILE')}" data-issue-key="${issueKey}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
             <div class="cover-frame">
               <img src="${escapeHtml(issue.cover || 'assets/optimized/farmer-cover.jpg')}" alt="Story ${issueNumber} cover" />
             </div>
             <div class="lord-info issue-card-info">
-              <div class="lord-index">SEASON 01 · STORY ${issueNumber}</div>
+              <div class="lord-index">${escapeHtml(issue.displayLabel || `STORY ${issueNumber}`)}</div>
               <div class="issue-card-badges">
-                <span>LIVE NOW</span>
-                <span>READ NOW</span>
+                <span>${escapeHtml(issue.statusLabel || 'LIVE NOW')}</span>
+                <span>${escapeHtml(issue.actionLabel || 'READ NOW')}</span>
                 <span>${escapeHtml(liveSceneLabel)}</span>
               </div>
               <h3>${issueTitle}</h3>
               <p>${escapeHtml(issue.cardSubtitle)}</p>
-              <span class="status active issue-button" data-issue-label="OPEN STORY ${issueNumber}" data-issue-key="${issueKey}">OPEN STORY ${issueNumber}</span>
+              <span class="status active issue-button" data-issue-label="${escapeHtml(issue.buttonLabel || `OPEN STORY ${issueNumber}`)}" data-issue-key="${issueKey}">${escapeHtml(issue.buttonLabel || `OPEN STORY ${issueNumber}`)}</span>
             </div>
           </article>
         `;
@@ -308,7 +309,8 @@ function renderIssue(issueData,siteData = {}){
     `;
   }
 
-  renderIssueContent(issueData.activeIssue,siteData,'activeIssue',issueData);
+  const initialEntry = getVisibleIssueEntries(issueData)[0];
+  renderIssueContent(initialEntry?.issue || issueData.activeIssue,siteData,initialEntry?.key || 'activeIssue',issueData);
   setupIssueSlider();
 }
 
@@ -559,6 +561,7 @@ function renderSite(site,socials,issues){
   const heroPrimary = document.querySelector('.hero-actions .primary');
   setText('.hero-actions .primary',site?.hero?.primaryCta);
   if(heroPrimary && site?.hero?.primaryUrl) heroPrimary.setAttribute('href',site.hero.primaryUrl);
+  if(heroPrimary && site?.hero?.issueKey) heroPrimary.dataset.openIssue = site.hero.issueKey;
   const heroSecondary = document.querySelector('.hero-actions .btn:not(.primary):not(.ghost)');
   if(heroSecondary && site?.hero){
     heroSecondary.textContent = site.hero.secondaryCta || heroSecondary.textContent;
@@ -572,6 +575,8 @@ function renderSite(site,socials,issues){
   setText('.latest-inner .kicker',site?.latest?.kicker);
   setText('.latest-inner h2',site?.latest?.title);
   setText('.latest-inner button',site?.latest?.button);
+  const latestButton = document.querySelector('.latest-inner button[data-open-issue]');
+  if(latestButton && site?.latest?.issueKey) latestButton.dataset.openIssue = site.latest.issueKey;
   const launchStrip = document.querySelector('.launch-strip');
   if(launchStrip && Array.isArray(site?.latest?.releaseLine)){
     launchStrip.innerHTML = site.latest.releaseLine.map(item=>`<span>${escapeHtml(item)}</span>`).join('');
@@ -640,6 +645,7 @@ function renderSite(site,socials,issues){
   setText('.community-actions .primary',site?.community?.joinLabel);
   const readCommunity = document.querySelector('.community-actions [data-open-issue]');
   if(readCommunity && site?.community?.readLabel) readCommunity.textContent = site.community.readLabel;
+  if(readCommunity && site?.community?.issueKey) readCommunity.dataset.openIssue = site.community.issueKey;
 
   setText('.next-issue .kicker',site?.nextIssue?.kicker);
   setText('.next-issue h2',site?.nextIssue?.title);
@@ -955,7 +961,7 @@ function initInteractions(issueData){
     issueLabels.forEach(label=>{
       const baseLabel = label.dataset.issueLabel || label.textContent;
       const isCurrent = label.dataset.issueKey === currentIssueKey;
-      label.textContent = issueViewer?.classList.contains('open') && isCurrent ? baseLabel.replace('OPEN STORY','STORY') + ' — OPEN' : baseLabel;
+      label.textContent = issueViewer?.classList.contains('open') && isCurrent ? baseLabel.replace(/^OPEN /,'') + ' — OPEN' : baseLabel;
     });
   }
 
