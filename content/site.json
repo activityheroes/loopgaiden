@@ -56,6 +56,20 @@
       "THE MARKET WRITES THE HEADLINES.\nTHE TRENCHES TURN THEM INTO STORIES. ♾️"
     ]
   },
+  "origin": {
+    "kicker": "ORIGIN FILE",
+    "title": "LOOP CAME BACK TO FIND OUT HOW THE TRENCHES WERE BORN.",
+    "paragraphs": [
+      "In Loop’s future, the markets have changed beyond recognition. Crypto, stocks, Wall Street, meme culture, traders, machines and communities have all merged into something new. But nobody remembers how it started.",
+      "So Loop travels back through the history of the trenches — following the moments, memes, crashes, legends, scams, rallies and strange characters that shaped market culture.",
+      "His cybernetic systems can read markets, extract information from computers, track trader behavior and uncover the stories hidden behind the charts.",
+      "He isn’t here to change history.",
+      "He came back to understand it.",
+      "Every episode is another piece of the story."
+    ],
+    "signal": ["MOMENTS", "MEMES", "CRASHES", "LEGENDS", "SCAMS", "RALLIES"],
+    "final": "THE PAST CREATED THE TRENCHES.\nLOOP CAME BACK TO SEE HOW. ∞"
+  },
   "mission": {
     "kicker": "SEASONS",
     "title": "AN EVOLVING SERIES",

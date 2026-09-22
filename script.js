@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260922-seasons`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260922-origin`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -493,6 +493,33 @@ function renderMission(mission){
   missionPath.innerHTML = chapters + final;
 }
 
+function renderOrigin(origin){
+  if(!origin) return;
+  setText('.origin-copy .kicker',origin.kicker);
+  setText('.origin-copy h2',origin.title);
+  const copy = document.querySelector('.origin-copy');
+  if(copy && Array.isArray(origin.paragraphs)){
+    copy.querySelectorAll(':scope > p').forEach(paragraph=>paragraph.remove());
+    const signals = copy.querySelector('.origin-signals');
+    origin.paragraphs.forEach((paragraph,index)=>{
+      const element = document.createElement('p');
+      if(index === 4){
+        const strong = document.createElement('strong');
+        strong.textContent = paragraph;
+        element.appendChild(strong);
+      }else{
+        element.textContent = paragraph;
+      }
+      copy.insertBefore(element,signals);
+    });
+  }
+  const signals = document.querySelector('.origin-signals');
+  if(signals && Array.isArray(origin.signal)){
+    signals.innerHTML = origin.signal.map(item=>`<span>${escapeHtml(item)}</span>`).join('');
+  }
+  setText('.origin-final',origin.final);
+}
+
 function renderSite(site,socials,issues){
   window.loopGaidenSiteData = site;
   if(site?.meta){
@@ -581,6 +608,7 @@ function renderSite(site,socials,issues){
   }
 
   renderMission(site?.mission);
+  renderOrigin(site?.origin);
 
   setText('.token-card h2',site?.token?.symbol);
   const tokenNetwork = document.querySelector('.token-card h2 + p');
