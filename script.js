@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260922-reddit-season`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260923-simplified`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -58,17 +58,10 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
 
   const mobileSticky = document.querySelector('.mobile-sticky');
   if(mobileSticky){
-    const chart = socials.find(social=>social.label.toLowerCase().includes('dex'));
-    const x = socials.find(social=>social.label.toLowerCase() === 'x');
-    const tiktok = socials.find(social=>social.label.toLowerCase().includes('tiktok'));
-    const instagram = socials.find(social=>social.label.toLowerCase().includes('instagram'));
     mobileSticky.innerHTML = `
-      <a href="#issue-002" data-open-issue="nextIssue">Watch</a>
+      <a href="#issue-004" data-open-issue="featuredSeason">Watch</a>
       <a href="#token">Buy</a>
-      ${x ? `<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener">X</a>` : ''}
-      ${tiktok ? `<a href="${escapeHtml(tiktok.url)}" target="_blank" rel="noopener">TikTok</a>` : ''}
-      ${instagram ? `<a href="${escapeHtml(instagram.url)}" target="_blank" rel="noopener">Instagram</a>` : ''}
-      ${!instagram && chart ? `<a href="${escapeHtml(chart.url)}" target="_blank" rel="noopener">Chart</a>` : ''}
+      <a href="#community">Community</a>
     `;
   }
 
