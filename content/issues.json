@@ -2,7 +2,7 @@
   "release": {
     "visibleIssueKeys": ["featuredSeason", "activeIssue", "nextIssue"],
     "sceneLimits": {
-      "featuredSeason": 4,
+      "featuredSeason": 5,
       "activeIssue": 12,
       "nextIssue": 10,
       "manipulatorIssue": 9
@@ -34,7 +34,7 @@
     "statusLabel": "NEW SEASON",
     "actionLabel": "WATCH NOW",
     "complete": false,
-    "cardSubtitle": "NEW SEASON · 4 EPISODES LIVE",
+    "cardSubtitle": "NEW SEASON · 5 EPISODES LIVE",
     "quote": "THE INTERNET TAUGHT THE MARKET HOW TO SPEAK.",
     "cover": "assets/optimized/season-01-og-reddit.jpg?v=20260922-season-01",
     "summary": "Loop travels through the language and legends that shaped Reddit trading culture — one short episode at a time.",
@@ -72,6 +72,14 @@
         "video": "assets/scenes/web/buttcoin-h264.mp4?v=20260923-season-01",
         "poster": "assets/optimized/buttcoin-episode.jpg?v=20260923-season-01",
         "ariaLabel": "Loop discovers the Bitcoin skeptics and their name for it, Buttcoin"
+      },
+      {
+        "kicker": "EPISODE 05",
+        "title": "GAIN PORN.",
+        "body": "Loop discovers another ritual from the old trenches. Making money wasn't enough. You had to screenshot it, post it, and let everyone stare at the green numbers. +$86,420 in profit. The drinks? Someone else's problem. Welcome to gain porn. 😂",
+        "video": "assets/scenes/web/gainporn-h264.mp4?v=20260924-season-01",
+        "poster": "assets/optimized/gainporn-episode.jpg?v=20260924-season-01",
+        "ariaLabel": "Loop discovers the old trading ritual of posting spectacular profits as gain porn"
       }
     ]
   },
