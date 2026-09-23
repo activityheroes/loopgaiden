@@ -2,7 +2,7 @@
   "release": {
     "visibleIssueKeys": ["featuredSeason", "activeIssue", "nextIssue"],
     "sceneLimits": {
-      "featuredSeason": 2,
+      "featuredSeason": 3,
       "activeIssue": 12,
       "nextIssue": 10,
       "manipulatorIssue": 9
@@ -34,7 +34,7 @@
     "statusLabel": "NEW SEASON",
     "actionLabel": "WATCH NOW",
     "complete": false,
-    "cardSubtitle": "NEW SEASON · 2 EPISODES LIVE",
+    "cardSubtitle": "NEW SEASON · 3 EPISODES LIVE",
     "quote": "THE INTERNET TAUGHT THE MARKET HOW TO SPEAK.",
     "cover": "assets/optimized/season-01-og-reddit.jpg?v=20260922-season-01",
     "summary": "Loop travels through the language and legends that shaped Reddit trading culture — one short episode at a time.",
@@ -56,6 +56,14 @@
         "video": "assets/scenes/web/apes-h264.mp4?v=20260922-season-01",
         "poster": "assets/optimized/apes-episode.jpg?v=20260922-season-01",
         "ariaLabel": "Loop discovers how retail traders became stronger together by refusing to sell"
+      },
+      {
+        "kicker": "EPISODE 03",
+        "title": "ALTSEASON.",
+        "body": "Loop discovers Altseason. Bitcoin barely moves while everything else loses its mind. Frogs pump. Dogs pump. Even bananas pump. Nobody asks why. Bitcoin is resting. The alts are partying. 🚀∞",
+        "video": "assets/scenes/web/altseason-h264.mp4?v=20260923-season-01",
+        "poster": "assets/optimized/altseason-episode.jpg?v=20260923-season-01",
+        "ariaLabel": "Loop discovers Altseason while Bitcoin rests and the alts rally"
       }
     ]
   },
