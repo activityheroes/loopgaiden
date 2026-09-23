@@ -2,7 +2,7 @@
   "release": {
     "visibleIssueKeys": ["featuredSeason", "activeIssue", "nextIssue"],
     "sceneLimits": {
-      "featuredSeason": 3,
+      "featuredSeason": 4,
       "activeIssue": 12,
       "nextIssue": 10,
       "manipulatorIssue": 9
@@ -34,7 +34,7 @@
     "statusLabel": "NEW SEASON",
     "actionLabel": "WATCH NOW",
     "complete": false,
-    "cardSubtitle": "NEW SEASON · 3 EPISODES LIVE",
+    "cardSubtitle": "NEW SEASON · 4 EPISODES LIVE",
     "quote": "THE INTERNET TAUGHT THE MARKET HOW TO SPEAK.",
     "cover": "assets/optimized/season-01-og-reddit.jpg?v=20260922-season-01",
     "summary": "Loop travels through the language and legends that shaped Reddit trading culture — one short episode at a time.",
@@ -64,6 +64,14 @@
         "video": "assets/scenes/web/altseason-h264.mp4?v=20260923-season-01",
         "poster": "assets/optimized/altseason-episode.jpg?v=20260923-season-01",
         "ariaLabel": "Loop discovers Altseason while Bitcoin rests and the alts rally"
+      },
+      {
+        "kicker": "EPISODE 04",
+        "title": "BUTTCOIN.",
+        "body": "Loop discovers another tribe from the early trenches: the skeptics. Bitcoin believers saw the future of money. The skeptics watched every pump with the same suspicion. Markets moved. Prices changed. Their verdict didn't. To them, Bitcoin had another name: Buttcoin.",
+        "video": "assets/scenes/web/buttcoin-h264.mp4?v=20260923-season-01",
+        "poster": "assets/optimized/buttcoin-episode.jpg?v=20260923-season-01",
+        "ariaLabel": "Loop discovers the Bitcoin skeptics and their name for it, Buttcoin"
       }
     ]
   },
