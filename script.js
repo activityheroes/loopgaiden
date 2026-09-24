@@ -10,7 +10,7 @@ cleanHtmlUrl();
 async function loadJson(path){
   const separator = path.includes('?') ? '&' : '?';
   const url = path.startsWith('/') ? path : `/${path}`;
-  const response = await fetch(`${url}${separator}v=20260924-gainporn`,{cache:'no-store'});
+  const response = await fetch(`${url}${separator}v=20260924-seasons-only`,{cache:'no-store'});
   if(!response.ok) throw new Error(`Could not load ${path}`);
   return response.json();
 }
@@ -79,8 +79,6 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
 function getIssueEntries(issueData = {}){
   return [
     { key: 'featuredSeason', issue: issueData.featuredSeason },
-    { key: 'activeIssue', issue: issueData.activeIssue },
-    { key: 'nextIssue', issue: issueData.nextIssue },
     ...(issueData.openIssues || []).map(issue=>({ key: issue.key, issue }))
   ].filter(entry=>entry.issue);
 }
@@ -96,12 +94,12 @@ function getIssueList(issueData = {}){
   return getVisibleIssueEntries(issueData).map(entry=>entry.issue);
 }
 
-function getIssueByKey(issueData = {},issueKey = 'activeIssue'){
+function getIssueByKey(issueData = {},issueKey = 'featuredSeason'){
   const entry = getIssueEntries(issueData).find(item=>item.key === issueKey || item.issue.number === issueKey);
-  return entry?.issue || issueData.activeIssue;
+  return entry?.issue || issueData.featuredSeason;
 }
 
-function getSceneLimit(issueData = {},issueKey = 'activeIssue',issue){
+function getSceneLimit(issueData = {},issueKey = 'featuredSeason',issue){
   const scenes = issue?.scenes || [];
   const limits = issueData.release?.sceneLimits || {};
   const rawLimit = limits[issueKey] ?? limits[issue?.number];
@@ -142,7 +140,7 @@ function getLiveSceneLabel(sceneLimit,totalScenes){
   return `EPISODE ${String(Math.max(liveCount,1)).padStart(2,'0')} LIVE`;
 }
 
-function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueData = {}){
+function renderIssueContent(issue,siteData = {},issueKey = 'featuredSeason',issueData = {}){
   if(!issue) return;
   const issueNumber = escapeHtml(issue.number);
   const issueTitle = escapeHtml(issue.title);
@@ -240,7 +238,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
     <article class="issue-complete-panel reveal visible" id="issue-complete">
       <div>
         <span>${hasLockedScenes ? 'NEXT EPISODE LOCKED' : 'STORY COMPLETE'}</span>
-        <h3>${hasLockedScenes ? escapeHtml(release.lockedSceneTitle || 'NEXT EPISODE SEALED.') : (issueNumber === '001' ? 'THE FARMER STORY IS COMPLETE.' : `${issueTitle} IS NOW PLAYING.`)}</h3>
+        <h3>${hasLockedScenes ? escapeHtml(release.lockedSceneTitle || 'NEXT EPISODE SEALED.') : `${issueTitle} IS COMPLETE.`}</h3>
         <p>${hasLockedScenes ? escapeHtml(release.lockedSceneBody || 'The next episode unlocks soon.') : 'Share the story, join the Trenches, or check the official token launch status.'}</p>
       </div>
       <div class="issue-actions issue-actions-bottom">
@@ -256,7 +254,7 @@ function renderIssueContent(issue,siteData = {},issueKey = 'activeIssue',issueDa
 }
 
 function renderIssue(issueData,siteData = {}){
-  if(!issueData?.activeIssue) return;
+  if(!issueData?.featuredSeason) return;
 
   const issues = getIssueList(issueData);
   const activeNumbers = new Set(issues.map(issue=>issue.number));
@@ -267,13 +265,13 @@ function renderIssue(issueData,siteData = {}){
         const issue = entry.issue;
         const issueNumber = escapeHtml(issue.number);
         const issueTitle = escapeHtml(issue.title);
-        const issueKey = escapeHtml(entry.key || issue.key || (index === 0 ? 'activeIssue' : 'nextIssue'));
+        const issueKey = escapeHtml(entry.key || issue.key || 'featuredSeason');
         const sceneLimit = getSceneLimit(issueData,entry.key || issue.key || issue.number,issue);
         const liveSceneLabel = getLiveSceneLabel(sceneLimit,(issue.scenes || []).length);
         return `
           <article class="lord-card farmer issue-cover reveal visible${index === 0 ? '' : ' next-file'}" data-ribbon="${escapeHtml(issue.statusLabel || 'LIVE FILE')}" data-issue-key="${issueKey}" data-issue-target="story" role="button" tabindex="0" aria-controls="story" aria-expanded="false">
             <div class="cover-frame">
-              <img src="${escapeHtml(issue.cover || 'assets/optimized/farmer-cover.jpg')}" alt="Story ${issueNumber} cover" />
+              <img src="${escapeHtml(issue.cover || 'assets/optimized/season-01-og-reddit.jpg')}" alt="Story ${issueNumber} cover" />
             </div>
             <div class="lord-info issue-card-info">
               <div class="lord-index">${escapeHtml(issue.displayLabel || `STORY ${issueNumber}`)}</div>
@@ -303,7 +301,7 @@ function renderIssue(issueData,siteData = {}){
   }
 
   const initialEntry = getVisibleIssueEntries(issueData)[0];
-  renderIssueContent(initialEntry?.issue || issueData.activeIssue,siteData,initialEntry?.key || 'activeIssue',issueData);
+  renderIssueContent(initialEntry?.issue || issueData.featuredSeason,siteData,initialEntry?.key || 'featuredSeason',issueData);
   setupIssueSlider();
 }
 
@@ -738,7 +736,7 @@ function initInteractions(issueData){
   let soundEnabled = false;
   let syncingVideoSound = false;
   let currentSceneNumber = 1;
-  let currentIssueKey = 'activeIssue';
+  let currentIssueKey = 'featuredSeason';
 
   function normalizeIssueNumber(number){
     return String(number || '').replace(/\D/g,'').padStart(3,'0');
@@ -758,9 +756,9 @@ function initInteractions(issueData){
 
   function parseIssueHash(hash = window.location.hash){
     const cleanHash = hash || '';
-    if(cleanHash === '#story') return {issueKey:'activeIssue',sceneNumber:0};
+    if(cleanHash === '#story') return {issueKey:'featuredSeason',sceneNumber:0};
     if(cleanHash.startsWith('#scene-')){
-      return {issueKey:'activeIssue',sceneNumber:Number(cleanHash.replace('#scene-','')) || 0};
+      return {issueKey:'featuredSeason',sceneNumber:Number(cleanHash.replace('#scene-','')) || 0};
     }
     const match = cleanHash.match(/^#issue-(\d{1,3})(?:-scene-(\d{1,2}))?$/);
     if(!match) return null;
@@ -1068,7 +1066,7 @@ function initInteractions(issueData){
     });
   }
 
-  function selectIssue(issueKey = 'activeIssue'){
+  function selectIssue(issueKey = 'featuredSeason'){
     const isVisible = getVisibleIssueEntries(issueData).some(entry=>entry.key === issueKey || entry.issue.number === issueKey);
     if(!isVisible) return false;
     const issue = getIssueByKey(issueData,issueKey);
@@ -1092,7 +1090,7 @@ function initInteractions(issueData){
     issueViewer.classList.add('open');
     issueViewer.removeAttribute('aria-hidden');
     issueTriggers.forEach(trigger=>{
-      const isCurrent = (trigger.dataset.issueKey || 'activeIssue') === currentIssueKey;
+      const isCurrent = (trigger.dataset.issueKey || 'featuredSeason') === currentIssueKey;
       trigger.setAttribute('aria-expanded',String(isCurrent));
       trigger.classList.toggle('issue-open',isCurrent);
     });
@@ -1127,18 +1125,18 @@ function initInteractions(issueData){
   }
 
   issueTriggers.forEach(trigger=>{
-    trigger.addEventListener('click',()=>openIssue(true,trigger.dataset.issueKey || 'activeIssue'));
+    trigger.addEventListener('click',()=>openIssue(true,trigger.dataset.issueKey || 'featuredSeason'));
     trigger.addEventListener('keydown',event=>{
       if(event.key === 'Enter' || event.key === ' '){
         event.preventDefault();
-        openIssue(true,trigger.dataset.issueKey || 'activeIssue');
+        openIssue(true,trigger.dataset.issueKey || 'featuredSeason');
       }
     });
   });
 
   openIssueButtons.forEach(button=>button.addEventListener('click',event=>{
     event.preventDefault();
-    openIssue(true,button.dataset.openIssue || 'activeIssue');
+    openIssue(true,button.dataset.openIssue || 'featuredSeason');
   }));
 
   setupScenePicker();
