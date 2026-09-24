@@ -791,3 +791,83 @@ body{
 .hero:before,.origin-section:before,.mission:before,.trenches-panel:before{display:none!important}.lord-card.farmer{animation:none!important;box-shadow:0 22px 50px #0008!important}.lord-card.farmer:hover,.lord-card.farmer:focus-visible,.lord-card.farmer.issue-open{box-shadow:0 24px 56px #000b,0 0 0 1px #b8ff1f55!important}.mission-path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.mission-path:before,.mission-marker{display:none!important}.mission-chapter{display:block}.mission-card{height:100%;min-height:0;padding:24px;box-shadow:none!important}.mission-card ul,.mission-card .trenches-call,.mission-chapter.active .mission-card:before{display:none!important}
 @media(max-width:820px){.mission-path{grid-template-columns:1fr}.lord-card.farmer{box-shadow:none!important}}
 .scene-num{display:none!important}
+
+/* Trench dictionary */
+.dictionary-section{
+  background:radial-gradient(circle at 12% 0%,#2d4e1d,#111d12 44%,#09100b 100%);
+}
+.dictionary-layout{
+  display:grid;
+  grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);
+  gap:26px;
+  align-items:start;
+}
+.dictionary-copy{
+  position:sticky;
+  top:92px;
+  padding:30px;
+  border:1px solid #c8ff2f57;
+  background:linear-gradient(145deg,#20351a,#10190f 72%);
+  box-shadow:6px 6px 0 #020302;
+}
+.dictionary-copy h2{
+  margin:12px 0 16px;
+  font-size:clamp(38px,4.8vw,70px);
+  line-height:.9;
+  text-shadow:3px 3px 0 #061008;
+}
+.dictionary-copy p{
+  max-width:36ch;
+  color:#edf4e7;
+  font-size:17px;
+  line-height:1.5;
+}
+.dictionary-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.dictionary-grid article{
+  min-height:164px;
+  padding:20px;
+  border:1px solid #c8ff2f52;
+  background:radial-gradient(circle at 88% 0%,#38e4ff1c,transparent 34%),linear-gradient(145deg,#20351a,#10190f 72%);
+  box-shadow:5px 5px 0 #020302;
+}
+.dictionary-grid span{
+  display:inline-flex;
+  margin-bottom:18px;
+  padding:7px 9px;
+  border:1px solid #38e4ff88;
+  background:#071114;
+  color:var(--comic-cyan);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.09em;
+}
+.dictionary-grid h3{
+  font-size:clamp(27px,3vw,42px);
+  line-height:.9;
+  text-shadow:3px 3px 0 #061008;
+}
+.dictionary-grid p{
+  margin:12px 0 0;
+  color:#edf4e7;
+  font-size:15px;
+  line-height:1.45;
+}
+.dictionary-next{
+  border-style:dashed!important;
+  filter:saturate(.88);
+}
+.dictionary-next span{
+  border-color:#ff62dd80;
+  background:#160f18;
+  color:#ffc6f0;
+}
+@media(max-width:820px){
+  .dictionary-layout{grid-template-columns:1fr}
+  .dictionary-copy{position:relative;top:auto}
+  .dictionary-grid{grid-template-columns:1fr}
+  .dictionary-grid article{min-height:auto}
+}
