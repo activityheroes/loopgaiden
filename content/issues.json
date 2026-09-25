@@ -4,7 +4,7 @@
       "featuredSeason"
     ],
     "sceneLimits": {
-      "featuredSeason": 5
+      "featuredSeason": 6
     },
     "lockedStatus": "COMING NEXT",
     "lockedQuote": "NEXT STORY SEALED.",
@@ -21,9 +21,9 @@
     "statusLabel": "NEW SEASON",
     "actionLabel": "WATCH NOW",
     "complete": false,
-    "cardSubtitle": "NEW SEASON · 5 EPISODES LIVE",
+    "cardSubtitle": "NEW SEASON · 6 EPISODES LIVE",
     "quote": "THE INTERNET TAUGHT THE MARKET HOW TO SPEAK.",
-    "cover": "assets/optimized/season-01-og-reddit.jpg?v=20260922-season-01",
+    "cover": "assets/season1Cover.png?v=20260925-season-cover",
     "summary": "Loop travels through the language and legends that shaped Reddit trading culture — one short episode at a time.",
     "coverIntro": "Before the trenches had a name, the internet was already inventing its language. Start with Stonks, then meet the Apes.",
     "shareText": "Loop Gaiden Season 01 — OG Reddit Trading Terms is live.",
@@ -67,6 +67,14 @@
         "video": "assets/scenes/web/gainporn-h264.mp4?v=20260924-season-01",
         "poster": "assets/optimized/gainporn-episode.jpg?v=20260924-season-01",
         "ariaLabel": "Loop discovers the old trading ritual of posting spectacular profits as gain porn"
+      },
+      {
+        "kicker": "EPISODE 06",
+        "title": "BOGDANOFF: HE BOUGHT? DUMP IT.",
+        "body": "Loop finds the meme behind a familiar pain: you wait, you watch, you buy, and the chart immediately collapses. The internet had an explanation. The Bogdanoffs saw you buy. Dump it.",
+        "video": "assets/scenes/web/bogdanoffs-h264.mp4?v=20260925-season-01",
+        "poster": "assets/optimized/bogdanoffs-episode.jpg?v=20260925-season-01",
+        "ariaLabel": "Loop discovers the Bogdanoff dump it meme and the feeling of buying before a market dump"
       }
     ]
   },
