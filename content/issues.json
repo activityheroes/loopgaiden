@@ -4,7 +4,7 @@
       "featuredSeason"
     ],
     "sceneLimits": {
-      "featuredSeason": 6
+      "featuredSeason": 7
     },
     "lockedStatus": "COMING NEXT",
     "lockedQuote": "NEXT STORY SEALED.",
@@ -21,7 +21,7 @@
     "statusLabel": "NEW SEASON",
     "actionLabel": "WATCH NOW",
     "complete": false,
-    "cardSubtitle": "NEW SEASON · 6 EPISODES LIVE",
+    "cardSubtitle": "NEW SEASON · 7 EPISODES LIVE",
     "quote": "THE INTERNET TAUGHT THE MARKET HOW TO SPEAK.",
     "cover": "assets/season1Cover.png?v=20260925-season-cover",
     "summary": "Loop travels through the language and legends that shaped Reddit trading culture — one short episode at a time.",
@@ -75,6 +75,14 @@
         "video": "assets/scenes/web/bogdanoffs-h264.mp4?v=20260925-season-01",
         "poster": "assets/optimized/bogdanoffs-episode.jpg?v=20260925-season-01",
         "ariaLabel": "Loop discovers the Bogdanoff dump it meme and the feeling of buying before a market dump"
+      },
+      {
+        "kicker": "EPISODE 07",
+        "title": "FUD: FEAR, UNCERTAINTY & DOUBT.",
+        "body": "Everything looked perfect. Then one rumor became five. Fear. Uncertainty. Doubt. Sometimes the chart moved first. Sometimes your mind did. ∞",
+        "video": "assets/scenes/web/fud-h264.mp4?v=20260925-season-01",
+        "poster": "assets/optimized/fud-episode.jpg?v=20260925-season-01",
+        "ariaLabel": "Loop discovers FUD, fear uncertainty and doubt, as rumors shake retail trading conviction"
       }
     ]
   },
