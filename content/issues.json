@@ -4,7 +4,7 @@
       "featuredSeason"
     ],
     "sceneLimits": {
-      "featuredSeason": 7
+      "featuredSeason": 9
     },
     "lockedStatus": "COMING NEXT",
     "lockedQuote": "NEXT STORY SEALED.",
@@ -21,7 +21,7 @@
     "statusLabel": "NEW SEASON",
     "actionLabel": "WATCH NOW",
     "complete": false,
-    "cardSubtitle": "NEW SEASON · 7 EPISODES LIVE",
+    "cardSubtitle": "NEW SEASON · 9 EPISODES LIVE",
     "quote": "THE INTERNET TAUGHT THE MARKET HOW TO SPEAK.",
     "cover": "assets/season1Cover.png?v=20260925-season-cover",
     "summary": "Loop travels through the language and legends that shaped Reddit trading culture — one short episode at a time.",
@@ -83,6 +83,22 @@
         "video": "assets/scenes/web/fud-h264.mp4?v=20260925-season-01",
         "poster": "assets/optimized/fud-episode.jpg?v=20260925-season-01",
         "ariaLabel": "Loop discovers FUD, fear uncertainty and doubt, as rumors shake retail trading conviction"
+      },
+      {
+        "kicker": "EPISODE 08",
+        "title": "BITCOIN PIZZA DAY.",
+        "body": "Loop finds another time traveler heading for May 22, 2010. Save the world? No. Buy Bitcoin. 😂",
+        "video": "assets/scenes/web/pizzaday-h264.mp4?v=20260926-season-01",
+        "poster": "assets/optimized/pizzaday-episode.jpg?v=20260926-season-01",
+        "ariaLabel": "Loop discovers Bitcoin Pizza Day and time travelers trying to buy Bitcoin on May 22 2010"
+      },
+      {
+        "kicker": "EPISODE 09",
+        "title": "FOMO.",
+        "body": "He had a plan: don't chase the pump. Then the calls started flying, the chart kept climbing, and everyone seemed rich without him. So he bought. Seconds later, the chart collapsed.",
+        "video": "assets/scenes/web/fomo-h264.mp4?v=20260927-season-01",
+        "poster": "assets/optimized/fomo-episode.jpg?v=20260927-season-01",
+        "ariaLabel": "Loop discovers FOMO, the fear of missing out, after chasing a pump before the chart collapses"
       }
     ]
   },
