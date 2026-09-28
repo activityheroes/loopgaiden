@@ -4,7 +4,7 @@
       "featuredSeason"
     ],
     "sceneLimits": {
-      "featuredSeason": 9
+      "featuredSeason": 10
     },
     "lockedStatus": "COMING NEXT",
     "lockedQuote": "NEXT STORY SEALED.",
@@ -20,8 +20,8 @@
     "buttonLabel": "OPEN SEASON 01",
     "statusLabel": "NEW SEASON",
     "actionLabel": "WATCH NOW",
-    "complete": false,
-    "cardSubtitle": "NEW SEASON · 9 EPISODES LIVE",
+    "complete": true,
+    "cardSubtitle": "SEASON COMPLETE · 10 EPISODES",
     "quote": "THE INTERNET TAUGHT THE MARKET HOW TO SPEAK.",
     "cover": "assets/season1Cover.png?v=20260925-season-cover",
     "summary": "Loop travels through the language and legends that shaped Reddit trading culture — one short episode at a time.",
@@ -99,6 +99,14 @@
         "video": "assets/scenes/web/fomo-h264.mp4?v=20260927-season-01",
         "poster": "assets/optimized/fomo-episode.jpg?v=20260927-season-01",
         "ariaLabel": "Loop discovers FOMO, the fear of missing out, after chasing a pump before the chart collapses"
+      },
+      {
+        "kicker": "SEASON 01 FINALE",
+        "title": "THE IDIOT SAVANT OF BITCOIN.",
+        "body": "Loop follows a hidden chain of money, privacy and cryptography through decades of trial and error. Different people. Different ideas. Then the pieces came together. Then Satoshi disappeared. Maybe disappearing was the final piece. ∞",
+        "video": "assets/scenes/web/bitcoin-h264.mp4?v=20260928-season-01",
+        "poster": "assets/optimized/bitcoin-episode.jpg?v=20260928-season-01",
+        "ariaLabel": "Loop follows the theory of the idiot savant of Bitcoin through digital cash, cryptography, Len Sassaman and Satoshi disappearing"
       }
     ]
   },
