@@ -59,7 +59,7 @@ function renderSocialLinks(socials = [],buyUrl = 'https://pump.fun/'){
   const mobileSticky = document.querySelector('.mobile-sticky');
   if(mobileSticky){
     mobileSticky.innerHTML = `
-      <a href="#issue-004" data-open-issue="featuredSeason">Watch</a>
+      <a href="#issue-002" data-open-issue="loopOrigins">Watch</a>
       <a href="#token">Buy</a>
       <a href="#community">Community</a>
     `;
@@ -87,7 +87,9 @@ function getVisibleIssueEntries(issueData = {}){
   const entries = getIssueEntries(issueData);
   const visibleKeys = issueData.release?.visibleIssueKeys;
   if(!Array.isArray(visibleKeys) || !visibleKeys.length) return entries;
-  return entries.filter(entry=>visibleKeys.includes(entry.key) || visibleKeys.includes(entry.issue.number));
+  return visibleKeys
+    .map(key=>entries.find(entry=>entry.key === key || entry.issue.number === key))
+    .filter(Boolean);
 }
 
 function getIssueList(issueData = {}){
@@ -756,9 +758,10 @@ function initInteractions(issueData){
 
   function parseIssueHash(hash = window.location.hash){
     const cleanHash = hash || '';
-    if(cleanHash === '#story') return {issueKey:'featuredSeason',sceneNumber:0};
+    const defaultIssueKey = getVisibleIssueEntries(issueData)[0]?.key || 'featuredSeason';
+    if(cleanHash === '#story') return {issueKey:defaultIssueKey,sceneNumber:0};
     if(cleanHash.startsWith('#scene-')){
-      return {issueKey:'featuredSeason',sceneNumber:Number(cleanHash.replace('#scene-','')) || 0};
+      return {issueKey:defaultIssueKey,sceneNumber:Number(cleanHash.replace('#scene-','')) || 0};
     }
     const match = cleanHash.match(/^#issue-(\d{1,3})(?:-scene-(\d{1,2}))?$/);
     if(!match) return null;

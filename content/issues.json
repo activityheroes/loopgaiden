@@ -1,9 +1,11 @@
 {
   "release": {
     "visibleIssueKeys": [
+      "loopOrigins",
       "featuredSeason"
     ],
     "sceneLimits": {
+      "loopOrigins": 1,
       "featuredSeason": 10
     },
     "lockedStatus": "COMING NEXT",
@@ -110,6 +112,35 @@
       }
     ]
   },
+  "openIssues": [
+    {
+      "key": "loopOrigins",
+      "number": "002",
+      "title": "LOOP GAIDEN: ORIGINS",
+      "displayLabel": "SEASON 02",
+      "readerTitle": "LOOP GAIDEN: ORIGINS",
+      "buttonLabel": "OPEN ORIGINS",
+      "statusLabel": "NEW SEASON",
+      "actionLabel": "WATCH NOW",
+      "complete": false,
+      "cardSubtitle": "NEW SEASON · EPISODE 01 LIVE",
+      "quote": "THE PAST HAS BEEN REMEMBERED.",
+      "cover": "assets/LoopOrigins.png?v=20260929-origins-poster",
+      "summary": "Gaiden returns from the past carrying the memory of the Trenches into a future controlled by LOOP.",
+      "coverIntro": "In a future where AI agents trade against AI agents, forbidden trading culture begins to surface again.",
+      "shareText": "Loop Gaiden: Origins has begun.",
+      "scenes": [
+        {
+          "kicker": "EPISODE 01",
+          "title": "THE FORBIDDEN ARCHIVE.",
+          "body": "In Loop's future, humans no longer trade. AI agents trade against AI agents while LOOP controls the markets. But Gaiden has returned carrying the memory of the Trenches. The past has been remembered. The Trenches are waking up. ∞",
+          "video": "assets/scenes/web/forbidden-h264.mp4?v=20260929-origins",
+          "poster": "assets/optimized/forbidden-episode.jpg?v=20260929-origins",
+          "ariaLabel": "Gaiden returns from the past with the memory of the Trenches in The Forbidden Archive"
+        }
+      ]
+    }
+  ],
   "lockedLords": [
     {
       "number": "NEXT",
